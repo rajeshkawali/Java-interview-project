@@ -219,110 +219,111 @@ public class StreamEmployeeQuestions {
 	}
 }
 /*
- * 
- * [Rajesh, Mahesh, Vidya]
- * -----------------------------------------------------------------------------
- * ---1 Number of employees with age 25 are : 3
- * -----------------------------------------------------------------------------
- * ---2 Employee [id=2, name=Mahesh, age=29, email=mahesh@gmail.com,
- * phone=[91445935, 7948559447]]
- * -----------------------------------------------------------------------------
- * ---3 Maximum age of Employee: 32
- * -----------------------------------------------------------------------------
- * ---4 Employee [id=5, name=Vikram, age=6, email=vikram@gmail.com,
- * phone=[81937, 94068]] Employee [id=4, name=Rajesh, age=18,
- * email=rajesh@gmail.com, phone=[94937, 8946069767]] Employee [id=6,
- * name=Keshav, age=22, email=keshav@gmail.com, phone=[9164937447, 9478683067]]
- * Employee [id=7, name=Kiran, age=22, email=kiran@gmail.com, phone=[91937447,
- * 947683067]] Employee [id=3, name=Vidya, age=27, email=vidya@gmail.com,
- * phone=[869493, 89454]] Employee [id=2, name=Mahesh, age=29,
- * email=mahesh@gmail.com, phone=[91445935, 7948559447]] Employee [id=1,
- * name=Rajesh, age=32, email=rajesh@gmail.com, phone=[8169447937, 839409467]]
- * -----------------------------------------------------------------------------
- * ---5 Employees are: Vikram,Rajesh,Keshav,Kiran,Vidya,Mahesh,Rajesh
- * -----------------------------------------------------------------------------
- * ---6 Name: Kiran ==>[Employee [id=7, name=Kiran, age=22,
- * email=kiran@gmail.com, phone=[91937447, 947683067]]] Name: Vidya ==>[Employee
- * [id=3, name=Vidya, age=27, email=vidya@gmail.com, phone=[869493, 89454]]]
- * Name: Keshav ==>[Employee [id=6, name=Keshav, age=22, email=keshav@gmail.com,
- * phone=[9164937447, 9478683067]]] Name: Rajesh ==>[Employee [id=4,
- * name=Rajesh, age=18, email=rajesh@gmail.com, phone=[94937, 8946069767]],
- * Employee [id=1, name=Rajesh, age=32, email=rajesh@gmail.com,
- * phone=[8169447937, 839409467]]] Name: Mahesh ==>[Employee [id=2, name=Mahesh,
- * age=29, email=mahesh@gmail.com, phone=[91445935, 7948559447]]] Name: Vikram
- * ==>[Employee [id=5, name=Vikram, age=6, email=vikram@gmail.com, phone=[81937,
- * 94068]]]
- * -----------------------------------------------------------------------------
- * ---7 [[81937, 94068], [94937, 8946069767], [9164937447, 9478683067],
- * [91937447, 947683067], [869493, 89454], [91445935, 7948559447], [8169447937,
- * 839409467]]
- * -----------------------------------------------------------------------------
- * ---8 [81937, 94068, 94937, 8946069767, 9164937447, 9478683067, 91937447,
- * 947683067, 869493, 89454, 91445935, 7948559447, 8169447937, 839409467]
- * -----------------------------------------------------------------------------
- * ---9 [8946069767, 9164937447, 9478683067, 7948559447, 8169447937]
- * -----------------------------------------------------------------------------
- * ---10 [vikram@gmail.com, rajesh@gmail.com, keshav@gmail.com, kiran@gmail.com,
- * vidya@gmail.com, mahesh@gmail.com, rajesh@gmail.com]
- * -----------------------------------------------------------------------------
- * ---11 {software=2, admin=2, finance=3}
- * -----------------------------------------------------------------------------
- * ---12 {software=Employee [id=1, name=Rajesh, age=32, email=rajesh@gmail.com,
- * phone=[8169447937, 839409467]], admin=Employee [id=7, name=Kiran, age=22,
- * email=kiran@gmail.com, phone=[91937447, 947683067]], finance=Employee [id=6,
- * name=Keshav, age=22, email=keshav@gmail.com, phone=[9164937447, 9478683067]]}
- * -----------------------------------------------------------------------------
- * ---13 {software=[Employee [id=5, name=Vikram, age=6, email=vikram@gmail.com,
- * phone=[81937, 94068]], Employee [id=1, name=Rajesh, age=32,
- * email=rajesh@gmail.com, phone=[8169447937, 839409467]]], admin=[Employee
- * [id=7, name=Kiran, age=22, email=kiran@gmail.com, phone=[91937447,
- * 947683067]], Employee [id=3, name=Vidya, age=27, email=vidya@gmail.com,
- * phone=[869493, 89454]]], finance=[Employee [id=4, name=Rajesh, age=18,
- * email=rajesh@gmail.com, phone=[94937, 8946069767]], Employee [id=6,
- * name=Keshav, age=22, email=keshav@gmail.com, phone=[9164937447, 9478683067]],
- * Employee [id=2, name=Mahesh, age=29, email=mahesh@gmail.com, phone=[91445935,
- * 7948559447]]]}
- * -----------------------------------------------------------------------------
- * ---14 [Rajesh, mahesh, kawali, koli]
- * -----------------------------------------------------------------------------
- * ---15 [A, B, C]
- * -----------------------------------------------------------------------------
- * ---16 4.25
- * -----------------------------------------------------------------------------
- * ---17 -1403215214 -992478650 1158383422 1576700893
- * -----------------------------------------------------------------------------
- * ---18 {Kiran=[Employee [id=7, name=Kiran, age=22, email=kiran@gmail.com,
- * phone=[91937447, 947683067]]], Vidya=[Employee [id=3, name=Vidya, age=27,
- * email=vidya@gmail.com, phone=[869493, 89454]]], Keshav=[Employee [id=6,
- * name=Keshav, age=22, email=keshav@gmail.com, phone=[9164937447,
- * 9478683067]]], Rajesh=[Employee [id=4, name=Rajesh, age=18,
- * email=rajesh@gmail.com, phone=[94937, 8946069767]], Employee [id=1,
- * name=Rajesh, age=32, email=rajesh@gmail.com, phone=[8169447937, 839409467]]],
- * Mahesh=[Employee [id=2, name=Mahesh, age=29, email=mahesh@gmail.com,
- * phone=[91445935, 7948559447]]], Vikram=[Employee [id=5, name=Vikram, age=6,
- * email=vikram@gmail.com, phone=[81937, 94068]]]}
- * -----------------------------------------------------------------------------
- * ---19 0 1 2
- * -----------------------------------------------------------------------------
- * ---20 {software=2, admin=2, finance=3}
- * -----------------------------------------------------------------------------
- * ---21 {software=2, admin=2, finance=3}
- * -----------------------------------------------------------------------------
- * ---22 Kiran Rajesh Keshav
- * -----------------------------------------------------------------------------
- * ---23 {Keshav=finance, Rajesh=finance, Vikram=software}
- * -----------------------------------------------------------------------------
- * ---24 Vikram, Rajesh, Keshav, Kiran, Vidya, Mahesh, Rajesh
- * -----------------------------------------------------------------------------
- * ---25 java.util.stream.ReferencePipeline$4@25f38edc
- * java.util.stream.SortedOps$OfInt@1a86f2f1
- * java.util.stream.SliceOps$2@3eb07fd3 java.util.stream.SliceOps$2@506c589e
- * java.util.stream.IntPipeline$9@4b85612c
- * java.util.stream.IntPipeline$3@7aec35a
- * java.util.stream.IntPipeline$4@67424e82 9 28
- * OptionalDouble[3.111111111111111] OptionalInt[7] OptionalInt[0]
- * java.util.stream.IntPipeline$8@6e5e91e4
- * -----------------------------------------------------------------------------
- * ---26 1 2 3 4
- * 
+[Rajesh, Mahesh, Vidya, Kiran, Arjun, Sachin, Rajesh]
+--------------------------------------------------------------------------------1
+Number of employees with age 25 are : 7
+--------------------------------------------------------------------------------2
+Employee(id=2, firstName=Mahesh, lastName=Koli, age=33, email=mahesh@yahoo.com, phone=8990955230, salary=70000, department=admin, employmentHistory=[Dell, Yantra])
+--------------------------------------------------------------------------------3
+Maximum age of Employee: 36
+--------------------------------------------------------------------------------4
+Employee(id=8, firstName=Laksh, lastName=Kawali, age=2, email=laksh@yahoo.com, phone=9596555557, salary=120000, department=admin, employmentHistory=[Walmart, Microsoft, Amazon, Google, Apple])
+Employee(id=4, firstName=Vikram, lastName=Konkal, age=6, email=vikram@yahoo.com, phone=7890955557, salary=50000, department=hr, employmentHistory=[Accenture, Morgan, TCS, Reliance])
+Employee(id=5, firstName=Keshav, lastName=Koli, age=24, email=keshav@gmail.com, phone=8590923557, salary=15000, department=software, employmentHistory=[Xangar, TCS])
+Employee(id=3, firstName=Vidya, lastName=Kawali, age=29, email=vidya@gmail.com, phone=9590955557, salary=28000, department=finance, employmentHistory=[BOM])
+Employee(id=2, firstName=Mahesh, lastName=Koli, age=33, email=mahesh@yahoo.com, phone=8990955230, salary=70000, department=admin, employmentHistory=[Dell, Yantra])
+Employee(id=9, firstName=Sachin, lastName=Gaikwad, age=33, email=sachin@gmail.com, phone=99855557, salary=10000, department=admin, employmentHistory=[Zomato])
+Employee(id=10, firstName=Rajesh, lastName=Nayak, age=33, email=rajesh@yahoo.com, phone=9590955337, salary=30000, department=admin, employmentHistory=[Capgemini])
+Employee(id=1, firstName=Rajesh, lastName=Kawali, age=35, email=rajesh@gmail.com, phone=9590955557, salary=45000, department=software, employmentHistory=[Trimax, Diebold, Capgemini])
+Employee(id=6, firstName=Kiran, lastName=Kamble, age=36, email=kiran@gmail.com, phone=9590955644, salary=50000, department=software, employmentHistory=[Takira, Trimax, Xangar])
+Employee(id=7, firstName=Arjun, lastName=Naik, age=36, email=arjun@gmail.com, phone=8990955507, salary=35000, department=finance, employmentHistory=[IBM, Concentrix])
+--------------------------------------------------------------------------------5
+Employees are: Laksh,Vikram,Keshav,Vidya,Mahesh,Sachin,Rajesh,Rajesh,Kiran,Arjun
+Employees are: Laksh, Vikram, Keshav, Vidya, Mahesh, Sachin, Rajesh, Rajesh, Kiran, Arjun
+--------------------------------------------------------------------------------6
+Name: Kiran ==>[Employee(id=6, firstName=Kiran, lastName=Kamble, age=36, email=kiran@gmail.com, phone=9590955644, salary=50000, department=software, employmentHistory=[Takira, Trimax, Xangar])]
+Name: Vidya ==>[Employee(id=3, firstName=Vidya, lastName=Kawali, age=29, email=vidya@gmail.com, phone=9590955557, salary=28000, department=finance, employmentHistory=[BOM])]
+Name: Keshav ==>[Employee(id=5, firstName=Keshav, lastName=Koli, age=24, email=keshav@gmail.com, phone=8590923557, salary=15000, department=software, employmentHistory=[Xangar, TCS])]
+Name: Laksh ==>[Employee(id=8, firstName=Laksh, lastName=Kawali, age=2, email=laksh@yahoo.com, phone=9596555557, salary=120000, department=admin, employmentHistory=[Walmart, Microsoft, Amazon, Google, Apple])]
+Name: Rajesh ==>[Employee(id=10, firstName=Rajesh, lastName=Nayak, age=33, email=rajesh@yahoo.com, phone=9590955337, salary=30000, department=admin, employmentHistory=[Capgemini]), Employee(id=1, firstName=Rajesh, lastName=Kawali, age=35, email=rajesh@gmail.com, phone=9590955557, salary=45000, department=software, employmentHistory=[Trimax, Diebold, Capgemini])]
+Name: Mahesh ==>[Employee(id=2, firstName=Mahesh, lastName=Koli, age=33, email=mahesh@yahoo.com, phone=8990955230, salary=70000, department=admin, employmentHistory=[Dell, Yantra])]
+Name: Arjun ==>[Employee(id=7, firstName=Arjun, lastName=Naik, age=36, email=arjun@gmail.com, phone=8990955507, salary=35000, department=finance, employmentHistory=[IBM, Concentrix])]
+Name: Vikram ==>[Employee(id=4, firstName=Vikram, lastName=Konkal, age=6, email=vikram@yahoo.com, phone=7890955557, salary=50000, department=hr, employmentHistory=[Accenture, Morgan, TCS, Reliance])]
+Name: Sachin ==>[Employee(id=9, firstName=Sachin, lastName=Gaikwad, age=33, email=sachin@gmail.com, phone=99855557, salary=10000, department=admin, employmentHistory=[Zomato])]
+--------------------------------------------------------------------------------7
+[[Walmart, Microsoft, Amazon, Google, Apple], [Accenture, Morgan, TCS, Reliance], [Xangar, TCS], [BOM], [Dell, Yantra], [Zomato], [Capgemini], [Trimax, Diebold, Capgemini], [Takira, Trimax, Xangar], [IBM, Concentrix]]
+--------------------------------------------------------------------------------8
+[Walmart, Microsoft, Amazon, Google, Apple, Accenture, Morgan, TCS, Reliance, Xangar, TCS, BOM, Dell, Yantra, Zomato, Capgemini, Trimax, Diebold, Capgemini, Takira, Trimax, Xangar, IBM, Concentrix]
+--------------------------------------------------------------------------------9
+[BOM, Dell, Apple, TCS, IBM]
+--------------------------------------------------------------------------------10
+[laksh@yahoo.com, vikram@yahoo.com, mahesh@yahoo.com, rajesh@yahoo.com]
+--------------------------------------------------------------------------------11
+{software=3, admin=4, hr=1, finance=2}
+--------------------------------------------------------------------------------12
+{software=Employee(id=6, firstName=Kiran, lastName=Kamble, age=36, email=kiran@gmail.com, phone=9590955644, salary=50000, department=software, employmentHistory=[Takira, Trimax, Xangar]), admin=Employee(id=8, firstName=Laksh, lastName=Kawali, age=2, email=laksh@yahoo.com, phone=9596555557, salary=120000, department=admin, employmentHistory=[Walmart, Microsoft, Amazon, Google, Apple]), hr=Employee(id=4, firstName=Vikram, lastName=Konkal, age=6, email=vikram@yahoo.com, phone=7890955557, salary=50000, department=hr, employmentHistory=[Accenture, Morgan, TCS, Reliance]), finance=Employee(id=7, firstName=Arjun, lastName=Naik, age=36, email=arjun@gmail.com, phone=8990955507, salary=35000, department=finance, employmentHistory=[IBM, Concentrix])}
+--------------------------------------------------------------------------------13
+{software=[Employee(id=5, firstName=Keshav, lastName=Koli, age=24, email=keshav@gmail.com, phone=8590923557, salary=15000, department=software, employmentHistory=[Xangar, TCS]), Employee(id=1, firstName=Rajesh, lastName=Kawali, age=35, email=rajesh@gmail.com, phone=9590955557, salary=45000, department=software, employmentHistory=[Trimax, Diebold, Capgemini]), Employee(id=6, firstName=Kiran, lastName=Kamble, age=36, email=kiran@gmail.com, phone=9590955644, salary=50000, department=software, employmentHistory=[Takira, Trimax, Xangar])], admin=[Employee(id=8, firstName=Laksh, lastName=Kawali, age=2, email=laksh@yahoo.com, phone=9596555557, salary=120000, department=admin, employmentHistory=[Walmart, Microsoft, Amazon, Google, Apple]), Employee(id=2, firstName=Mahesh, lastName=Koli, age=33, email=mahesh@yahoo.com, phone=8990955230, salary=70000, department=admin, employmentHistory=[Dell, Yantra]), Employee(id=9, firstName=Sachin, lastName=Gaikwad, age=33, email=sachin@gmail.com, phone=99855557, salary=10000, department=admin, employmentHistory=[Zomato]), Employee(id=10, firstName=Rajesh, lastName=Nayak, age=33, email=rajesh@yahoo.com, phone=9590955337, salary=30000, department=admin, employmentHistory=[Capgemini])], hr=[Employee(id=4, firstName=Vikram, lastName=Konkal, age=6, email=vikram@yahoo.com, phone=7890955557, salary=50000, department=hr, employmentHistory=[Accenture, Morgan, TCS, Reliance])], finance=[Employee(id=3, firstName=Vidya, lastName=Kawali, age=29, email=vidya@gmail.com, phone=9590955557, salary=28000, department=finance, employmentHistory=[BOM]), Employee(id=7, firstName=Arjun, lastName=Naik, age=36, email=arjun@gmail.com, phone=8990955507, salary=35000, department=finance, employmentHistory=[IBM, Concentrix])]}
+--------------------------------------------------------------------------------14
+[rajesh, mahesh, kawali, koli]
+--------------------------------------------------------------------------------15
+[A, B, C]
+--------------------------------------------------------------------------------16
+4.25
+--------------------------------------------------------------------------------17
+-1444170382
+301085490
+1301493462
+1469782393
+--------------------------------------------------------------------------------18
+{Kiran=[Employee(id=6, firstName=Kiran, lastName=Kamble, age=36, email=kiran@gmail.com, phone=9590955644, salary=50000, department=software, employmentHistory=[Takira, Trimax, Xangar])], Vidya=[Employee(id=3, firstName=Vidya, lastName=Kawali, age=29, email=vidya@gmail.com, phone=9590955557, salary=28000, department=finance, employmentHistory=[BOM])], Keshav=[Employee(id=5, firstName=Keshav, lastName=Koli, age=24, email=keshav@gmail.com, phone=8590923557, salary=15000, department=software, employmentHistory=[Xangar, TCS])], Laksh=[Employee(id=8, firstName=Laksh, lastName=Kawali, age=2, email=laksh@yahoo.com, phone=9596555557, salary=120000, department=admin, employmentHistory=[Walmart, Microsoft, Amazon, Google, Apple])], Rajesh=[Employee(id=10, firstName=Rajesh, lastName=Nayak, age=33, email=rajesh@yahoo.com, phone=9590955337, salary=30000, department=admin, employmentHistory=[Capgemini]), Employee(id=1, firstName=Rajesh, lastName=Kawali, age=35, email=rajesh@gmail.com, phone=9590955557, salary=45000, department=software, employmentHistory=[Trimax, Diebold, Capgemini])], Mahesh=[Employee(id=2, firstName=Mahesh, lastName=Koli, age=33, email=mahesh@yahoo.com, phone=8990955230, salary=70000, department=admin, employmentHistory=[Dell, Yantra])], Arjun=[Employee(id=7, firstName=Arjun, lastName=Naik, age=36, email=arjun@gmail.com, phone=8990955507, salary=35000, department=finance, employmentHistory=[IBM, Concentrix])], Vikram=[Employee(id=4, firstName=Vikram, lastName=Konkal, age=6, email=vikram@yahoo.com, phone=7890955557, salary=50000, department=hr, employmentHistory=[Accenture, Morgan, TCS, Reliance])], Sachin=[Employee(id=9, firstName=Sachin, lastName=Gaikwad, age=33, email=sachin@gmail.com, phone=99855557, salary=10000, department=admin, employmentHistory=[Zomato])]}
+--------------------------------------------------------------------------------19
+0
+1
+2
+--------------------------------------------------------------------------------20
+{software=3, admin=4, hr=1, finance=2}
+--------------------------------------------------------------------------------21
+{software=3, admin=4, hr=1, finance=2}
+--------------------------------------------------------------------------------22
+Laksh
+Mahesh
+Vikram
+--------------------------------------------------------------------------------23
+{Keshav=software, Laksh=admin, Vikram=hr}
+--------------------------------------------------------------------------------24
+Laksh, Vikram, Keshav, Vidya, Mahesh, Sachin, Rajesh, Rajesh, Kiran, Arjun
+--------------------------------------------------------------------------------25
+[Employee(id=7, firstName=Arjun, lastName=Naik, age=36, email=arjun@gmail.com, phone=8990955507, salary=35000, department=finance, employmentHistory=[IBM, Concentrix]), Employee(id=5, firstName=Keshav, lastName=Koli, age=24, email=keshav@gmail.com, phone=8590923557, salary=15000, department=software, employmentHistory=[Xangar, TCS]), Employee(id=6, firstName=Kiran, lastName=Kamble, age=36, email=kiran@gmail.com, phone=9590955644, salary=50000, department=software, employmentHistory=[Takira, Trimax, Xangar]), Employee(id=8, firstName=Laksh, lastName=Kawali, age=2, email=laksh@yahoo.com, phone=9596555557, salary=120000, department=admin, employmentHistory=[Walmart, Microsoft, Amazon, Google, Apple]), Employee(id=2, firstName=Mahesh, lastName=Koli, age=33, email=mahesh@yahoo.com, phone=8990955230, salary=70000, department=admin, employmentHistory=[Dell, Yantra]), Employee(id=1, firstName=Rajesh, lastName=Kawali, age=35, email=rajesh@gmail.com, phone=9590955557, salary=45000, department=software, employmentHistory=[Trimax, Diebold, Capgemini]), Employee(id=10, firstName=Rajesh, lastName=Nayak, age=33, email=rajesh@yahoo.com, phone=9590955337, salary=30000, department=admin, employmentHistory=[Capgemini]), Employee(id=9, firstName=Sachin, lastName=Gaikwad, age=33, email=sachin@gmail.com, phone=99855557, salary=10000, department=admin, employmentHistory=[Zomato]), Employee(id=3, firstName=Vidya, lastName=Kawali, age=29, email=vidya@gmail.com, phone=9590955557, salary=28000, department=finance, employmentHistory=[BOM]), Employee(id=4, firstName=Vikram, lastName=Konkal, age=6, email=vikram@yahoo.com, phone=7890955557, salary=50000, department=hr, employmentHistory=[Accenture, Morgan, TCS, Reliance])]
+--------------------------------------------------------------------------------26
+additionOptional: 14, addition: 14, multiplication: 120
+--------------------------------------------------------------------------------27
+Second highest salary of the employee: [Employee(id=2, firstName=Mahesh, lastName=Koli, age=33, email=mahesh@yahoo.com, phone=8990955230, salary=70000, department=admin, employmentHistory=[Dell, Yantra])]
+Third highest salary of the employee: Vikram
+--------------------------------------------------------------------------------28
+[Koli, Kawali]
+--------------------------------------------------------------------------------29
+[Kamble, Naik, Koli, Kawali, Gaikwad, Konkal, Nayak]
+--------------------------------------------------------------------------------30
+--------------------------------------------------------------------------------31
+--------------------------------------------------------------------------------32
+java.util.stream.ReferencePipeline$4@3b81a1bc
+java.util.stream.SortedOps$OfInt@64616ca2
+java.util.stream.SliceOps$2@13fee20c
+java.util.stream.SliceOps$2@4e04a765
+java.util.stream.IntPipeline$9@180bc464
+java.util.stream.IntPipeline$4@62043840
+java.util.stream.IntPipeline$1@5315b42e
+9
+28
+OptionalDouble[3.111111111111111]
+OptionalInt[7]
+OptionalInt[0]
+java.util.stream.IntPipeline$8@12843fce
+--------------------------------------------------------------------------------
+1
+2
+3
+4
+
  */

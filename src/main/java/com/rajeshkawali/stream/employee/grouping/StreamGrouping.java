@@ -95,3 +95,61 @@ public class StreamGrouping {
 
 	}
 }
+
+/*
+--------------------------------------------------------------------------------
+Group by Department
+
+{software=[Employee(id=1, firstName=Rajesh, lastName=Kawali, age=35, email=rajesh@gmail.com, phone=9590955557, salary=45000, department=software, employmentHistory=[Trimax, Diebold, Capgemini]), Employee(id=5, firstName=Keshav, lastName=Koli, age=24, email=keshav@gmail.com, phone=8590923557, salary=15000, department=software, employmentHistory=[Xangar, TCS]), Employee(id=6, firstName=Kiran, lastName=Kamble, age=36, email=kiran@gmail.com, phone=9590955644, salary=50000, department=software, employmentHistory=[Takira, Trimax, Xangar])], admin=[Employee(id=2, firstName=Mahesh, lastName=Koli, age=33, email=mahesh@yahoo.com, phone=8990955230, salary=70000, department=admin, employmentHistory=[Dell, Yantra]), Employee(id=8, firstName=Laksh, lastName=Kawali, age=2, email=laksh@yahoo.com, phone=9596555557, salary=120000, department=admin, employmentHistory=[Walmart, Microsoft, Amazon, Google, Apple]), Employee(id=9, firstName=Sachin, lastName=Gaikwad, age=33, email=sachin@gmail.com, phone=99855557, salary=10000, department=admin, employmentHistory=[Zomato]), Employee(id=10, firstName=Rajesh, lastName=Nayak, age=33, email=rajesh@yahoo.com, phone=9590955337, salary=30000, department=admin, employmentHistory=[Capgemini])], hr=[Employee(id=4, firstName=Vikram, lastName=Konkal, age=6, email=vikram@yahoo.com, phone=7890955557, salary=50000, department=hr, employmentHistory=[Accenture, Morgan, TCS, Reliance])], finance=[Employee(id=3, firstName=Vidya, lastName=Kawali, age=29, email=vidya@gmail.com, phone=9590955557, salary=28000, department=finance, employmentHistory=[BOM]), Employee(id=7, firstName=Arjun, lastName=Naik, age=36, email=arjun@gmail.com, phone=8990955507, salary=35000, department=finance, employmentHistory=[IBM, Concentrix])]}
+--------------------------------------------------------------------------------
+Get all the employees in each department with employee count
+
+{software=3, admin=4, hr=1, finance=2}
+--------------------------------------------------------------------------------
+Given the list of employees, group them by employee last name.
+
+Name: Naik ==>[Employee(id=7, firstName=Arjun, lastName=Naik, age=36, email=arjun@gmail.com, phone=8990955507, salary=35000, department=finance, employmentHistory=[IBM, Concentrix])]
+Name: Kamble ==>[Employee(id=6, firstName=Kiran, lastName=Kamble, age=36, email=kiran@gmail.com, phone=9590955644, salary=50000, department=software, employmentHistory=[Takira, Trimax, Xangar])]
+Name: Koli ==>[Employee(id=2, firstName=Mahesh, lastName=Koli, age=33, email=mahesh@yahoo.com, phone=8990955230, salary=70000, department=admin, employmentHistory=[Dell, Yantra]), Employee(id=5, firstName=Keshav, lastName=Koli, age=24, email=keshav@gmail.com, phone=8590923557, salary=15000, department=software, employmentHistory=[Xangar, TCS])]
+Name: Gaikwad ==>[Employee(id=9, firstName=Sachin, lastName=Gaikwad, age=33, email=sachin@gmail.com, phone=99855557, salary=10000, department=admin, employmentHistory=[Zomato])]
+Name: Kawali ==>[Employee(id=1, firstName=Rajesh, lastName=Kawali, age=35, email=rajesh@gmail.com, phone=9590955557, salary=45000, department=software, employmentHistory=[Trimax, Diebold, Capgemini]), Employee(id=3, firstName=Vidya, lastName=Kawali, age=29, email=vidya@gmail.com, phone=9590955557, salary=28000, department=finance, employmentHistory=[BOM]), Employee(id=8, firstName=Laksh, lastName=Kawali, age=2, email=laksh@yahoo.com, phone=9596555557, salary=120000, department=admin, employmentHistory=[Walmart, Microsoft, Amazon, Google, Apple])]
+Name: Konkal ==>[Employee(id=4, firstName=Vikram, lastName=Konkal, age=6, email=vikram@yahoo.com, phone=7890955557, salary=50000, department=hr, employmentHistory=[Accenture, Morgan, TCS, Reliance])]
+Name: Nayak ==>[Employee(id=10, firstName=Rajesh, lastName=Nayak, age=33, email=rajesh@yahoo.com, phone=9590955337, salary=30000, department=admin, employmentHistory=[Capgemini])]
+--------------------------------------------------------------------------------
+Print highest paid salary of an employee from each department (for minimum paid salary use minBy() instead maxBy() ).
+
+{software=Employee(id=6, firstName=Kiran, lastName=Kamble, age=36, email=kiran@gmail.com, phone=9590955644, salary=50000, department=software, employmentHistory=[Takira, Trimax, Xangar]), admin=Employee(id=8, firstName=Laksh, lastName=Kawali, age=2, email=laksh@yahoo.com, phone=9596555557, salary=120000, department=admin, employmentHistory=[Walmart, Microsoft, Amazon, Google, Apple]), hr=Employee(id=4, firstName=Vikram, lastName=Konkal, age=6, email=vikram@yahoo.com, phone=7890955557, salary=50000, department=hr, employmentHistory=[Accenture, Morgan, TCS, Reliance]), finance=Employee(id=7, firstName=Arjun, lastName=Naik, age=36, email=arjun@gmail.com, phone=8990955507, salary=35000, department=finance, employmentHistory=[IBM, Concentrix])}
+--------------------------------------------------------------------------------
+Get all the employees Employment History with join comma
+
+{Accenture, Morgan, TCS, Reliance=[Employee(id=4, firstName=Vikram, lastName=Konkal, age=6, email=vikram@yahoo.com, phone=7890955557, salary=50000, department=hr, employmentHistory=[Accenture, Morgan, TCS, Reliance])], BOM=[Employee(id=3, firstName=Vidya, lastName=Kawali, age=29, email=vidya@gmail.com, phone=9590955557, salary=28000, department=finance, employmentHistory=[BOM])], Zomato=[Employee(id=9, firstName=Sachin, lastName=Gaikwad, age=33, email=sachin@gmail.com, phone=99855557, salary=10000, department=admin, employmentHistory=[Zomato])], Dell, Yantra=[Employee(id=2, firstName=Mahesh, lastName=Koli, age=33, email=mahesh@yahoo.com, phone=8990955230, salary=70000, department=admin, employmentHistory=[Dell, Yantra])], Trimax, Diebold, Capgemini=[Employee(id=1, firstName=Rajesh, lastName=Kawali, age=35, email=rajesh@gmail.com, phone=9590955557, salary=45000, department=software, employmentHistory=[Trimax, Diebold, Capgemini])], Takira, Trimax, Xangar=[Employee(id=6, firstName=Kiran, lastName=Kamble, age=36, email=kiran@gmail.com, phone=9590955644, salary=50000, department=software, employmentHistory=[Takira, Trimax, Xangar])], Walmart, Microsoft, Amazon, Google, Apple=[Employee(id=8, firstName=Laksh, lastName=Kawali, age=2, email=laksh@yahoo.com, phone=9596555557, salary=120000, department=admin, employmentHistory=[Walmart, Microsoft, Amazon, Google, Apple])], IBM, Concentrix=[Employee(id=7, firstName=Arjun, lastName=Naik, age=36, email=arjun@gmail.com, phone=8990955507, salary=35000, department=finance, employmentHistory=[IBM, Concentrix])], Capgemini=[Employee(id=10, firstName=Rajesh, lastName=Nayak, age=33, email=rajesh@yahoo.com, phone=9590955337, salary=30000, department=admin, employmentHistory=[Capgemini])], Xangar, TCS=[Employee(id=5, firstName=Keshav, lastName=Koli, age=24, email=keshav@gmail.com, phone=8590923557, salary=15000, department=software, employmentHistory=[Xangar, TCS])]}
+--------------------------------------------------------------------------------
+Print employee highest salary of first 2 employees.
+
+[Laksh, Mahesh]
+--------------------------------------------------------------------------------
+Print all employee first name group by age.
+
+{33=[Mahesh, Sachin, Rajesh], 2=[Laksh], 35=[Rajesh], 36=[Kiran, Arjun], 6=[Vikram], 24=[Keshav], 29=[Vidya]}
+--------------------------------------------------------------------------------
+Print all employee first name group by age with age ascending.
+
+{2=[Laksh], 6=[Vikram], 24=[Keshav], 29=[Vidya], 33=[Mahesh, Sachin, Rajesh], 35=[Rajesh], 36=[Kiran, Arjun]}
+--------------------------------------------------------------------------------
+Find the number of time each character occur.
+
+{a=3, r=1, b=2, s=1, c=2, d=2, e=3, f=2, h=1, j=1}
+--------------------------------------------------------------------------------
+Find the number of time each number occur.
+
+{1=3, 2=4, 3=1, 4=2}
+--------------------------------------------------------------------------------
+Find the first non repeated character in given string.
+
+r=1
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+ */
+
