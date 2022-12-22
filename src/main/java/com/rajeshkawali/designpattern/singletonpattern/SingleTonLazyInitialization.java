@@ -1,5 +1,9 @@
 package com.rajeshkawali.designpattern.singletonpattern;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class SingleTonLazyInitialization {
 
 	// create Single Tone class static reference

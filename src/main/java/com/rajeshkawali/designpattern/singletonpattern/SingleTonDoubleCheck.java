@@ -1,6 +1,10 @@
 package com.rajeshkawali.designpattern.singletonpattern;
 
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 //Thread Safe Singleton in Java.
 public class SingleTonDoubleCheck {
 	private static volatile SingleTonDoubleCheck instance; // here volatile should be use.

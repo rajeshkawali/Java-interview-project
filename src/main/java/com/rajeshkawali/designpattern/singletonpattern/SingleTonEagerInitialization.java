@@ -1,8 +1,12 @@
 package com.rajeshkawali.designpattern.singletonpattern;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class SingleTonEagerInitialization {
 
-	// create SingleTone class object and assign it to static final reference
+	// create Single Tone class object and assign it to static final reference
 	private static final SingleTonEagerInitialization instance = new SingleTonEagerInitialization(); // Eager initialisation
 
 	// make the constructor private so that this class cannot be instantiated

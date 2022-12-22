@@ -1,5 +1,9 @@
 package com.rajeshkawali.designpattern.singletonpattern;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class SingleToneMain {
 
 	public static void main(String[] args) {
