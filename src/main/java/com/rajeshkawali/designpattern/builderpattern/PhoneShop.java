@@ -11,7 +11,10 @@ public class PhoneShop {
 		//Phone p = new Phone("Android", 4, "Snapdrogan730g", 6.3, 4100);
 		//System.out.println(p);
 		
-		Phone p = new PhoneBuilder().setOs("Android").setProcessor("Snapdrogan730g").setBattery(4100).getPhone();
+		//We can create only required fields other we can ignore.
+		//Phone p = new PhoneBuilder().setOs("Android").setScreenSize(6.5).setRam(12).setProcessor("Snapdrogan 888").setBattery(4500).build();
+		Phone p = new PhoneBuilder().setOs("Android").setProcessor("Snapdrogan 888").setBattery(4500).build();
+		//Phone p = new PhoneBuilder().setOs("Android").build();
 		System.out.println(p);
 		System.out.println(p.getOs());
 		System.out.println(p.getProcessor());
@@ -31,4 +34,11 @@ This builder is independent of other objects.
 Builder is a creational design pattern that lets you construct complex objects 
 step by step. The pattern allows you to produce different types and 
 representations of an object using the same construction code.
+
+How to create:
+
+1. Create POJO class(Phone) with private fields which has only getter methods and parameterized constructor.
+2. Create POJO Builder class(PhoneBuilder) which has same fields as POJO class.
+3. Provide setter methods with POJO Builder return type for all the fields.
+4. Create method(build()) which returns POJO class object from POJO Builder class.
  */

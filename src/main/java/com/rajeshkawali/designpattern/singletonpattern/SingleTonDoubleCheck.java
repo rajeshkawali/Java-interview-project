@@ -7,13 +7,13 @@ package com.rajeshkawali.designpattern.singletonpattern;
  */
 //Thread Safe Singleton in Java.
 public class SingleTonDoubleCheck {
-	private static volatile SingleTonDoubleCheck instance; // here volatile should be use.
+	
+	private static volatile SingleTonDoubleCheck instance; // We have to use static and volatile.
 	
 	// private constructor
 	private SingleTonDoubleCheck() {
 	}
 
-	//Double checked locking code on Singleton @return Singelton instance
 	public static SingleTonDoubleCheck getInstance() {
 		if (instance == null) { // if instance is null then get inside
 			synchronized (SingleTonDoubleCheck.class) { // Make sure to allow only one thread into the block

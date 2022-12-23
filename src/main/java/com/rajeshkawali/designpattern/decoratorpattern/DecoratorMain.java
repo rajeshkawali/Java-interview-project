@@ -23,7 +23,8 @@ to an object without affecting the behavior of other existing objects within the
 We use inheritance to extend the behavior of the class. This takes place at compile-time, 
 and all the instances of that class get the extended behavior.
 
-1.Decorator design pattern is useful in providing runtime modification abilities and hence more flexible. Its easy to maintain and extend when the amount of choices are more.
+1.Decorator design pattern is useful in providing runtime modification abilities and hence more flexible. 
+  Its easy to maintain and extend when the amount of choices are more.
 2.The disadvantage of decorator design pattern is that it uses plenty of similar kind of objects (decorators)
 3.Decorator pattern is used a lot in Java IO classes, like FileReader, BufferedReader, etc.
 */

@@ -10,22 +10,29 @@ public class YoutubeMainClass {
 
 		Channel channel = new Channel();
 
+		//Users or Subscriber
 		Subscriber subscriber1 = new Subscriber("Rajesh");
 		Subscriber subscriber2 = new Subscriber("Mahesh");
 		Subscriber subscriber3 = new Subscriber("Vidya");
 
-		channel.subscribe(subscriber1);
-		channel.subscribe(subscriber2);
-		channel.subscribe(subscriber3);
-
-		// To unSubscribe channel
-		channel.unSubscribe(subscriber2);
-
+		//Users subscribing channel
 		subscriber1.subscribeChannel(channel);
 		subscriber2.subscribeChannel(channel);
 		subscriber3.subscribeChannel(channel);
-
+		
+		//Users subscribing notification
+		channel.subscribe(subscriber1);
+		channel.subscribe(subscriber2);
+		channel.subscribe(subscriber3);
+		
+		//Uploading new video
 		channel.upload("Spring boot microservice");
+		
+		System.out.println("Subscriber2 is unSubscribed from the channel");
+		channel.unSubscribe(subscriber2);
+		
+		//Uploading new video
+		channel.upload("Spring boot with kafka and mongodb");
 	}
 }
 
