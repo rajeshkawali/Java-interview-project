@@ -14,8 +14,12 @@ public class FactoryMethodMain {
 		//String value = pfc.getParserObject("txt");
 		//String value = pfc.getParserObject(null);
 		System.out.println("Done Execution of "+value);
-		
-
 	}
-
 }
+/*
+Factory pattern, we create object without exposing the creation logic to the 
+client and refer to newly created object using a common interface.
+
+Design pattern comes under creational pattern as this pattern provides 
+one of the best ways to create an object.
+*/
