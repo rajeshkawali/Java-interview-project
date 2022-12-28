@@ -2,12 +2,13 @@ package com.rajeshkawali.map;
 
 import java.util.Iterator;
 import java.util.Map;
-import java.util.WeakHashMap;
 import java.util.Map.Entry;
+import java.util.WeakHashMap;
 
 // Just copied from HashMap, Need check all once WeakHashMap
 public class WeakHashMapMain {
 
+	@SuppressWarnings("unlikely-arg-type")
 	public static void main(String[] args) {
 
 		WeakHashMap<String, String> objMap = new WeakHashMap<String, String>();
