@@ -2,6 +2,10 @@ package com.rajeshkawali.collection;
 import java.util.Enumeration;
 import java.util.Vector;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class VectorMain {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

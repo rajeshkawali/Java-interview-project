@@ -6,6 +6,11 @@ import java.util.Map.Entry;
 import java.util.WeakHashMap;
 
 // Just copied from HashMap, Need check all once WeakHashMap
+
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class WeakHashMapMain {
 
 	@SuppressWarnings("unlikely-arg-type")

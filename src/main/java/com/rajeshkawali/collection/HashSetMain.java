@@ -1,6 +1,10 @@
 package com.rajeshkawali.collection;
 import java.util.HashSet;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class HashSetMain {
 
 	@SuppressWarnings({ "rawtypes", "unchecked",  })

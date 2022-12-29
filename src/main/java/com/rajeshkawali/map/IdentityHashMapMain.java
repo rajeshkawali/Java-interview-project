@@ -13,6 +13,10 @@ import java.util.IdentityHashMap;
 //6. 
 //7. 
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class IdentityHashMapMain 
 {
     @SuppressWarnings({ "rawtypes", "unchecked" })

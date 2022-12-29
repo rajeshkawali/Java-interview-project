@@ -2,6 +2,10 @@ package com.rajeshkawali.collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 @SuppressWarnings("rawtypes")
 public class LinkedListMain {
 

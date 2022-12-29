@@ -2,6 +2,10 @@ package com.rajeshkawali.collection;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class LinkedHashSetMain {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

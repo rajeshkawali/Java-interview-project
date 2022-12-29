@@ -5,6 +5,10 @@ package com.rajeshkawali.collection;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class ArrayBlockingQueueDemo {
 
 	public static void main(String[] args) {

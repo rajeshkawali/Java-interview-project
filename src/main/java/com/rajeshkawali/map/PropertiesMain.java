@@ -4,6 +4,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class PropertiesMain {
 
 	public static void main(String[] args) throws IOException {

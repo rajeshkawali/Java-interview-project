@@ -15,6 +15,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 //9. add, remove operator is not supported by CopyOnWriteArrayList iterator
 //10. 
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class CopyOnWriteArrayListMain {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

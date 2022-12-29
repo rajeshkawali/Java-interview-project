@@ -5,6 +5,10 @@ import java.util.Enumeration;
 import java.util.Hashtable;
 //Java Program explaining util.Dictionary class Methods put(),elements(),get(),isEmpty(),keys(),remove(),size().
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class DictionaryMain {
 
 	/*

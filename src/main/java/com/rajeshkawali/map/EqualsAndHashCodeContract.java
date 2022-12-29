@@ -3,6 +3,10 @@ package com.rajeshkawali.map;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class EqualsAndHashCodeContract {
 
 	public static void main(String[] args) {

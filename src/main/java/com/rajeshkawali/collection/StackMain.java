@@ -2,6 +2,10 @@ package com.rajeshkawali.collection;
 import java.util.Enumeration;
 import java.util.Stack;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class StackMain {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

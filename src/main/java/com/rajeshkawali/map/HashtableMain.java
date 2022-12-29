@@ -3,6 +3,10 @@ package com.rajeshkawali.map;
 import java.util.Hashtable;
 import java.util.Map;
 
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 public class HashtableMain {
 
 	// 1.It is not allowed null ( Both Key and Value ).
