@@ -29,9 +29,9 @@ class Employee1 implements Comparable<Employee1>{
 	public int compareTo(Employee1 o) {
 		Employee1 e = (Employee1)o;
 		
-		return this.name.compareTo(e.name);
+		//return this.name.compareTo(e.name);
 		//return this.marks - e.marks;
-		//return this.id - e.id;
+		return this.id - e.id;
 	}
 	
 	@Override
