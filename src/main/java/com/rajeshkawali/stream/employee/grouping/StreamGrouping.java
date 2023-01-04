@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -88,7 +89,12 @@ public class StreamGrouping {
 		.findFirst().get();
 		System.out.println(uniqueChar);
 		System.out.println("--------------------------------------------------------------------------------");
-
+		System.out.println("Group the employees by their department and find the highest salary in each group");
+        Map<String, Employee> highestSalariesByDepartment = employeeList.stream()
+            .collect(Collectors.groupingBy(Employee::getDepartment,
+                Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)),
+                    Optional::get)));
+        System.out.println("Highest salaries by department: " + highestSalariesByDepartment);
 		System.out.println("--------------------------------------------------------------------------------");
 
 		System.out.println("--------------------------------------------------------------------------------");

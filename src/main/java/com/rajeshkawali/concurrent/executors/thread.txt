@@ -1,0 +1,43 @@
+Executors provides several factory methods for creating different types of Executor objects in Java. 
+Here is a summary of the different types of Executor objects that Executors can create below pools:-->
+
+1.newSingleThreadExecutor():- creates a single-threaded executor that executes tasks in a single worker thread.
+
+2.newFixedThreadPool(int nThreads):- creates a fixed-size thread pool that executes tasks using a pool of nThreads worker threads.
+
+3.newCachedThreadPool():- creates a thread pool that creates new worker threads as needed, but will also reuse idle threads when possible.
+
+4.newScheduledThreadPool(int nThreads):- creates a thread pool that can schedule tasks to be executed at a later time.
+
+5.newSingleThreadScheduledExecutor():- creates a single-threaded executor that can schedule tasks to be executed at a later time.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Runnable and Callable are both functional interfaces in the java.util.concurrent package 
+that can be used to create tasks that can be executed concurrently:-->
+
+1.Runnable is a functional interface that represents a task that can be executed by an Executor. 
+It has a single void method called run() that represents the code to be executed by the task. 
+Runnable tasks do not return a value.
+
+2.Callable is a functional interface that represents a task that can be executed by an Executor and returns a value. 
+It has a single V call() method that represents the code to be executed by the task, and returns a value of type V.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+submit() and execute() are methods that can be used to submit tasks for execution to an Executor or ExecutorService:-->
+
+1.execute() is a method of the Executor interface that accepts a Runnable task and executes it asynchronously. 
+It does not return a value.
+
+2.submit() is a method of the ExecutorService interface that accepts a Callable task and submits it for execution. 
+It returns a Future object that can be used to obtain the result of the task.
+
+submit() and execute() are both useful for submitting tasks for execution to an Executor or ExecutorService, 
+but submit() is specifically designed for submitting Callable tasks that return a value, 
+while execute() is designed for submitting Runnable tasks that do not return a value.
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
