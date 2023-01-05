@@ -1,4 +1,4 @@
-package com.rajeshkawali.concurrent;
+package com.rajeshkawali.concurrent.concepts;
 
 import java.util.concurrent.TimeUnit;
 

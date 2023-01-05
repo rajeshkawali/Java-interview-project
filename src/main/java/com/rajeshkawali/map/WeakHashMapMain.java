@@ -1,11 +1,6 @@
 package com.rajeshkawali.map;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.WeakHashMap;
-
-// Just copied from HashMap, Need check all once WeakHashMap
 
 /**
  * @author Rajesh_Kawali
@@ -13,66 +8,74 @@ import java.util.WeakHashMap;
  */
 public class WeakHashMapMain {
 
-	@SuppressWarnings("unlikely-arg-type")
+	/*
+	 WeakHashMap is a hash map that stores key-value pairs and uses weak
+	 references for the keys. This means that the key-value pair will be
+	 automatically removed from the map when the key is no longer in use by any
+	 other part of the program.
+	 */
 	public static void main(String[] args) {
 
-		WeakHashMap<String, String> objMap = new WeakHashMap<String, String>();
+		Key k1 = new Key("Hello");
+		Key k2 = new Key("World");
+		Key k3 = new Key("Java");
+		Key k4 = new Key("Programming");
+		Key k5 = new Key("Language");
+
+		WeakHashMap<Key, String> wMap = new WeakHashMap<>();
+
+		wMap.put(k1, "Hello");
+		wMap.put(k2, "World");
+		wMap.put(k3, "Java");
+		wMap.put(k4, "Programming");
+		wMap.put(k5, "Language");
+		System.out.println("Before gc() called - WeakHashMap : " + wMap);
+		k1 = null; // key is no longer in referenced 
+		k2 = null; // key is no longer in referenced 
+		//k3 = null; // key is in referenced 
+		//k4 = null; // key is in referenced 
+		k5 = null; // key is no longer in referenced 
+		System.gc();
+		System.out.println("After gc() called - WeakHashMap : " + wMap);
 
 		System.out.println("------------------------------------------------------");
-		System.out.println("Array Index[0] :" + objMap.get(0));// null
-		System.out.println("Array Index[35] :" + objMap.get(35));// null
-		System.out.println("------------------------------------------------------\n");
-		System.out.println("Before Size of the Map:" + objMap.size());// 0
+		wMap.forEach((k, v) -> System.out.println("Key : " + k + " ,Value : " + v));
+		System.out.println("------------------------------------------------------");
 
-		objMap.put("Name", "Suzuki");
-		objMap.put("Power", "220");
-		objMap.put("Type", "2-wheeler");
-		objMap.put("Price", "85000");
-		objMap.put("Name", "Suzuki");
-		System.out.println("return value=>" + objMap.put("Name", "Honda"));// return value=>Suzuki
-		System.out.println("return value=>" + objMap.get("Name"));// return value=>Honda
-		objMap.put("test", null);
-		objMap.put(null, null);
-		objMap.put(null, "Suzuki");
-		objMap.put("test2", null);
-		objMap.put("test3", null);
-
-		System.out.println("------------------------------------------------------");
-		System.out.println("Array Index[Name] :" + objMap.get("test")); // null
-		System.out.println("Array Index[35] :" + objMap.get(35)); // null
-		System.out.println("Array Index[null] :" + objMap.get(null)); // Suzuki
-		System.out.println("------------------------------------------------------\n");
-		System.out.println("After Size of the Map:" + objMap.size()); // 8
-		System.out.println("------------------------------------------------------");
-		System.out.println("Elements of the Map:");
-		System.out.println(objMap);
-		// {null=Suzuki, Type=2-wheeler, test2=null, test3=null, test=null, Price=85000,
-		// Power=220, Name=Honda}
-		System.out.println("------------------------------------------------------");
-		// more elegant way, this should be the standard way, recommend!
-		System.out.println("\nExample 1...");
-		for (Map.Entry<String, String> entry : objMap.entrySet()) {
-			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
-			// objMap.put("F","TestError");// java.util.ConcurrentModificationException.
-		}
-		System.out.println("------------------------------------------------------");
-		// Map -> Set -> Iterator -> Map.Entry -> troublesome, not recommend!
-		System.out.println("\nExample 2...");
-		Iterator<Entry<String, String>> iterator = objMap.entrySet().iterator();
-		while (iterator.hasNext()) {
-			Map.Entry<String, String> entry = (Map.Entry<String, String>) iterator.next();
-			System.out.println("Key : " + entry.getKey() + " Value :" + entry.getValue());
-		}
-		System.out.println("------------------------------------------------------");
-		// Java 8 only, forEach and Lambda. recommend!
-		System.out.println("\nExample 3...");
-		objMap.forEach((k, v) -> System.out.println("Key : " + k + " Value : " + v));
-		System.out.println("------------------------------------------------------");
-		// weired, but works anyway, not recommend!
-		System.out.println("\nExample 4...");
-		for (String key : objMap.keySet()) {
-			System.out.println("key: " + key + " value: " + objMap.get(key));
-		}
 	}
 
 }
+/*
+ 1.WeakHashMap stores key-value pairs and uses weak references for the keys.
+ 
+ 2.When a key is no longer in use by any other part of the program, the
+ key-value pair is automatically removed from the map.
+  
+ 3.WeakHashMap is useful
+ for maintaining a cache of values that should be automatically removed when
+ they are no longer needed. 
+ 
+ 4.WeakHashMap is not thread-safe. If multiple
+ threads will be accessing a WeakHashMap, you should use
+ Collections.synchronizedMap(WeakHashMap) to wrap the map in a thread-safe
+ wrapper.
+ 
+ WeakHashMap is exactly same as HashMap except the following difference. In
+ case of HashMap an Object is not eligible for garbage collection if it is
+ associated with HashMap even though it doesn't have any external references.
+ i,e HashMap dominates garbage collector. But in case of WeakHashMap , if an
+ Object is not having any external references then it is always eligible for
+ garbage collection even though it is associated with weakHashMap. ie garbage
+ collector dominates WeakHashMap
+ 
+ An entry in a WeakHashMap will automatically be removed when its key is no
+ longer referenced.
+ */
+
+/*
+put(K key, V value): This method associates the specified value with the specified key in this map.
+get(Object key): This method returns the value to which the specified key is mapped, or null if this map contains no mapping for the key.
+containsKey(Object key): This method returns true if this map contains a mapping for the specified key.
+remove(Object key): This method removes the mapping for the specified key from this map if present.
+clear(): This method removes all of the mappings from this map.
+*/
