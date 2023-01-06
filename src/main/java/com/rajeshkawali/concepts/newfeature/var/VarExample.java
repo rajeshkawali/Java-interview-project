@@ -1,4 +1,4 @@
-package com.rajeshkawali.concepts.var;
+package com.rajeshkawali.concepts.newfeature.var;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +16,7 @@ import java.util.Map;
  * @author Rajesh_Kawali
  *
  */
-public class VarClass {
+public class VarExample {
 	
 	//var notAllowedInGlobal = 11; //'var' is not allowed here
 	
@@ -57,3 +57,26 @@ public class VarClass {
 		// (var m, var n) -> m * n;
 	}
 }
+/*
+var is a reserved type name in Java that was introduced in Java 10(JDK). 
+It is used to declare a local variable with an inferred type, which means 
+that the type of the variable is determined by the compiler based on the value being assigned to it.
+
+
+*/
+
+/*
+Here are some key points to consider when using var in Java:
+
+var is a reserved type name that is used to declare a local variable with an inferred type.
+
+The type of a var variable is determined by the compiler based on the value being assigned to it.
+
+You can only use var to declare local variables, and you cannot use it to declare class fields, method parameters, or return types.
+
+You cannot use var to declare a variable without an initializer, and you cannot use it with a primitive type.
+
+Using var can make your code more concise and easier to read, especially when the type of a variable is long or complex.
+
+It is important to use var judiciously, as it can make the type of a variable less explicit and potentially harder to understand.
+*/
