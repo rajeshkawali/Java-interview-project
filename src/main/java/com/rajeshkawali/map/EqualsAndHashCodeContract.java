@@ -9,6 +9,16 @@ import java.util.Map;
  */
 public class EqualsAndHashCodeContract {
 
+	/*
+	There is a contract between the hashCode() and equals() methods in Java, 
+	which states that if two objects are equal according to the equals() method, 
+	then they must have the same hashCode(). In other words, if obj1.equals(obj2) 
+	returns true, then obj1.hashCode() must be equal to obj2.hashCode().
+
+	It is important to implement the hashCode() and equals() methods correctly in 
+	any class that you write, as they are used by many Java classes, including HashMap, 
+	HashSet, and Hashtable, to determine object equality and store objects in a hash-based data structure.
+	 */
 	public static void main(String[] args) {
 		
 		EmployeeClas e1 = new EmployeeClas(1, "Rajesh", "software");//Suppose we are not overriding hashCode and equals methods then we will get 2 object, if we override then we will get size is one object.
@@ -113,3 +123,9 @@ class EmployeeClas {
 		this.department = department;
 	}
 }
+/*
+In Java, the hashCode() method and the equals() method are defined in the 
+Object class and are used to determine equality between objects. 
+The hashCode() method is used to generate a unique code for each object, 
+while the equals() method is used to compare two objects for equality.
+*/
