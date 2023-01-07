@@ -59,6 +59,60 @@ public class StreamTerminalOperations {
 	}
 }
 /*
+List of some terminal operations in the Stream interface:-->
+
+forEach(Consumer<? super T> action): Performs an action for each element of this stream.
+
+forEachOrdered(Consumer<? super T> action): Performs an action for each element of this stream, in the encounter order of the stream if the stream has a defined encounter order.
+
+toArray(): Returns an array containing the elements of this stream.
+
+toArray(IntFunction<A[]> generator): Returns an array containing the elements of this stream, using the provided generator function to allocate the returned array, as well as any additional arrays that might be required for a partitioned execution or for resizing.
+
+collect(Collector<? super T, A, R> collector): Performs a reduction on the elements of this stream using a Collector.
+
+min(Comparator<? super T> comparator): Returns the minimum element of this stream according to the provided Comparator.
+
+max(Comparator<? super T> comparator): Returns the maximum element of this stream according to the provided Comparator.
+
+count(): Returns the count of elements in this stream.
+
+findFirst(): Returns an Optional describing the first element of this stream, or an empty Optional if the stream is empty.
+
+findAny(): Returns an Optional describing some element of the stream, or an empty Optional if the stream is empty.
+
+allMatch(Predicate<? super T> predicate): Returns whether all elements of this stream match the provided predicate.
+
+anyMatch(Predicate<? super T> predicate): Returns whether any elements of this stream match the provided predicate.
+
+noneMatch(Predicate<? super T> predicate): Returns whether no elements of this stream match the provided predicate.
+*/
+
+/*
+Short-circuiting operations are stream operations that, when encountered, 
+may terminate the stream pipeline early, without processing the entire stream. 
+These operations can be used to optimize stream pipelines by allowing them to 
+stop processing as soon as they have found an element that meets a specified condition.
+
+Some short-circuiting operations in the Stream interface:-->
+
+findFirst(): Returns an Optional describing the first element of this stream, or an empty Optional if the stream is empty.
+
+findAny(): Returns an Optional describing some element of the stream, or an empty Optional if the stream is empty.
+
+allMatch(Predicate<? super T> predicate): Returns whether all elements of this stream match the provided predicate.
+
+anyMatch(Predicate<? super T> predicate): Returns whether any elements of this stream match the provided predicate.
+
+noneMatch(Predicate<? super T> predicate): Returns whether no elements of this stream match the provided predicate.
+
+limit(long maxSize): Returns a stream consisting of the elements of this stream, truncated to be no longer than maxSize in length.
+
+skip(long n): Returns a stream consisting of the remaining elements of this stream after discarding the first n elements of the stream.
+*/
+
+
+/*
 6
 --------------------------------------------------------------------1
 [1, 2, 3, 4, 5, 6]

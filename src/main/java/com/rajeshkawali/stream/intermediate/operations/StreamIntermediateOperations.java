@@ -44,6 +44,39 @@ public class StreamIntermediateOperations {
 	}
 }
 /*
+List of intermediate operations in the Stream interface:-->
+
+filter(Predicate<? super T> predicate): Returns a stream consisting of the elements of this stream that match the given predicate.
+
+map(Function<? super T, ? extends R> mapper): Returns a stream consisting of the results of applying the given function to the elements of this stream.
+
+flatMap(Function<? super T, ? extends Stream<? extends R>> mapper): Returns a stream consisting of the results of replacing each element of this stream with the contents of a mapping stream produced by applying the provided mapping function to each element.
+
+peek(Consumer<? super T> action): Returns a stream consisting of the elements of this stream, additionally performing the provided action on each element as elements are consumed from the resulting stream.
+
+sorted(): Returns a stream consisting of the elements of this stream, sorted according to natural order.
+
+sorted(Comparator<? super T> comparator): Returns a stream consisting of the elements of this stream, sorted according to the provided Comparator.
+
+distinct(): Returns a stream consisting of the distinct elements of this stream.
+
+limit(long maxSize): Returns a stream consisting of the elements of this stream, truncated to be no longer than maxSize in length.
+
+skip(long n): Returns a stream consisting of the remaining elements of this stream after discarding the first n elements of the stream.
+
+parallel(): Returns a parallel stream consisting of the same elements as this stream.
+
+sequential(): Returns a sequential stream consisting of the same elements as this stream.
+
+unordered(): Returns an unordered stream consisting of the same elements as this stream.
+
+onClose(Runnable closeHandler): Registers a close handler to be executed when the stream is closed (either by the terminal stream operation or by calling the close() method explicitly).
+
+close(): Closes this stream, causing all close handlers for this stream pipeline to be called.
+*/
+
+
+/*
 [6, 2, 4, 2]
 --------------------------------------------------------------------1
 3

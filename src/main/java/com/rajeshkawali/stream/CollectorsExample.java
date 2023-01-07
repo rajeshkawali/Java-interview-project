@@ -1,4 +1,4 @@
-package com.rajeshkawali.stream.collectors;
+package com.rajeshkawali.stream;
 
 import java.util.List;
 import java.util.Map;
