@@ -10,14 +10,14 @@ public class SumOfDigits {
 		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Enter the number :");
 		int number = Integer.parseInt(rd.readLine());
-		int sum=0;
-		while(number!=0){
-			int digit = number%10; // This will give last digit from given data
+		int sum = 0;
+		while (number != 0) {
+			int digit = number % 10; // This will give last digit from given data
 			System.out.print(digit); // Reverse the digit
-			sum=sum+digit;
-			number=number/10; // This will remove the last digit
+			sum = sum + digit;
+			number = number / 10; // This will remove the last digit
 		}
-		System.out.println("Sum Of Digits="+sum);
-		
+		System.out.println("\nSum Of Digits=" + sum);
+
 	}
 }

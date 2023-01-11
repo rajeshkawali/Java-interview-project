@@ -1,4 +1,4 @@
-package com.rajeshkawali.concurrent.executors;
+package com.rajeshkawali.concurrent.thread;
 
 /**
  *

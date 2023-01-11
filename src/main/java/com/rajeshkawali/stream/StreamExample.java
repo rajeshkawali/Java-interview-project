@@ -1,5 +1,9 @@
 package com.rajeshkawali.stream;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * 
  * @author Rajesh_Kawali
@@ -14,7 +18,12 @@ public class StreamExample {
 	*/
 	public static void main(String[] args) {
 		
-		
+		List<Integer> list = Arrays.asList(6, 1, 2, 3, 5, 4, 2);
+
+		List<Integer> ResultList = list.stream().filter(x -> x%2==0).collect(Collectors.toList());
+				
+		System.out.println(ResultList);
+
 	}
 }
 /*

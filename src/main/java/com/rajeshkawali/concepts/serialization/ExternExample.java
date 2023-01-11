@@ -81,3 +81,23 @@ Difference between Serialization and Externalization
 5.In Serializable interface, Serialization won�t happen if we declare a variable with transient keyword. So transient keyword play a major role in Serializable interface. But in Externalizable interface developers will have the complete control, so even if he declared variable with transient keyword and write that variable value in writeExternal method, then that variable state also will be serialized. So transient keyword doesn't play any role in Externalizable interface.
 
 */
+
+/*
+The main difference between the two is that while all objects that implement the 
+Serializable interface are automatically serialized, objects that implement the 
+Externalizable interface must explicitly define how they are to be serialized.
+
+Serializable interface is a marker interface, which means it does not have any method. 
+When an object is serialized, all its non-transient and non-static fields are saved to 
+the byte stream. The default serialization process can be overridden by implementing writeObject() and readObject() methods.
+
+Externalizable interface is a sub-interface of Serializable, 
+which have two methods writeExternal(ObjectOutput) and readExternal(ObjectInput). 
+The programmer must provide implementations of these methods that explicitly specify 
+how the object should be serialized. This is useful when the default serialization 
+process is not adequate and the programmer wants to have full control over the serialization process.
+
+In general, serialization is used when the default serialization process is sufficient for an object, 
+and externalization is used when the programmer wants to have more control over the serialization process. 
+Keep in mind that Externalizable interface is rarely used and Serialization is the most common way of saving and loading objects.
+*/

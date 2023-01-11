@@ -1,4 +1,4 @@
-package com.rajeshkawali.concepts.safevarargs;
+package com.rajeshkawali.concepts.general;
 
 import java.util.Arrays;
 

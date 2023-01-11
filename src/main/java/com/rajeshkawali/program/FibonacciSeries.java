@@ -19,7 +19,18 @@ public class FibonacciSeries {
 			previous = next;
 			next = sum;
 		}
+		System.out.println("--------------------------");
+		for (int i = 0; i < number; i++) {
+			System.out.print(fibonacci(i) + " ");
+		}
+		System.out.println("--------------------------");
+	}
 
+	public static int fibonacci(int n) {
+		if (n <= 1) {
+			return n;
+		}
+		return fibonacci(n - 1) + fibonacci(n - 2);
 	}
 
 }
