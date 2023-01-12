@@ -44,7 +44,7 @@ public class StreamTerminalOperations {
 		//anyMatch(Predicate<? super T> predicate) --> return true if any one element will match the condition
 		System.out.println(list.stream().anyMatch(x->x==6));
 		System.out.println("--------------------------------------------------------------------9");
-		//allMatch(Predicate<? super T> predicate) --> return true if all thr element will match the condition
+		//allMatch(Predicate<? super T> predicate) --> return true if all the element will match the condition
 		System.out.println(list.stream().allMatch(x->x/1==x));
 		System.out.println("--------------------------------------------------------------------10");
 		//noneMatch(Predicate<? super T> predicate) --> return true if none of the elements matches with the condition

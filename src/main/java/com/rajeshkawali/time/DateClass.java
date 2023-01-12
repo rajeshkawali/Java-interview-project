@@ -29,7 +29,7 @@ public class DateClass {
 		System.out.println("lengthOfMonth: " + lengthOfMonth);
 		System.out.println("monthName: " + monthName);
 		System.out.println("------------------------------------------");
-		System.out.println("Is a leap year ? " + date.isLeapYear());
+		System.out.println("Is a leap year : " + date.isLeapYear());
 		System.out.println("------------------------------------------");
 		LocalDate currDate = LocalDate.now();
 		LocalDate tomorrow = currDate.plusDays(1);

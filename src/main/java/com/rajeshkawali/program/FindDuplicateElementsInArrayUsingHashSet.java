@@ -14,7 +14,5 @@ public class FindDuplicateElementsInArrayUsingHashSet {
 				System.out.println(str);
 			}
 		}
-
 	}
-
 }

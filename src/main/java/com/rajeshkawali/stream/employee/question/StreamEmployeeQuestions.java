@@ -280,13 +280,27 @@ public class StreamEmployeeQuestions {
 		System.out.println("Younger employees: " + youngerEmployees);
 		System.out.println("Older employees: " + olderEmployees);
 		System.out.println("--------------------------------------------------------------------------------44");
-		
+		System.out.println("Separate the Words starting with vowels and consonants.");
+		List<String> words = Arrays.asList("Apple", "Banana", "Carrot", "Dog", "Elephant", "Fish");
+        // Using Collectors.partitioningBy() to partition the words into starting with vowels and consonants
+        Map<Boolean, List<String>> partitionedWords = words.stream()
+        		.collect(Collectors.partitioningBy(s -> "AEIOUaeiou".indexOf(s.charAt(0)) >= 0));
+        // Printing the words that start with vowels
+		System.out.println("Words starting with vowels: " + partitionedWords.get(true));
+		// Printing the words that start with consonants
+		System.out.println("Words starting with consonants: " + partitionedWords.get(false));
 		System.out.println("--------------------------------------------------------------------------------45");
-		
+		System.out.println("Separate the numbers by  even and Odd.");
+		List<Integer> number1 = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+		// Using partitioningBy() to group the numbers into even and odd
+		Map<Boolean, List<Integer>> evenOddGroups = number1.stream()
+				.collect(Collectors.partitioningBy(n -> n % 2 == 0));
+		System.out.println("Even Numbers: " + evenOddGroups.get(true));
+		System.out.println("Odd Numbers: " + evenOddGroups.get(false));
 		System.out.println("--------------------------------------------------------------------------------46");
-		
+
 		System.out.println("--------------------------------------------------------------------------------47");
-		
+
 		System.out.println("--------------------------------------------------------------------------------48");
 		
 		System.out.println("--------------------------------------------------------------------------------49");
