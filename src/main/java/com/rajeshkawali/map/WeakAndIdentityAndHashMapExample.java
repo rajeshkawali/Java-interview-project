@@ -109,12 +109,28 @@ class Key {
 }
 
 /*
+WeakHashMap, IdentityHashMap, and HashMap are all implementations of the Map interface in Java, 
+but they have different characteristics and use cases:-->
 
-1) IdentityHashMap uses equality operator "==" for comparing keys and values inside Map while WeakHashMap uses equals method for comparing keys and values.
+1.HashMap: is the standard implementation of the Map interface in Java. 
+It uses the hashCode() and equals() methods of the keys to determine 
+equality and store the key-value pairs in a hash table. HashMap is suitable 
+for most use cases and is the most commonly used implementation of the Map interface.
 
-2) IdentityHashMap also doesn't use hashCode() instead it uses System.identityHashCode(object).
+2.WeakHashMap: is similar to HashMap, but it uses weak references for the keys. 
+This means that if the only reference to a key is held by a WeakHashMap, 
+the key can be garbage collected. This makes WeakHashMap useful for caching, 
+where you want to automatically remove entries that are no longer being used.
 
-3) IdentityHashMap doesn't require keys to be immutable as it is not relied on equals and hashCode.
+3.IdentityHashMap: is also similar to HashMap, but it uses the == operator to compare keys 
+instead of the equals() method. This means that two keys are considered equal only 
+if they are the same object, not just equal according to the equals() method. 
+This makes IdentityHashMap useful in situations where you need to use object 
+identity to compare keys, such as when working with proxy objects.
 
-4) IdentityHashMap doesn't use equals() its comparatively faster than HashMap for object with expensive equals() and hashCode().
+In summary:-->
+HashMap uses hashCode() and equals() methods of the keys to determine equality and store the key-value pairs in a hash table.
+WeakHashMap uses weak references for the keys, making the keys eligible for garbage collection if the only reference to a key is held by the WeakHashMap.
+IdentityHashMap uses == operator to compare keys, making two keys equal only if they are the same object.
+
 */

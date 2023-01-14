@@ -9,7 +9,8 @@ import java.util.IdentityHashMap;
 //4. IdentityHashMap implements Map, Serializable and Clonable interfaces and extends AbstractMap class.
 
 /**
-@author Rajesh_Kawali
+ * 
+ * @author Rajesh_Kawali
  *
  */
 public class IdentityHashMapMain {
@@ -48,7 +49,17 @@ public class IdentityHashMapMain {
 }
 
 /*
+1) IdentityHashMap uses equality operator "==" for comparing keys and values inside Map while WeakHashMap uses equals method for comparing keys and values.
 
+2) IdentityHashMap also doesn't use hashCode() instead it uses System.identityHashCode(object).
+
+3) IdentityHashMap doesn't require keys to be immutable as it is not relied on equals and hashCode.
+
+4) IdentityHashMap doesn't use equals() its comparatively faster than HashMap for object with expensive equals() and hashCode().
+*/
+
+
+/*
 1) IdentityHashMap uses equality operator "==" for comparing keys and values
 inside Map while WeakHashMap uses equals method for comparing keys and
 values.
@@ -69,5 +80,5 @@ you should use Collections.synchronizedMap(IdentityHashMap) to wrap the map in a
 
 7) IdentityHashMap is generally slower than HashMap, because it uses reference-equality comparisons 
 instead of object-equality comparisons.
+*/
 
- */
