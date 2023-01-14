@@ -15,6 +15,11 @@ public class DequeMain {
 		The Deque is related to the double-ended queue that supports addition or removal of elements 
 		from either end of the data structure, it can be used as a queue (first-in-first-out/FIFO) 
 		or as a stack (last-in-first-out/LIFO).
+		
+		Deque (double-ended queue) interface extends the Queue interface and 
+		represents a data structure that allows insertion and removal of elements from both ends. 
+		It is a subtype of Queue that supports insertion, removal, and inspection of elements at both the front 
+		and back of the queue. Some common implementation classes for Deque are ArrayDeque and LinkedList.
 	*/
 	
     //1.add(element): Adds an element to the tail.
@@ -33,6 +38,7 @@ public class DequeMain {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) {
 		Deque deque = new LinkedList<>();
+		//Deque<String> deque = new ArrayDeque<>();
 
 		// We can add elements to the queue in various ways
 		deque.add("Element 1 (Tail)"); // add to tail
@@ -44,6 +50,24 @@ public class DequeMain {
 		deque.offerLast("Element 7 (Tail)");
 
 		System.out.println(deque + "\n");
+		
+		// remove elements from the Deque
+		deque.pollFirst();
+		deque.pollLast();
+
+        // inspect elements at the front and back of the Deque
+        System.out.println("First element: " + deque.peekFirst());
+        System.out.println("Last element: " + deque.peekLast());
+        
+     // remove elements from the Deque
+        deque.removeFirst();
+        deque.removeLast();
+        deque.pollFirst();
+        deque.pollLast();
+
+        // inspect elements at the front and back of the Deque
+        System.out.println("First element: " + deque.getFirst());
+        System.out.println("Last element: " + deque.getLast());
 
 		// Iterate through the queue elements.
 		System.out.println("Standard Iterator");
@@ -65,14 +89,38 @@ public class DequeMain {
 		System.out.println("Pop " + deque.pop());
 		System.out.println("After pop: " + deque);
 
+		deque.add("Element 3 (Tail)"); 
 		// We can check if a specific element exists in the deque
 		System.out.println("Contains element 3: " + deque.contains("Element 3 (Tail)"));
 
+		deque.addFirst("Element 2 (Head)");
+		deque.addLast("Element 3 (Tail)");
+		
 		// We can remove the first / last element.
 		deque.removeFirst();
 		deque.removeLast();
 		System.out.println("Deque after removing " + "first and last: " + deque);
-
+		System.out.println("-----------------------------------------------");
 	}
-
 }
+/*
+Here are some key points to remember when using the Deque interface in Java:-->
+
+Deque is a double-ended queue, which means elements can be inserted and removed from both ends.
+
+Common implementation classes for Deque include ArrayDeque and LinkedList.
+
+To add elements to the Deque, you can use methods such as addFirst(), addLast(), offerFirst(), and offerLast().
+
+To remove elements from the Deque, you can use methods such as removeFirst(), removeLast(), pollFirst(), and pollLast().
+
+To inspect elements at the front and back of the Deque, you can use methods such as getFirst(), getLast(), peekFirst(), and peekLast().
+
+When removing or inspecting elements from the Deque, it's important to check if the Deque is empty. removeFirst(), removeLast(), getFirst(), getLast() will throw NoSuchElementException if deque is empty, you can use pollFirst(), pollLast(), peekFirst(), peekLast() which will return null if deque is empty.
+
+To control the concurrency of a Deque you can use the synchronizedDeque() method of the Collections class to create a thread-safe version of a Deque.
+
+The Deque interface also provides some additional methods such as push(), pop(), descendingIterator() which are useful in certain use cases.
+
+You should also consider the performance characteristics of different Deque implementations when choosing an implementation class. For example, ArrayDeque is typically faster for certain operations than LinkedList.
+*/

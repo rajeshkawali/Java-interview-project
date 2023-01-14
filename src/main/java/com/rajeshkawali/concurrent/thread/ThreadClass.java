@@ -56,3 +56,51 @@ public boolean isAlive():- returns true if the thread is alive, false otherwise.
 public static void sleep(long millis):- causes the current thread to sleep for the specified number of milliseconds.
 public static void sleep(long millis, int nanos):- causes the current thread to sleep for the specified number of milliseconds and nanoseconds.
 */
+
+/*
+Multithreading refers to the ability of a program or a platform to handle more 
+than one thread of execution simultaneously. Java provides built-in support for 
+multithreading through the java.util.concurrent package and the java.util.concurrent.atomic package.
+---------------------------------------------------
+The main classes for multithreading in Java are:-->
+---------------------------------------------------
+Thread: The Thread class allows a programmer to create a new thread of execution.
+Runnable: The Runnable interface is used to create a task that can be executed by a Thread.
+Executor: The Executor interface is used to execute Runnable tasks.
+ExecutorService: The ExecutorService interface is a subinterface of Executor and provides methods to manage termination and methods that can produce a Future for tracking progress of one or more asynchronous tasks.
+Future: The Future interface is used to represent the result of an asynchronous computation.
+Callable: The Callable interface is similar to Runnable, but it can return a value and throw a checked exception.
+CountDownLatch: The CountDownLatch class allows one or more threads to wait for a set of operations to complete.
+CyclicBarrier: The CyclicBarrier class allows a set of threads to all wait for each other to reach a common barrier point.
+Semaphore: The Semaphore class controls access to a shared resource through the use of a counter.
+ThreadPoolExecutor: The ThreadPoolExecutor class is an implementation of the ExecutorService interface that can be used to manage a pool of threads. It allows you to set the size of the thread pool, the maximum size, the keep-alive time for idle threads, and the queue to hold tasks that are waiting to be executed.
+ScheduledThreadPoolExecutor: The ScheduledThreadPoolExecutor class is a specialized implementation of the ThreadPoolExecutor that can be used to schedule tasks to run at a later time, either once or repeatedly.
+ThreadLocal: The ThreadLocal class is used to create variables that are specific to a thread. This means that each thread has its own copy of the variable, and changes made to the variable by one thread do not affect the other threads.
+BlockingQueue: The BlockingQueue interface represents a queue that is thread-safe and can block the put and take operations.
+LinkedBlockingQueue: The LinkedBlockingQueue class is an implementation of the BlockingQueue interface that is based on linked nodes.
+PriorityBlockingQueue: The PriorityBlockingQueue class is an implementation of the BlockingQueue interface that orders its elements according to their natural ordering or according to a provided comparator.
+ArrayBlockingQueue: The ArrayBlockingQueue class is an implementation of the BlockingQueue interface that is based on an array.
+Lock: The Lock interface provides a way to lock and unlock a shared resource, similar to synchronized blocks.
+ReentrantLock: The ReentrantLock class is an implementation of the Lock interface that can be used to provide exclusive access to a shared resource.
+ReadWriteLock: The ReadWriteLock interface provides a mechanism for multiple threads to read a shared resource simultaneously, while only allowing one thread to write to the resource at a time.
+ReentrantReadWriteLock: The ReentrantReadWriteLock class is an implementation of the ReadWriteLock interface that can be used to provide concurrent access to a shared resource for multiple readers and exclusive access for a single writer.
+StampedLock: The StampedLock class is a more advanced lock that provides different modes of lock, such as optimistic read mode and write mode, that can be used to improve performance in some cases.
+Phaser: The Phaser class is a synchronization aid that allows a set of threads to all wait for each other to reach a common barrier point, similar to CyclicBarrier.
+ForkJoinPool: The ForkJoinPool class is a special kind of ExecutorService that is designed to take advantage of multiple processors and allows you to split a large task into smaller, more manageable subtasks that can be executed in parallel.
+ForkJoinTask: The ForkJoinTask is the base class for tasks that can be executed by a ForkJoinPool.
+RecursiveAction: The RecursiveAction is a task that does not return a result, similar to a Runnable.
+RecursiveTask: The RecursiveTask is a task that returns a result, similar to a Callable.
+ForkJoinWorkerThread: The ForkJoinWorkerThread is a Thread that is managed by a ForkJoinPool and is used to execute ForkJoinTask.
+CompletableFuture: The CompletableFuture is a class that represents the result of an asynchronous computation and allows you to chain together multiple asynchronous operations and handle the results of those operations when they are complete.
+CompletionStage: The CompletionStage is an interface that represents the result of an asynchronous computation and allows you to chain together multiple asynchronous operations.
+CompletableFuture.allOf(): This method is used to run multiple completableFuture in parallel and return when all of them are completed.
+CompletableFuture.anyOf(): This method is used to run multiple completableFuture in parallel and return the first one that is completed.
+ThreadFactory: The ThreadFactory is an interface that is used to create new Threads.
+ThreadPoolExecutor.AbortPolicy: The AbortPolicy is a predefined policy that is used to handle cases where the thread pool is unable to process a task.
+ThreadPoolExecutor.CallerRunsPolicy: The CallerRunsPolicy is a predefined policy that is used to handle cases where the thread pool is unable to process a task.
+ThreadPoolExecutor.DiscardOldestPolicy: The DiscardOldestPolicy is a predefined policy that is used to handle cases where the thread pool is unable to process a task.
+ThreadPoolExecutor.DiscardPolicy: The DiscardPolicy is a predefined policy that is used to handle cases where the thread pool is unable to process a task.
+ThreadPoolExecutor.RejectedExecutionHandler: The RejectedExecutionHandler is an interface that is used to handle cases where the thread pool is unable to process a task.
+Executors: This class provide factory methods for creating various types of ExecutorServices, ScheduledExecutorServices and ThreadFactories.
+
+*/

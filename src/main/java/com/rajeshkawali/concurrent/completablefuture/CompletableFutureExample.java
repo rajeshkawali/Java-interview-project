@@ -12,9 +12,13 @@ public class CompletableFutureExample {
 
 	public static void main(String[] args) throws Exception {
 		/*
-		 CompletableFuture is a class that represents the result of an asynchronous computation. 
-		 It allows you to write asynchronous code in a way that is more similar to synchronous code, 
-		 using a fluent API and method chaining.
+		 CompletableFuture is a class that represents the result of an asynchronous computation.
+		  
+		 CompletableFuture is a class in Java that provides a powerful and flexible framework 
+		 for asynchronous programming. It allows you to create and manage asynchronous tasks 
+		 and chains of dependent tasks. A CompletableFuture instance represents the result of 
+		 an asynchronous computation, and can be used to compose, combine and chain multiple 
+		 asynchronous operations together.
 		 */
 		//CompletableFuture<String> completableFuture = new CompletableFuture<>();
 		System.out.println("------------------------------------------------------");
@@ -150,6 +154,45 @@ public class CompletableFutureExample {
 		System.out.println(order);
 	}
 }
+
+/*
+CompletableFuture and Future are related but distinct concepts in Java:-->
+
+Future: is an interface that represents the result of an asynchronous computation. 
+It has methods to check if the computation is complete, to retrieve the result, 
+and to cancel the computation. A Future is returned by the submit() 
+method of the Executor and ExecutorService interfaces.
+
+CompletableFuture: on the other hand, is a concrete implementation of the 
+Future interface that provides additional functionality for managing and 
+chaining asynchronous tasks. It has several factory methods for creating and 
+executing asynchronous tasks, such as supplyAsync(), runAsync(), completedFuture(), etc. 
+It also has methods for composing, combining and chaining multiple 
+tasks together, handling errors, and more.
+
+----------------------------------------------------------------------
+Here are some key differences between Future and CompletableFuture:-->
+----------------------------------------------------------------------
+1.Future is an interface, while CompletableFuture is an implementation of that interface.
+
+2.Future provides basic functionality for retrieving the result of an asynchronous computation 
+and checking if it's done, while CompletableFuture provides additional 
+functionality for managing and chaining asynchronous tasks.
+
+3.Future does not provide any methods for handling errors, while CompletableFuture provides 
+several methods for handling errors and exceptions, such as exceptionally(), handle(), whenComplete().
+
+4.Future is returned by the submit() method of the Executor and ExecutorService interfaces, 
+while CompletableFuture can be created using factory methods, such as supplyAsync(), runAsync(), completedFuture().
+
+5.Future is a blocking call, while CompletableFuture is non-blocking, it has get() method 
+which is blocking call, but also has several non-blocking methods like thenApply(), thenAccept(), thenRun() etc.
+
+6.It's worth noting that CompletableFuture is available in Java 8 and later, while Future is 
+available in earlier versions of Java as well.
+*/
+
+
 /*
   Limitations of Future:-->
   
@@ -190,3 +233,4 @@ public class CompletableFutureExample {
   
 */
  
+

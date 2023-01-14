@@ -29,5 +29,5 @@ public class SingleTonDoubleCheck {
 /*
 we overcome the overhead problem of synchronized code. 
 In this method, getInstance is not synchronized but the block which creates instance is synchronized 
-so that minimum number of threads have to wait and that’s only for first time.
+so that minimum number of threads have to wait and that's only for first time.
 */

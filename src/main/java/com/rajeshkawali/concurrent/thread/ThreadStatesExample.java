@@ -3,6 +3,7 @@ package com.rajeshkawali.concurrent.thread;
 /**
 *
 * @author Rajesh_Kawali
+* 
 */
 public class ThreadStatesExample {
 	
@@ -50,7 +51,16 @@ public class ThreadStatesExample {
 		}
 	}
 }
+/*
+A Thread in a Java program can be in one of the following states:-
 
+NEW:- the thread has been created, but has not yet started.
+RUNNABLE:- the thread is executing in the Java Virtual Machine (JVM).
+BLOCKED:- the thread is blocked and waiting for a monitor lock.
+WAITING:- the thread is waiting indefinitely for another thread to perform a particular action.
+TIMED_WAITING:- the thread is waiting for another thread to perform an action for up to a specified waiting time.
+TERMINATED:- the thread has completed execution.
+*/
 
 /*
 In this example, we create a new thread and print out its state at various points in time, 

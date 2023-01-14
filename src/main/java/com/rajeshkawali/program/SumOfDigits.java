@@ -18,6 +18,5 @@ public class SumOfDigits {
 			number = number / 10; // This will remove the last digit
 		}
 		System.out.println("\nSum Of Digits=" + sum);
-
 	}
 }
