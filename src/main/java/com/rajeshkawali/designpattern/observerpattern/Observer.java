@@ -6,7 +6,7 @@ package com.rajeshkawali.designpattern.observerpattern;
  */
 public interface Observer {
 
-	void update();
+	void update(String channelName);
 
 	void subscribeChannel(Channel ch);
 

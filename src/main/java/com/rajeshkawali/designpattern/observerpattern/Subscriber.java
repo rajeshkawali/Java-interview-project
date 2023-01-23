@@ -5,16 +5,17 @@ package com.rajeshkawali.designpattern.observerpattern;
  *
  */
 public class Subscriber implements Observer {
+	
 	private String name;
-	private Channel channel = new Channel();
+	private Channel channel = new Channel("Java Channel");
 
 	public Subscriber(String name) {
 		this.name = name;
 	}
 
 	@Override
-	public void update() {
-		System.out.println("Hi " + name + ", Video Uploaded :" + channel.title);
+	public void update(String videoTitleName) {
+		System.out.println("Hi " + name + ", Video Uploaded :" + videoTitleName);
 	}
 
 	@Override

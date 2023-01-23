@@ -18,7 +18,7 @@ public class YoutubeMainClass {
 	*/
 	public static void main(String[] args) {
 
-		Channel channel = new Channel();
+		Channel channel = new Channel("Java Channel");
 
 		//Users or Subscriber
 		Subscriber subscriber1 = new Subscriber("Rajesh");

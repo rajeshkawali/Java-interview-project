@@ -18,10 +18,10 @@ public class Channel implements Subject {
 
 	*/
 	private List<Subscriber> subscribers;
-	// removed private from String title just to access the values in main class
-	String title;
+	private String videoTitleName;
 
-	public Channel() {
+	public Channel(String videoTitleName) {
+		this.videoTitleName = videoTitleName;
 		subscribers = new ArrayList<Subscriber>();
 	}
 
@@ -38,13 +38,13 @@ public class Channel implements Subject {
 	@Override
 	public void notifySubscriber() {
 		for (Observer subscriber : subscribers) {
-			subscriber.update();
+			subscriber.update(videoTitleName);
 		}
 	}
 
 	@Override
-	public void upload(String title) {
-		this.title = title;
+	public void upload(String videoTitleName) {
+		this.videoTitleName = videoTitleName;
 		notifySubscriber();
 	}
 
