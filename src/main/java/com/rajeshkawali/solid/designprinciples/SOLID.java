@@ -1,4 +1,4 @@
-package com.rajeshkawali.designprinciples.solid;
+package com.rajeshkawali.solid.designprinciples;
 
 public class SOLID {
 /*

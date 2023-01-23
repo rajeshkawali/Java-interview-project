@@ -1,4 +1,4 @@
-package com.rajeshkawali.designprinciples.solid;
+package com.rajeshkawali.solid.designprinciples;
 
 abstract class Shape {
 	public abstract double calculateArea();

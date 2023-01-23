@@ -89,3 +89,11 @@ public class ComparatorTest {
         }
 	}
 }
+/*
+In summary:
+
+Comparable is an interface that can be implemented by a class to define its natural ordering.
+Comparator is an interface that can be implemented by a separate class to define a custom ordering of objects.
+Comparable is used when the natural order of the class objects is sufficient and it's convenient to change the ordering by modifying the class.
+Comparator is used when the natural ordering of the class objects is not sufficient and we need a separate class for ordering.
+*/

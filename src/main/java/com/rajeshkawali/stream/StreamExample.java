@@ -91,3 +91,53 @@ close(): Closes this stream, causing all close handlers for this stream pipeline
 
 
 */
+
+/*
+Terminal operations of Stream API:-->
+
+The Stream API in Java provides several terminal operations, 
+which are operations that consume the stream and return a 
+result or a side-effect. Terminal operations are the end of the Stream pipeline.
+
+forEach: Performs an action for each element of the stream.
+toArray: Returns an array containing the elements of the stream.
+reduce: Combines all elements of the stream into a single value using a specified accumulator function.
+collect: Collects the elements of the stream into a container, such as a List or Set.
+min and max: Returns the minimum or maximum element of the stream according to the natural ordering or a provided comparator.
+count: Returns the number of elements in the stream.
+anyMatch, allMatch, noneMatch: These operations return a boolean value indicating if any, all, or none of the elements in the stream match a given predicate.
+findFirst and findAny: Returns an Optional describing the first or any element of the stream that matches a given predicate.
+------------------------------------------------------------------------------------------------------------
+Intermediate operations of Stream API:-->
+
+The Stream API in Java also provides several intermediate operations, 
+which are operations that transform a stream into another stream. 
+These operations are called intermediate because they do not consume 
+the stream and they allow further operations to be performed on the resulting stream. 
+
+filter: Returns a stream containing only the elements that match a given predicate.
+map: Returns a stream consisting of the results of applying a given function to the elements of the stream.
+flatMap: Returns a stream consisting of the elements of the stream obtained by replacing each element with the contents of a mapped stream produced by applying a given function.
+distinct: Returns a stream consisting of the distinct elements of the stream.
+sorted: Returns a stream consisting of the elements of the stream in sorted order.
+peek: Returns a stream consisting of the elements of this stream, additionally performing the provided action on each element as elements are consumed from the resulting stream.
+limit: Returns a stream consisting of the elements of this stream, truncated to be no longer than maxSize in length.
+skip: Returns a stream consisting of the remaining elements of this stream after discarding the first n elements of the stream.
+------------------------------------------------------------------------------------------------------------
+Short circuiting operations of Stream API:-->
+
+The Stream API in Java also provides several short-circuiting operations, 
+which are intermediate operations that allow the evaluation of a stream to be 
+stopped as soon as the desired result is found. These operations are called 
+short-circuiting because they don't evaluate the entire stream, 
+they stop when they find the first match. 
+
+anyMatch: Returns a boolean value indicating if any elements of the stream match a given predicate.
+allMatch: Returns a boolean value indicating if all elements of the stream match a given predicate.
+noneMatch: Returns a boolean value indicating if no elements of the stream match a given predicate.
+findFirst: Returns an Optional describing the first element of the stream.
+findAny: Returns an Optional describing any element of the stream.
+limit: Returns a stream consisting of the elements of this stream, truncated to be no longer than maxSize in length.
+skip: Returns a stream consisting of the remaining elements of this stream after discarding the first n elements of the stream.
+
+*/

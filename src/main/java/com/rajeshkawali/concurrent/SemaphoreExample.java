@@ -10,7 +10,8 @@ import java.util.logging.Logger;
 public class SemaphoreExample {
 	/*
 	 Semaphore is a concurrency utility that controls the access of multiple threads to a shared resource. 
-	 It is a counting semaphore, which means that it has a set of permits that are granted to threads that want to access the shared resource.
+	 It is a counting semaphore, which means that it has a set of permits 
+	 that are granted to threads that want to access the shared resource.
 	 
 	 The Semaphore class is useful for limiting the number of threads that can access a 
 	 shared resource concurrently and for coordinating the access of multiple threads to the resource.

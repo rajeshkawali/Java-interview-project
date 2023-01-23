@@ -14,9 +14,12 @@ public class SupplierExample {
     }
 }
 /*
-Supplier interface is a functional interface that returns a single output value. It is part of the java.util.function package, and it has a single abstract method T get().
+Supplier interface is a functional interface that returns a single output value. 
+It is part of the java.util.function package, and it has a single abstract method T get().
 
 Some of the static methods of the Supplier interface include:
 
-get() : it returns the output value from a supplier. which can be used to get a value of the specified type. It does not have any other methods or any static methods.
+get() : it returns the output value from a supplier. 
+which can be used to get a value of the specified type. 
+It does not have any other methods or any static methods.
 */

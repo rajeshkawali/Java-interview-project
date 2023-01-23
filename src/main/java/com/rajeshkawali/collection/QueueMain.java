@@ -9,6 +9,11 @@ import java.util.Queue;
  */
 public class QueueMain {
 
+	/*
+	Queue is a collection in Java that represents a waiting line of elements. 
+	It follows the FIFO (First-In-First-Out) ordering, 
+	which means that the first element added to the queue is the first one to be removed.
+	*/
 
    // 1.Add()-Adds an element at the tail of queue. More specifically, at the last of linkedlist if it is used, or according to the priority in case of priority queue implementation.
    // 2.peek()-To view the head of queue without removing it. Returns null if queue is empty.
@@ -56,3 +61,22 @@ public class QueueMain {
 		System.out.println("Does the queue contain 'Monday'? " + myQueue.contains("Monday"));
 	}
 }
+/*
+Here is a list of some of the common methods of the Queue interface in Java:-->
+
+add(E e): Adds the specified element to the end of the queue. Throws an IllegalStateException if the queue is full.
+offer(E e): Adds the specified element to the end of the queue. Returns true if the element was added successfully, false if the queue is full.
+remove(): Retrieves and removes the head of the queue (the first element added). Throws a NoSuchElementException if the queue is empty.
+poll(): Retrieves and removes the head of the queue (the first element added). Returns null if the queue is empty.
+element(): Retrieves, but does not remove, the head of the queue. Throws a NoSuchElementException if the queue is empty.
+peek(): Retrieves, but does not remove, the head of the queue. Returns null if the queue is empty.
+size(): Returns the number of elements in the queue.
+
+It's worth noting that the Queue interface extends the Collection interface, 
+so it also inherits methods such as isEmpty(), contains(), clear(), etc.
+
+It's also worth noting that some of the Queue implementations have specific methods, 
+like put() and take() methods in BlockingQueue, drainTo() method in Queue and 
+offer(E e, long timeout, TimeUnit unit) and poll(long timeout, TimeUnit unit) 
+in BlockingQueue which are not available in other implementations.
+*/

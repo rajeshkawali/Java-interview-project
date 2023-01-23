@@ -11,6 +11,13 @@ public class StackMain {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) {
 		
+		/*
+		Stack is a collection in Java that represents a last-in-first-out (LIFO) ordering of elements. 
+		It is a specialized form of a Vector, and it has a similar API. 
+		The main difference between a Stack and a Vector is that the Stack class provides a 
+		small number of additional methods to push and pop elements from the stack.
+		*/
+		
 		// 1.It allows multiple null elements.
 		// 2.Duplicates elements are allowed.
 		// 3.Insertion order are preserved.
@@ -21,7 +28,6 @@ public class StackMain {
 		// 8.Stack is Synchronized.
 		// 9.class represents a last-in-first-out (LIFO) stack of objects.
 		// 10.Stack class is thread safe. All methods of Stack class are synchronized so that only one thread can execute them at any given time.
-							
 		
 		Stack stack = new Stack();
 		System.out.println("Size of stack at creation: " + stack.size());
@@ -58,5 +64,16 @@ public class StackMain {
             System.out.println(en.nextElement());
         }
 	}
-
 }
+/*
+Here is a list of some of the common methods of the Stack class in Java:-->
+
+push(E e): Pushes an element onto the top of the stack.
+pop(): Removes and returns the top element of the stack.
+peek(): Returns the top element of the stack without removing it.
+empty(): Returns true if the stack is empty, false otherwise.
+search(Object o): Returns the 1-based position of the specified element in the stack, with the top element being considered as position 1.
+capacity(): Returns the current capacity of the stack.
+ensureCapacity(int minCapacity): Increases the capacity of the stack, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.
+trimToSize(): Trims the capacity of the stack to be the stack's current size.
+*/

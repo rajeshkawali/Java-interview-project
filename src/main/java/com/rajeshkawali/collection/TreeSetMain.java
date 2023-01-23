@@ -23,7 +23,6 @@ public class TreeSetMain {
 		// 10.TreeSet is not synchronized. To get a synchronized TreeSet, use Collections.synchronizedSortedSet() method.
 		// 11.TreeSet does not use hashing for storing Element. It internally uses TreeMap(data structure called "Red-Black tree").	
 		
-		
 		TreeSet ts = new TreeSet();
 		System.out.println("Size of TreeSet Before adding Objects :"+ts.size()); // zero
 		

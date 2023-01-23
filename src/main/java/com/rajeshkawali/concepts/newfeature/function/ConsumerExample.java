@@ -22,11 +22,16 @@ public class ConsumerExample {
 	}
 }
 /*
-Consumer interface is a functional interface that takes a single input parameter and performs a certain action, it does not return any value. It is part of the java.util.function package, and it has a single abstract method void accept(T t).
+Consumer interface is a functional interface that takes a single input parameter and performs a certain action, 
+it does not return any value. It is part of the java.util.function package, 
+and it has a single abstract method void accept(T t).
 
 Some of the default methods of the Consumer interface include:
 
-andThen(Consumer<T> after) : Returns a composed Consumer that performs, in sequence, this operation followed by the after operation. This method allows you to chain multiple consumers together, where the first consumer is applied first, and the result is passed as an input to the second consumer.
+andThen(Consumer<T> after) : Returns a composed Consumer that performs, 
+in sequence, this operation followed by the after operation. This method allows you to 
+chain multiple consumers together, where the first consumer is applied first, and the 
+result is passed as an input to the second consumer.
 
 accept(T t) : it applies the consumer function on the input and does not return any value.
 */

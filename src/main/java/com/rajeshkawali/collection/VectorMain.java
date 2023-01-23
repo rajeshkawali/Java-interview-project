@@ -25,7 +25,6 @@ public class VectorMain {
 		// 11.Vector class is that it is thread safety. All methods of Vector class are synchronized so that only one thread can execute them at any given time.
 		// 12.Vector class effects the performance of an application as it makes threads to wait for object lock.
 		
-		
 		Vector v = new Vector();
 		System.out.println("Size of Vector at creation: " + v.size());
 		System.out.println("Capacity Before adding Objects is: "+v.capacity());
