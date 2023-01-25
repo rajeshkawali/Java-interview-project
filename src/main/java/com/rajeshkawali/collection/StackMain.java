@@ -77,3 +77,36 @@ capacity(): Returns the current capacity of the stack.
 ensureCapacity(int minCapacity): Increases the capacity of the stack, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.
 trimToSize(): Trims the capacity of the stack to be the stack's current size.
 */
+
+/*
+In Java, Stack is a class that implements the Stack interface and extends the Vector class. 
+It represents a last-in-first-out (LIFO) stack of objects. It's similar to a Vector, 
+but it implements a few additional methods that are specific to the stack data structure.
+
+Stack provides the following methods:-->
+
+push(E item): Pushes an item onto the top of this stack.
+pop(): Removes the object at the top of this stack and returns that object as the value of this function.
+peek(): Looks at the object at the top of this stack without removing it from the stack.
+empty(): Tests if this stack is empty.
+It's useful when you need a LIFO data structure, and you want to perform operations like push, pop and peek.
+
+In summary, Stack is a class that implements the Stack interface and 
+extends the Vector class. It represents a last-in-first-out (LIFO) 
+stack of objects and it provides the methods push, pop, peek and empty. 
+It's useful when you need a LIFO data structure, and you want to 
+perform operations like push, pop and peek.
+*/
+
+
+/*
+Stack is a class in Java that implements the Stack interface and extends the Vector class.
+It represents a last-in-first-out (LIFO) stack of objects.
+It provides the following methods: push(E item), pop(), peek(), and empty().
+push(E item): Pushes an item onto the top of the stack.
+pop(): Removes the object at the top of this stack and returns that object as the value of this function.
+peek(): Looks at the object at the top of this stack without removing it from the stack.
+empty(): Tests if this stack is empty.
+It's useful when you need a LIFO data structure, and you want to perform operations like push, pop and peek.
+Stack is not thread-safe, so if multiple threads are accessing the same Stack object and at least one of them modifies the stack, there is a risk of data corruption.
+*/

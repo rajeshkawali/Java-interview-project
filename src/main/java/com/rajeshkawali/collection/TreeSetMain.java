@@ -59,3 +59,39 @@ public class TreeSetMain {
 		}
 	}
 }
+
+/*
+In Java, TreeSet is a class that implements the SortedSet interface and extends 
+the AbstractSet class. It is a set that is ordered according to the natural 
+ordering of its elements or by a Comparator provided at the time of creation. 
+It uses a balanced tree data structure (typically a Red-Black Tree) to store the elements.
+
+TreeSet provides a total ordering of its elements, which means that the elements 
+are sorted in ascending order. This makes it useful for maintaining a sorted set 
+of elements and for performing range searches and other operations that depend on the ordering of the elements.
+
+TreeSet also provides additional methods like subSet(E fromElement, E toElement) which 
+returns a view of the portion of this set whose elements range from fromElement, 
+inclusive, to toElement, exclusive.
+
+It's useful when the order of elements is important and also when you need to 
+perform operations like range search, first, last, lower, higher, floor and ceiling.
+
+In summary, TreeSet is a class that implements the SortedSet interface, it 
+uses a balanced tree data structure (typically a Red-Black Tree) to store the 
+elements and provides a total ordering of its elements. It's useful when the order 
+of elements is important and when you need to perform operations like range search, 
+first, last, lower, higher, floor and ceiling.
+*/
+
+
+/*
+TreeSet is a class in Java that implements the SortedSet interface and extends the AbstractSet class.
+It is a set that is ordered according to the natural ordering of its elements or by a Comparator provided at the time of creation.
+It uses a balanced tree data structure (typically a Red-Black Tree) to store the elements.
+TreeSet provides a total ordering of its elements, which means that the elements are sorted in ascending order.
+It's useful for maintaining a sorted set of elements and for performing range searches and other operations that depend on the ordering of the elements.
+TreeSet provides additional methods like subSet(E fromElement, E toElement) which returns a view of the portion of this set whose elements range from fromElement, inclusive, to toElement, exclusive.
+TreeSet is useful when the order of elements is important and also when you need to perform operations like range search, first, last, lower, higher, floor and ceiling.
+TreeSet is not thread-safe, so if multiple threads are accessing the same TreeSet object and at least one of them modifies the set, there is a risk of data corruption.
+*/
