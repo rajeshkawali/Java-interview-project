@@ -44,5 +44,15 @@ public class LinkedHashSetMain {
 			System.out.print(iterator.next()+", "); // B, C, E, K, null, 123, , M,
 		}
 	}
-
 }
+/*
+
+*/
+
+/*
+
+*/
+
+/*
+
+*/
