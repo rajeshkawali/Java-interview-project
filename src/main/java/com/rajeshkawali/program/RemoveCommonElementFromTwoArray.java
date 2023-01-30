@@ -1,7 +1,10 @@
 package com.rajeshkawali.program;
 
 import java.util.HashSet;
-
+/**
+ * @author Rajesh_Kawali
+ * 
+ */
 public class RemoveCommonElementFromTwoArray {
 
 	public static void main(String[] args) {

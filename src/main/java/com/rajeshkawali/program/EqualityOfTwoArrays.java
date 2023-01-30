@@ -1,8 +1,10 @@
 package com.rajeshkawali.program;
 
 import java.util.Arrays;
-
-// How To Check The Equality Of Two Arrays In Java?
+/**
+ * @author Rajesh_Kawali
+ * 
+ */
 public class EqualityOfTwoArrays {
 	public static void main(String[] args) {
 

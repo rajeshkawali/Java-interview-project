@@ -1,15 +1,18 @@
 package com.rajeshkawali.program;
 
+/**
+ * @author Rajesh_Kawali
+ * 
+ */
 public class ReverseStringWithPreservingSpace {
+	//To Reverse The String With Preserving The Position Of Spaces
 	public static void main(String[] args) {
 		reverseString("i am raj");
 	}
 
 	static void reverseString(String inputString) {
 		char[] inputStringArray = inputString.toCharArray();
-
 		char[] reverseStringArray = new char[inputStringArray.length];
-
 		for (int i = 0; i < inputStringArray.length; i++) {
 			if (inputStringArray[i] == ' ') {
 				reverseStringArray[i] = ' ';
@@ -26,6 +29,6 @@ public class ReverseStringWithPreservingSpace {
 				j--;
 			}
 		}
-		System.out.println(inputString + " ---> " + String.valueOf(reverseStringArray));
+		System.out.println(inputString + " --> " + String.valueOf(reverseStringArray));
 	}
 }

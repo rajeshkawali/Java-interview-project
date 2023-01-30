@@ -1,7 +1,10 @@
 package com.rajeshkawali.program;
 
 import java.util.Scanner;
-
+/**
+ * @author Rajesh_Kawali
+ * 
+ */
 public class PalindromOfNumber {
 
 	@SuppressWarnings("resource")

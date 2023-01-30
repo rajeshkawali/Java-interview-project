@@ -2,7 +2,10 @@ package com.rajeshkawali.program;
 
 import java.util.Scanner;
 
-// Fibonacci series program
+/**
+ * @author Rajesh_Kawali
+ * 
+ */
 public class FibonacciSeries {
 
 	@SuppressWarnings("resource")

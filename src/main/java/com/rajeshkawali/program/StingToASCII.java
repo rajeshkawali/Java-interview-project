@@ -1,6 +1,9 @@
 package com.rajeshkawali.program;
 
-// String to ASCII values
+/**
+ * @author Rajesh_Kawali
+ * 
+ */
 public class StingToASCII {
 	public static void main(String[] args) {
 		String str = "ABCDE";

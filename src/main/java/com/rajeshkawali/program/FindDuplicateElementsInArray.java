@@ -2,7 +2,10 @@ package com.rajeshkawali.program;
 
 import java.util.HashMap;
 
-//Find duplicate elements in array without using Map.
+/**
+ * @author Rajesh_Kawali
+ * 
+ */
 public class FindDuplicateElementsInArray {
 
 	public static void main(String[] args) {

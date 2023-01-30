@@ -2,7 +2,10 @@ package com.rajeshkawali.program;
 
 import java.util.Scanner;
 
-// Program to print prime number
+/**
+ * @author Rajesh_Kawali
+ * 
+ */
 public class PrimeNumber {
 
 	@SuppressWarnings("resource")

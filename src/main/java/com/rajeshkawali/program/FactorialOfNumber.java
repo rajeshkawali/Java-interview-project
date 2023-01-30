@@ -1,5 +1,8 @@
 package com.rajeshkawali.program;
-
+/**
+ * @author Rajesh_Kawali
+ * 
+ */
 public class FactorialOfNumber {
 
 	public static int factorial(int number) {
