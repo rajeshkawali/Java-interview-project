@@ -12,6 +12,12 @@ public class AdapterMain {
 	The Adapter pattern is useful when you want to reuse an existing 
 	class in a new context and the existing class does not conform 
 	to the interface expected by the new context.
+	
+	The Adapter design pattern that allows two incompatible objects to work together. 
+	It acts as a bridge between two objects, 
+	providing a standard interface for communication between them. 
+	The adapter pattern is useful in situations where an existing class 
+	cannot be used as is and requires modification to be used with another class.
 	*/
 	public static void main(String[] args) {
 		AudioPlayer audioPlayer = new AudioPlayer();

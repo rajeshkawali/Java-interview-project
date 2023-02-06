@@ -41,7 +41,5 @@ public class DictionaryMain {
 		System.out.println("\nRemove : " + geek.remove("123"));
 		System.out.println("Check the value of removed key : " + geek.get("123"));
 		System.out.println("\nSize of Dictionary : " + geek.size());
-
 	}
-
 }

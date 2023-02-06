@@ -70,13 +70,20 @@ Difference between ConcurrentHashMap and HashMap in java:-->
 
 The main difference between ConcurrentHashMap and HashMap in Java is that ConcurrentHashMap is thread-safe, while HashMap is not.
 
-HashMap is a regular implementation of the Map interface, which allows multiple threads to access the map at the same time, but there is a risk of data corruption if two or more threads try to modify the map simultaneously.
+HashMap is a regular implementation of the Map interface, which allows multiple threads to access the map at the same time, 
+but there is a risk of data corruption if two or more threads try to modify the map simultaneously.
 
-ConcurrentHashMap, on the other hand, is a thread-safe implementation of the Map interface, which uses a technique called "lock striping" to divide the map into segments and locks each segment separately. This allows multiple threads to access the map simultaneously without the risk of data corruption.
+ConcurrentHashMap, on the other hand, is a thread-safe implementation of the Map interface, 
+which uses a technique called "lock striping" to divide the map into segments and locks each segment separately. 
+This allows multiple threads to access the map simultaneously without the risk of data corruption.
 
-Additionally, ConcurrentHashMap also provides some advanced features like lock-free reads, weakly consistent iterators, and support for atomic operations which HashMap doesn't support.
+Additionally, ConcurrentHashMap also provides some advanced features like lock-free reads, 
+weakly consistent iterators, and support for atomic operations which HashMap doesn't support.
 
-In summary, if you need a map that can be accessed and modified by multiple threads at the same time, and you want to ensure that the data will not be corrupted, you should use ConcurrentHashMap. If you only need a map that can be accessed by multiple threads, and you don't mind the risk of data corruption, you can use HashMap.
+In summary, if you need a map that can be accessed and modified by multiple threads at the same time, 
+and you want to ensure that the data will not be corrupted, you should use ConcurrentHashMap. 
+If you only need a map that can be accessed by multiple threads, and you don't mind the 
+risk of data corruption, you can use HashMap.
 */
 
 

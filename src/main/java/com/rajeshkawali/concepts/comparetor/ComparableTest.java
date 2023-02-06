@@ -90,7 +90,28 @@ public class ComparableTest {
 					Employee [id=4, name=rajesh4, marks=42]
             */
         }
-
 	}
-
 }
+/*
+"Comparable" is an interface for defining the natural order of a class' objects
+"Comparable" requires implementation of "compareTo" method
+"Comparator" is an interface for defining multiple sorting orders for a class
+"Comparator" requires implementation of "compare" method
+"Comparable" is used by sorting algorithms and data structures for default sorting
+"Comparator" provides alternative to "Comparable" for multiple sorting orders.
+*/
+
+/*
+Difference between comparable and comparator in java :-->
+In Java, "Comparable" is an interface that is implemented by a class to allow its 
+objects to be compared to each other. The class must provide an implementation of 
+the "compareTo" method that defines the order of the objects. This is used by various 
+sorting algorithms and data structures, such as the "sort" method in the "Arrays" class.
+
+On the other hand, "Comparator" is an interface used to define multiple sorting 
+orders for a class. It provides an alternative to using the "compareTo" method provided 
+by the "Comparable" interface. A class can implement the "Comparator" interface and 
+provide a custom implementation of the "compare" method to define a sorting order. 
+This allows multiple sorting orders to be defined for a single class, and the 
+appropriate sorting order can be chosen at runtime.
+*/

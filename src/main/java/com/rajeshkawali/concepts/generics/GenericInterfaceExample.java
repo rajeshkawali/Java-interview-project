@@ -28,7 +28,7 @@ class GenericTwoImpl implements GenericInterfaceExample<Employee> {
 	}
 }
 
-//Passing Employee class to interface T.
+//Passing Object class to interface T.
 @SuppressWarnings("rawtypes")
 class GenericTreeImpl implements GenericInterfaceExample {
 	@Override

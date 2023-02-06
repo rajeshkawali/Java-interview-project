@@ -78,7 +78,11 @@ Difference between Serialization and Externalization
 2.In Serialization, JVM will have complete control in serializing the object. In Externalization, programmer will have complete control in serializing the object.
 3.Serializable is a marker interface so it doesn't contain any methods. Externalizable contain two methods i.e writeExternal and readExternal.
 4.If we implement Serializable interface, then during deserialization new object will not be created by executing any constructor. But if we implement Externalizable interface, then during deserialization new object will be created by executing No-arg Constructor.
-5.In Serializable interface, Serialization won�t happen if we declare a variable with transient keyword. So transient keyword play a major role in Serializable interface. But in Externalizable interface developers will have the complete control, so even if he declared variable with transient keyword and write that variable value in writeExternal method, then that variable state also will be serialized. So transient keyword doesn't play any role in Externalizable interface.
+5.In Serializable interface, Serialization won't happen if we declare a variable with transient keyword. 
+So transient keyword play a major role in Serializable interface. But in Externalizable interface developers 
+will have the complete control, so even if he declared variable with transient keyword and write that 
+variable value in writeExternal method, then that variable state also will be serialized. 
+So transient keyword doesn't play any role in Externalizable interface.
 
 */
 

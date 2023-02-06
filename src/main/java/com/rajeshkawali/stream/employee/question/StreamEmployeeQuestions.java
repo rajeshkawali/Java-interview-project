@@ -1,5 +1,7 @@
 package com.rajeshkawali.stream.employee.question;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -17,6 +19,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import com.rajeshkawali.model.Employee;
+import com.rajeshkawali.model.Gender;
 import com.rajeshkawali.util.EmployeeDB;
 
 /**
@@ -63,7 +66,7 @@ public class StreamEmployeeQuestions {
 		System.out.println("Employees are: " + employeeNamesJoin);
 		System.out.println("--------------------------------------------------------------------------------6");
 		// Given the list of employee, group them by employee gender ?
-		Map<String, List<Employee>> map = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender));
+		Map<Gender, List<Employee>> map = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender));
 		map.forEach((name, employeeListTemp) -> System.out.println("Name: " + name + " ==>" + employeeListTemp));
 		System.out.println("--------------------------------------------------------------------------------7");
 		// Print all the Employment History(Which is in List of List)
@@ -195,12 +198,12 @@ public class StreamEmployeeQuestions {
 		System.out.println(empLastNameDuplicate);
 		System.out.println("--------------------------------------------------------------------------------29");
 		//print unique last names of given employee list.
-		Set<String> empLastNameUnique = employeeList.stream().map(Employee::getLastName)
+		Set<String> empLastNameUnique = employeeList.stream().distinct().map(Employee::getLastName)
 				.collect(Collectors.toSet());
 				System.out.println(empLastNameUnique);
 		System.out.println("--------------------------------------------------------------------------------30");
 		System.out.println("How many male and female employees are there in the organization?");
-		Map<String, Long> gender = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+		Map<Gender, Long> gender = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
 		System.out.println(gender);
 		System.out.println("--------------------------------------------------------------------------------31");
 		System.out.println("Print the name of all departments in the organization?");
@@ -208,7 +211,7 @@ public class StreamEmployeeQuestions {
 		System.out.println(dept);
 		System.out.println("--------------------------------------------------------------------------------32");
 		System.out.println("What is the average age of male and female employees?");
-		Map<String, Double> genderMandF = employeeList.stream()
+		Map<Gender, Double> genderMandF = employeeList.stream()
 				.collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingLong(Employee::getAge)));
 		System.out.println(genderMandF);
 		System.out.println("--------------------------------------------------------------------------------33");
@@ -230,9 +233,9 @@ public class StreamEmployeeQuestions {
 		System.out.println("--------------------------------------------------------------------------------36");
 		System.out.println("Get the details of youngest male employee in the Software department?");
 		Optional<Employee> youngestEmp = employeeList.stream().filter(d->d.getDepartment().equals("software"))
-				.filter(g->g.getGender().equals("male")).collect(Collectors.minBy(Comparator.comparing(Employee::getAge)));
+				.filter(g->g.getGender().equals(Gender.MALE)).collect(Collectors.minBy(Comparator.comparing(Employee::getAge)));
 		System.out.println(youngestEmp.get());
-		Employee youngestEmp2 = employeeList.stream().filter(e -> e.getGender()=="male" && e.getDepartment()=="software")
+		Employee youngestEmp2 = employeeList.stream().filter(e -> e.getGender()==Gender.MALE && e.getDepartment()=="software")
 		.min(Comparator.comparingInt(Employee::getAge)).get();
 		System.out.println(youngestEmp2.getFirstName());
 		System.out.println("--------------------------------------------------------------------------------37");
@@ -251,13 +254,13 @@ public class StreamEmployeeQuestions {
 		System.out.println(maxEntry.getKey() + ": " + maxEntry.getValue());
 		System.out.println("--------------------------------------------------------------------------------39");
 		System.out.println("How many male and female employees are there in the software team?");
-		Map<String, Long> countMaleFemaleEmployeesInSoftware=
+		Map<Gender, Long> countMaleFemaleEmployeesInSoftware=
 				employeeList.stream().filter(e -> e.getDepartment().equalsIgnoreCase("software"))
 				            .collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
 				System.out.println(countMaleFemaleEmployeesInSoftware);
 		System.out.println("--------------------------------------------------------------------------------40");
 		System.out.println("What is the average salary of male and female employees?");
-		Map<String, Double> avgSalaryOfMaleAndFemaleEmployees = employeeList.stream()
+		Map<Gender, Double> avgSalaryOfMaleAndFemaleEmployees = employeeList.stream()
 				.collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)));
 		System.out.println(avgSalaryOfMaleAndFemaleEmployees);
 		System.out.println("--------------------------------------------------------------------------------41");
@@ -298,7 +301,13 @@ public class StreamEmployeeQuestions {
 		System.out.println("Even Numbers: " + evenOddGroups.get(true));
 		System.out.println("Odd Numbers: " + evenOddGroups.get(false));
 		System.out.println("--------------------------------------------------------------------------------46");
-
+		System.out.println("Calculate the years of experience using their Date of joining of each employee, "
+				+ "filter for male employees only, and select the firstnames of those whose experience is more than 7 years using Java 8 Stream ");
+		employeeList.stream()
+        .filter(employee -> employee.getGender() == Gender.MALE)
+        .filter(employee -> Period.between(employee.getDateOfJoining(), LocalDate.now()).getYears() > 7)
+        .map(Employee::getFirstName)
+        .forEach(System.out::println);
 		System.out.println("--------------------------------------------------------------------------------47");
 
 		System.out.println("--------------------------------------------------------------------------------48");

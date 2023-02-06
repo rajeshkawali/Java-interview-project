@@ -12,7 +12,7 @@ public class PalindromOfNumber {
 		String original = "";
 		String reverse = "";
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter anything you want to reverse:");
+		System.out.println("Enter anything you want to check:");
 		original = sc.next();
 		int length = original.length();
 		for (int i = length - 1; i >= 0; i--) {

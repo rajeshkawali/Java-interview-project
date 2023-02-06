@@ -28,4 +28,13 @@ List<? super Integer> list :--> Here we are restricting any value passed to ? (w
 
 List<? super Number> list1 = new ArrayList<Number>(); // Number is a "super" of Number
 List<? super Number> list2 = new ArrayList<Object>(); // Object is a "super" of Number
+
+In Java, a wildcard with a lower bound is represented by the "? super" syntax. 
+It specifies that the type argument must be a superclass of the lower bound, 
+which can be any class. For example, if we have a class "Animal" and a 
+class "Cat" that extends "Animal", the declaration "List<? super Cat>" means 
+that the list can hold elements of type "Cat" or any superclass of "Cat", 
+such as "Animal". This type of wildcard is useful when you need to write methods 
+that can take a list of objects of a specific superclass.
+
 */

@@ -1,5 +1,6 @@
 package com.rajeshkawali.model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -21,7 +22,8 @@ public class Employee {
 	private int id;
 	private String firstName;
 	private String lastName;
-	private String gender;
+	private Gender gender;
+	private LocalDate dateOfJoining;
 	private int age;
 	private String email;
 	private String phone;

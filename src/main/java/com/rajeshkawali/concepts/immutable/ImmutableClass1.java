@@ -71,3 +71,17 @@ public class ImmutableClass1 {
         System.out.println(employee); // Prints - ImmutableEmployee{id=1, name='Naresh', dob=Sun Jan 10 00:12:00 IST 1993}
     }
 }
+
+/*
+To create a custom immutable class in Java, you can follow these steps:-->
+
+Declare all instance variables as private and final: This ensures that the state of the class cannot be changed after it is created.
+
+Provide only getter methods for accessing the instance variables: Since the instance variables are final, you cannot provide setter methods. Instead, you can provide getter methods that return the current state of the instance variables.
+
+Don't provide any methods that can modify the state of the class: This includes methods that modify the state of any mutable objects referenced by the class.
+
+Implement the clone() method to throw CloneNotSupportedException: This ensures that the object cannot be cloned, since it is immutable.
+
+Provide a constructor that initializes all the instance variables: The constructor should take all the necessary values as parameters and initialize the instance variables accordingly.
+*/

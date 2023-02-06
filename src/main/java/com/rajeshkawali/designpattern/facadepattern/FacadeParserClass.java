@@ -27,5 +27,4 @@ public class FacadeParserClass {
 	public void pdfParser() {
 		pdfParser.parser();
 	}
-
 }

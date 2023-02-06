@@ -5,6 +5,7 @@ abstract class Animal {
 }
 
 class Bird extends Animal {
+	@Override
 	public void move() {
 		// code to make the bird move
 	}

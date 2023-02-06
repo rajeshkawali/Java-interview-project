@@ -57,7 +57,4 @@ public class Phone {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-
-	
 }
