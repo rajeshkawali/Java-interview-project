@@ -2,7 +2,10 @@ package com.rajeshkawali.concepts.exception;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 @SuppressWarnings("unused")
 public class ThrowCheckedAndUncheckedException {
 

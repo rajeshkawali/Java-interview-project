@@ -1,5 +1,8 @@
 package com.rajeshkawali.concepts.exception;
-
+/**
+ * @author Rajesh_Kawali
+ *
+ */
 class SuperClass {
 	
 	// If we use FileNotFoundException here Then 
