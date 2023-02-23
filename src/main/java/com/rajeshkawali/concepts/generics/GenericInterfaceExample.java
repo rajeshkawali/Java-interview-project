@@ -36,3 +36,13 @@ class GenericTreeImpl implements GenericInterfaceExample {
 		return obj.toString();
 	}
 }
+/*
+
+The code you provided defines a generic interface called GenericInterfaceExample 
+that takes a type parameter T. The interface has a single method called get() that 
+takes an argument of type T and returns a String.
+
+When you use this interface, you can specify the actual type for T. For example, 
+if you want to use GenericInterfaceExample with a Employee, you would declare a variable 
+of type GenericInterfaceExample<Employee>.
+*/

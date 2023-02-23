@@ -73,3 +73,25 @@ public class DetectDeadlockInThreads {
 		}
 	}
 }
+/*
+Ways to detect deadlocks in Java :-->
+
+Thread Dump Analysis:- A thread dump provides a snapshot of all the threads that are 
+			currently running in a Java process, along with their current state and stack trace. 
+			By analyzing the thread dump, it's possible to identify any threads that are stuck in 
+			a blocked state, which may indicate a deadlock.
+
+Using JConsole or VisualVM:- These tools can be used to monitor a running Java process 
+			and provide real-time information about thread activity, including thread count, 
+			CPU usage, and memory usage. By monitoring the thread activity, it may be possible 
+			to identify threads that are stuck in a blocked state, which may indicate a deadlock.
+
+Using ThreadMXBean:- The ThreadMXBean class provides programmatic access to information 
+			about threads in a Java process. It can be used to query information about a specific 
+			thread or to get a list of all threads in the process. By examining the state of each 
+			thread, it may be possible to identify threads that are stuck in a blocked state, 
+			which may indicate a deadlock.
+
+Using third-party tools:- There are several third-party tools available for detecting 
+			and analyzing deadlocks in Java, including JProfiler, YourKit, and Eclipse MAT.
+*/

@@ -101,5 +101,10 @@ Implementation: LinkedHashSet uses a LinkedHashMap internally to store its eleme
 
 Additional Methods: LinkedHashSet provides additional methods like addAll(Collection c) which adds all of the elements in the specified collection to this set, while HashSet does not.
 
-In summary, both LinkedHashSet and HashSet are classes in Java that implement the Set interface and provide a fast and efficient way to store unique elements in a collection. However, LinkedHashSet maintains the order of elements in which they were inserted, while HashSet does not. LinkedHashSet is slightly slower than HashSet because it needs to maintain the order of elements and it uses a LinkedHashMap internally to store its elements while HashSet uses HashMap. LinkedHashSet provides additional methods like addAll(Collection c) which HashSet does not.
+In summary, both LinkedHashSet and HashSet are classes in Java that implement the Set interface 
+and provide a fast and efficient way to store unique elements in a collection. 
+However, LinkedHashSet maintains the order of elements in which they were inserted, while HashSet does not. 
+LinkedHashSet is slightly slower than HashSet because it needs to maintain the order of elements 
+and it uses a LinkedHashMap internally to store its elements while HashSet uses HashMap. 
+LinkedHashSet provides additional methods like addAll(Collection c) which HashSet does not.
 */

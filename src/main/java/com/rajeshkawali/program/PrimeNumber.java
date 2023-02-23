@@ -87,3 +87,11 @@ public class PrimeNumber {
 		return true;
 	}
 }
+/*
+A prime number is a natural number greater than 1 that is not divisible by any positive 
+integer other than 1 and itself. In other words, it has exactly two factors, 1 and itself.
+
+For example, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, and so on, are all prime numbers, 
+while 4, 6, 8, 9, 10, 12, 14, 15, 16, and so on, are not prime numbers, 
+because they have other factors besides 1 and themselves.
+*/

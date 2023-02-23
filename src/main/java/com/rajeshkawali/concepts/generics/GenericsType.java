@@ -18,3 +18,17 @@ public class GenericsType<T> {
 		this.t = t1;
 	}
 }
+/*
+
+This defines a generic class called GenericsType that takes a type parameter T. 
+The class has a single private field called t of type T.
+
+The class has two methods: get() and set(). The get() method returns the current value of t, 
+and the set() method sets the value of t to a new value passed as an argument.
+
+By making the class generic with type parameter T, you can use the same implementation 
+of GenericsType for different types of data. For example, if you create an instance of 
+GenericsType with type parameter String, you can set and get String values. 
+If you create an instance of GenericsType with type parameter Integer, 
+you can set and get Integer values.
+*/

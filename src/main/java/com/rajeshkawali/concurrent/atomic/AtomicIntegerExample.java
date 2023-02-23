@@ -70,3 +70,19 @@ public class AtomicIntegerExample {
 		}
     }
 }
+/*
+Both "volatile" and "AtomicInteger" in Java provide thread-safe access to shared variables, 
+but they differ in how they achieve thread-safety:-->
+
+volatile:- is a keyword in Java that can be used to mark a variable as being shared between threads. 
+When a variable is marked as volatile, any writes to it are immediately visible to other threads, 
+and any reads from it are guaranteed to see the most recent value. This ensures that multiple 
+threads can safely read and write the variable without running into synchronization issues.
+
+AtomicInteger:- is a class in Java's java.util.concurrent.atomic package that provides thread-safe 
+access to an int value. It provides a range of atomic operations such as incrementAndGet(), 
+decrementAndGet(), and compareAndSet() that can be executed atomically without the need for 
+external synchronization. This ensures that multiple threads can safely manipulate the value 
+of the AtomicInteger without running into synchronization issues.
+
+*/

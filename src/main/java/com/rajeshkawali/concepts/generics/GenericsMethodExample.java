@@ -31,3 +31,14 @@ public class GenericsMethodExample {
 		// Compiler will infer the type that is needed
 	}
 }
+/*
+
+The code you provided is a static method called isEqual that takes two arguments of 
+type GenericsType<T>, where T is a type parameter. The method returns a boolean value 
+indicating whether the values of the two GenericsType instances are equal.
+
+The method uses the get() method of each GenericsType instance to retrieve their respective 
+values, and then compares the values using the equals() method. Note that equals() is 
+a method defined in the Object class, so it must be overridden in the class of T to 
+properly compare the values.
+*/

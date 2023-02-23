@@ -58,3 +58,18 @@ public class Phone {
 		return builder.toString();
 	}
 }
+/*
+The Builder pattern is a creational design pattern that provides a way to construct complex objects step by step. 
+It allows you to create objects by specifying only the required parameters, while providing flexibility 
+to set optional parameters or configure the object in different ways.
+
+The key idea behind the Builder pattern is to separate the construction of an object from its 
+representation, so that the same construction process can be used to create different representations. 
+This is useful when you need to create objects with different configurations or 
+when the object has many optional parameters.
+
+In the Builder pattern, there is a separate builder class that is responsible for creating and configuring the object. 
+The builder class has methods for setting the required and optional parameters of the object, 
+and a build method that returns the final object. The builder class can also have methods for 
+validating the configuration or performing other operations.
+*/

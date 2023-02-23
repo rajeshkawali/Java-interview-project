@@ -1,6 +1,4 @@
 package com.rajeshkawali.concepts.serialization;
-
-
 /**
  * @author Rajesh_Kawali
  *

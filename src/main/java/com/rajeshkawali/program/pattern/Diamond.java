@@ -45,3 +45,20 @@ Enter the number: 9
     *
 
 */
+
+/*
+This code prints a diamond shape using asterisks '*' and spaces ' '.
+
+It takes an integer as input from the user to determine the size of the diamond. 
+The variable oddNumber is used to keep track of the number of asterisks on each line, 
+while noOfSpaces is used to keep track of the number of spaces to print before the asterisks.
+
+The outer for loop iterates from 1 to size and is responsible for printing each line of the diamond. 
+For each line, the first inner for loop prints the spaces before the asterisks, 
+and the second inner for loop prints the asterisks.
+
+The if-else block inside the outer loop is used to adjust the values of oddNumber and noOfSpaces for each line, 
+depending on whether the line is in the upper half or lower half of the diamond. In the upper half, 
+oddNumber is increased by 2 and noOfSpaces is decreased by 1 for each line, while in the lower half, 
+oddNumber is decreased by 2 and noOfSpaces is increased by 1.
+*/

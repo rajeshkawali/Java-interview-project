@@ -24,6 +24,11 @@ public class GenericsWildcardUnbounded {
 	}
 }
 /*
+Upper bound:-->
+An upper bound restricts the type argument to be a subtype of a specified class or interface. 
+The syntax for declaring an upper bound is <? extends SomeClass>, where SomeClass is the upper bound. 
+
+
 Sometimes we have a situation where we want our generic method 
 to be working with all types, in this case, an unbounded 
 wildcard can be used. Its same as using <? extends Object>.

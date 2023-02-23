@@ -84,3 +84,25 @@ public class StampedLockExample {
 		}
 	}
 }
+/*
+The terms "optimistic" and "pessimistic" refer to different approaches to 
+handling shared resources and synchronization between threads:-->
+
+Pessimistic locking:- is a strategy that assumes that conflicts between threads accessing 
+shared resources are likely to occur, and therefore attempts to minimize the likelihood of 
+such conflicts by imposing strict synchronization constraints. In Java, this can be implemented using 
+constructs such as synchronized blocks or ReentrantLocks. With pessimistic locking, threads typically 
+acquire locks on shared resources before accessing them, and release the locks once they are done. 
+This ensures that only one thread can access the resource at a time, and reduces the risk of data 
+corruption or race conditions. However, this approach can also result in reduced concurrency and 
+slower performance, as threads may need to wait for locks to be released.
+
+Optimistic locking:- on the other hand, assumes that conflicts between threads accessing shared 
+resources are less likely to occur, and therefore allows multiple threads to access the same 
+resource simultaneously, without imposing strict synchronization constraints. In Java, this can be 
+implemented using constructs such as atomic variables or optimistic locking mechanisms. With optimistic locking, 
+threads attempt to access the shared resource without acquiring locks first, but check for conflicts or 
+modifications before making any updates. If a conflict is detected, the thread retries the operation with 
+updated information. This approach can result in better performance and higher concurrency, 
+but also requires careful handling to ensure that conflicts are properly detected and resolved. 
+*/

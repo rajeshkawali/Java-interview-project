@@ -36,4 +36,5 @@ public class CallableExample {
 		executorService.shutdown();
 	}
 }
-//submit() is a method of the ExecutorService interface that accepts a Callable task and submits it for execution. It returns a Future object that can be used to obtain the result of the task.
+//submit() is a method of the ExecutorService interface that accepts a Callable task and submits it for execution. 
+//It returns a Future object that can be used to obtain the result of the task.

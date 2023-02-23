@@ -24,6 +24,11 @@ public class GenericsWildcardLowerBounded {
 	}
 }
 /*
+Lower bound:-->
+A lower bound restricts the type argument to be a supertype of a specified class or interface. 
+The syntax for declaring a lower bound is <? super SomeClass>, where SomeClass is the lower bound. 
+
+
 List<? super Integer> list :--> Here we are restricting any value passed to ? (wildcard should be a super class of Integer class) 
 
 List<? super Number> list1 = new ArrayList<Number>(); // Number is a "super" of Number

@@ -6,7 +6,7 @@ import java.util.List;
 public class GenericsWildcard {
 
 	//List<? super BullDog> list :--> Here we are restricting any value passed to ? (wildcard should be a super class of BullDog class)
-	//List<? extends BullDog> list :--> Here we are restricting any value passed to ? (wildcard should be a sub class of BullDog class)
+	//List<? extends BullDog> list :--> Here we are restricting any value passed to ? (wildcard should be a child class of BullDog class)
 	
 	public static void addUpperBound(List<? extends BullDog> dogList) {
 		// We can add same class or subclass of ? (Wildcard) because is-a relationship

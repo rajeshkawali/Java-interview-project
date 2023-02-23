@@ -43,18 +43,24 @@ public class PredicateExample {
 /*
 Predicate interface is a functional interface that takes a single input parameter and returns a boolean value indicating whether the input meets certain criteria. It is part of the java.util.function package, and it has a single abstract method boolean test(T t).
 
-Some of the static and default methods of the Predicate interface include:
+Some of the static and default methods of the Predicate interface include:-->
 
-and(Predicate other) : Returns a composed predicate that represents a short-circuiting logical AND of this predicate and other. This method allows you to chain multiple predicates together. The input will be passed through both predicates and only if both of them return true, the final output is true.
+and(Predicate other) :- Returns a composed predicate that represents a short-circuiting 
+			logical "AND" of this predicate and other. This method allows you to chain multiple predicates together. 
+			The input will be passed through both predicates and only if both of them return true, the final output is true.
 
-or(Predicate other) : Returns a composed predicate that represents a short-circuiting logical OR of this predicate and other. The input will be passed through both predicates and only if at least one of them return true, the final output is true.
+or(Predicate other) :- Returns a composed predicate that represents a short-circuiting 
+			logical "OR" of this predicate and other. The input will be passed through both predicates 
+			and only if at least one of them return true, the final output is true.
 
-negate() : Returns a predicate that represents the logical negation of this predicate. The input will be passed through the predicate and the opposite boolean value will be returned.
+negate() :- Returns a predicate that represents the logical negation of this predicate. 
+			The input will be passed through the predicate and the opposite boolean value will be returned.
 
-isEqual(Object targetRef) : Returns a predicate that tests if two arguments are equal according to Objects.equals(Object, Object).
+isEqual(Object targetRef) :- Returns a predicate that tests if two arguments are equal 
+			according to Objects.equals(Object, Object).
 
-not(Predicate target) : Returns a predicate that is the negation of the supplied predicate.
+not(Predicate target) :- Returns a predicate that is the negation of the supplied predicate.
 
-test(T t) : it applies the predicate function on the input and returns the boolean value.
+test(T t) :- it applies the predicate function on the input and returns the boolean value.
 
 */

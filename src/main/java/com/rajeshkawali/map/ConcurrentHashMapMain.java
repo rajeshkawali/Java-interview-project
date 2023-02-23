@@ -152,3 +152,14 @@ containsKey(Object key): Returns true if this map contains a mapping for the spe
 containsValue(Object value): Returns true if this map maps one or more keys to the specified value.
 
 */
+
+
+/*
+Lock striping is a technique used in concurrent programming to reduce contention 
+and improve performance by dividing a shared resource into smaller sections, 
+each with its own lock, and allowing different threads to access different sections concurrently.
+
+contention refers to the situation where multiple threads or processes are competing 
+for the same shared resource or lock. This can lead to contention or contention overhead, 
+which can cause performance issues such as slow response times, decreased throughput, or even deadlocks.
+*/

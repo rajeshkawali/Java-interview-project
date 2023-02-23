@@ -9,17 +9,17 @@ import java.io.FileReader;
  */
 public class TryWithResources {
 	/*
-	 * The try and catch blocks in Java are used for exception handling, allowing
-	 * you to handle errors and unexpected conditions in your code. The try block
-	 * contains the code that might throw an exception, and the catch block catches
-	 * any exceptions that are thrown and handles them.
-	 * 
-	 * The try block can also be followed by a finally block, which contains code
-	 * that will be executed whether or not an exception is thrown.
-	 * 
-	 * The try-with-resources statement is a try statement that declares one or more
-	 * resources, such as objects that implement the AutoCloseable interface, and
-	 * automatically closes these resources when the try block is exited.
+	 Try-with-resources is a feature introduced in Java 7 that simplifies the management of 
+	 resources that must be closed after use, such as files, network connections, and database connections.
+	 
+	 The resource declarations are a list of one or more variables that refer to objects that implement the 
+	 AutoCloseable interface, which includes the Closeable interface. When the try block is exited, 
+	 either normally or due to an exception, the resources are automatically closed in 
+	 the reverse order of their declaration.
+	 
+	 The try-with-resources statement is a try statement that declares one or more
+	 resources, such as objects that implement the AutoCloseable interface, and
+	 automatically closes these resources when the try block is exited.
 	 */
 	public static void main(String[] args) {
 		// Try block to check for exceptions

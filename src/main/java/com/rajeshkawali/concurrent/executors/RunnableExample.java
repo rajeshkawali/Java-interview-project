@@ -25,4 +25,5 @@ public class RunnableExample {
         executor.execute(task);
     }
 }
-//execute() is a method of the Executor interface that accepts a Runnable task and executes it asynchronously. It does not return a value.
+//execute() is a method of the Executor interface that accepts a Runnable task and executes it asynchronously. 
+//It does not return a value.
