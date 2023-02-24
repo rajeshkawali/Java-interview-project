@@ -1,5 +1,10 @@
 package com.rajeshkawali.designpattern.templatemethodpattern;
 
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 // Abstract class defining a template method for an algorithm
 public abstract class PaymentProcessor {
 	// Template method that defines the algorithm

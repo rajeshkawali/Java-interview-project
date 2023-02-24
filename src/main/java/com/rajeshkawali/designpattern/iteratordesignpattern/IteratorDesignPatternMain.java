@@ -1,5 +1,10 @@
 package com.rajeshkawali.designpattern.iteratordesignpattern;
 
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 public class IteratorDesignPatternMain {
 
 	/*

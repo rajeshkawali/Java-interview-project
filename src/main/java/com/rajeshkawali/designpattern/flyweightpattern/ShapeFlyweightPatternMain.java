@@ -1,5 +1,10 @@
 package com.rajeshkawali.designpattern.flyweightpattern;
 
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 public class ShapeFlyweightPatternMain {
 	/*
 	The Flyweight design pattern is a structural pattern that allows you to share 

@@ -3,6 +3,11 @@ package com.rajeshkawali.designpattern.iteratordesignpattern;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 // Concrete aggregate implementation
 public class Bookshelf implements BookCollection {
     private List<Book> books;

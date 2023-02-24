@@ -3,6 +3,11 @@ package com.rajeshkawali.designpattern.abstractfactorypattern;
 import java.io.File;
 import java.util.List;
 
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 public interface Parser {
     List<String> parse(File file);
 }
@@ -13,9 +18,5 @@ specific type of file format. This would allow for easy extensibility in the fut
 formats could be added by simply adding a new factory implementation.
 */
 
-
-/*
-
-*/
 
 

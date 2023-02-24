@@ -1,5 +1,10 @@
 package com.rajeshkawali.designpattern.flyweightpattern;
 
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 public class ShapeCircle implements Shape {
 	private String color;
 	private int x;

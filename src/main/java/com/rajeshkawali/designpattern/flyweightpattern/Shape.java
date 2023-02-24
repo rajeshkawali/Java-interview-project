@@ -1,6 +1,11 @@
 package com.rajeshkawali.designpattern.flyweightpattern;
 
-interface Shape {
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
+public interface Shape {
 	void draw();
 }
 

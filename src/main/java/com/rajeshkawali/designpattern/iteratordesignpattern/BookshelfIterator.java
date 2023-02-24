@@ -2,6 +2,11 @@ package com.rajeshkawali.designpattern.iteratordesignpattern;
 
 import java.util.List;
 
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 // Concrete iterator implementation
 public class BookshelfIterator implements BookIterator {
     private List<Book> books;

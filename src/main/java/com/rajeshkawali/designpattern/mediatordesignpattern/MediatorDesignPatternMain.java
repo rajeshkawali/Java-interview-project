@@ -1,5 +1,10 @@
 package com.rajeshkawali.designpattern.mediatordesignpattern;
 
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 public class MediatorDesignPatternMain {
 
 	/*

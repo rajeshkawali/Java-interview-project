@@ -1,5 +1,10 @@
 package com.rajeshkawali.designpattern.iteratordesignpattern;
-// Book class
+
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 public class Book {
     private String title;
     private String author;

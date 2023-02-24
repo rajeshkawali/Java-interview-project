@@ -1,5 +1,10 @@
 package com.rajeshkawali.designpattern.flyweightpattern;
 
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 // Client code
 public class CoffeeShopMain {
 	/*

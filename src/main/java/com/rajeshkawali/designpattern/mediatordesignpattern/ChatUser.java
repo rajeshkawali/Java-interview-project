@@ -1,5 +1,10 @@
 package com.rajeshkawali.designpattern.mediatordesignpattern;
 
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 // Concrete colleague implementation
 public class ChatUser implements User {
 	private String name;

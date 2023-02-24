@@ -3,6 +3,11 @@ package com.rajeshkawali.designpattern.mediatordesignpattern;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author Rajesh_Kawali
+ *
+ */
 //Concrete mediator implementation
 public class ChatRoom implements ChatMediator {
 	private List<User> users;
