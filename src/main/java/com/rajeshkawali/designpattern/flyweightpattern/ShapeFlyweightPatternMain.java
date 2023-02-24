@@ -1,6 +1,6 @@
 package com.rajeshkawali.designpattern.flyweightpattern;
 
-public class FlyweightPatternMain {
+public class ShapeFlyweightPatternMain {
 	/*
 	The Flyweight design pattern is a structural pattern that allows you to share 
 	objects to reduce the number of objects created, and to decrease memory usage and 
@@ -12,7 +12,7 @@ public class FlyweightPatternMain {
 	public static void main(String[] args) {
 
 		for (int i = 0; i < 20; ++i) {
-			Circle circle = (Circle) ShapeFactory.getCircle(getRandomColor());
+			ShapeCircle circle = (ShapeCircle) ShapeFactory.getCircle(getRandomColor());
 			circle.setX(getRandomX());
 			circle.setY(getRandomY());
 			circle.setRadius(100);
@@ -64,3 +64,18 @@ allowing them to be customized for different uses.
 It is worth noting that the Flyweight pattern is often used in conjunction with the factory pattern 
 to manage the creation and management of the shared objects.
 */
+
+/*
+Here are the steps to implement the Flyweight design pattern in Java:-->
+
+Identify the intrinsic and extrinsic state: Intrinsic state is the state that is shared between flyweight objects, while extrinsic state is the state that varies between flyweight objects.
+
+Create the Flyweight interface: This interface should define the methods that the concrete flyweights will implement. Typically, the intrinsic state is passed in to these methods as a parameter.
+
+Create the ConcreteFlyweight class: This class implements the Flyweight interface and represents the shared object. It should store the intrinsic state and implement the methods defined in the Flyweight interface.
+
+Create the FlyweightFactory class: This class is responsible for creating and managing the flyweights. It should maintain a pool of existing flyweights and return them when requested.
+
+Optionally, create a client class: This class uses the flyweights and may pass in extrinsic state to the flyweights.
+*/
+

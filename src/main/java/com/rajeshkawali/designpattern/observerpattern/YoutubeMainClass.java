@@ -65,3 +65,14 @@ The Subscriber class would have a method that is called by the Channel
 class when a new notification is sent. This method would take the Notification 
 object as an argument and handle it accordingly, for example, by displaying a message to the user.
 */
+
+/*
+Here are the steps to implement the Observer design pattern in Java:-->
+
+Create an Observer interface with an update() method to be implemented by all observers.
+Create a Subject interface with methods to register, remove, and notify observers.
+Create a concrete Subject class that implements the Subject interface and contains a list of registered observers and a state that can be changed.
+Create concrete Observer classes that implement the Observer interface and define how they should react to the Subject's state changes.
+Instantiate the Subject and Observer objects and test the functionality.
+
+*/

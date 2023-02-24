@@ -1,0 +1,92 @@
+--------------------------------------------------------------------------------------------------------------------------------
+There are 3 types of design patterns :-
+--------------------------------------------------------------------------------------------------------------------------------
+
+1.Creational Patterns:- Creational patterns are design patterns that provide a way to 
+	create objects in a flexible, reusable way. They focus on the process of object creation 
+	and provide mechanisms for encapsulating the knowledge about which concrete classes the system uses.
+Examples of Creational Patterns include:- Singleton, Factory, Abstract Factory, Builder, and Prototype patterns.
+
+2.Behavioral Patterns:- Behavioral patterns are design patterns that deal with 
+	communication between objects and the assignment of responsibilities between objects. 
+	They focus on the interactions and relationships between objects and provide mechanisms 
+	for describing communication patterns between them.
+Examples of Behavioral Patterns include:- bserver, Strategy, Command, Template Method, and Interpreter patterns.
+
+3.Structural Patterns:- Structural patterns are design patterns that describe how objects 
+	are composed to form larger structures. They focus on the composition of classes and objects 
+	and provide mechanisms for representing the relationships between them.
+Examples of Structural Patterns include:- Adapter, Decorator, Facade, Flyweight, and Proxy patterns.
+
+--------------------------------------------------------------------------------------------------------------------------------
+Here are some guidelines on when to use each of the design patterns:-->
+--------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------creational pattern----------------------------
+Singleton Pattern:- The Singleton pattern is a creational pattern that ensures that 
+only one instance of a class is created, and provides a global point of access to it. 
+This can be useful for managing resources, such as database connections, or for 
+implementing a configuration object that is used throughout the application.
+
+Factory Pattern:- The Factory pattern is a creational pattern that provides a way to 
+create objects without specifying their exact class, and delegates the responsibility 
+of object creation to a separate factory class. This can be useful for creating 
+objects in a flexible, extensible way.
+
+Builder Pattern:- The Builder pattern is a creational pattern that separates the 
+construction of a complex object from its representation, allowing the same construction 
+process to create different representations. This can be useful for creating complex objects in a flexible, 
+reusable way, and for promoting separation of concerns in an application.
+
+Abstract Factory Pattern:- The Abstract Factory pattern is a creational pattern that 
+provides an interface for creating families of related or dependent objects, without specifying 
+their concrete classes. This can be useful for creating a set of related objects with a common interface, 
+while allowing for the specific implementation of those objects to be changed or extended.
+-------------------------------behavioral pattern----------------------------
+Observer Pattern:- The Observer pattern is a behavioral pattern that defines a 
+one-to-many dependency between objects, where changes to one object are automatically 
+propagated to its dependent objects. This can be useful for implementing event-driven 
+systems or for separating the concerns of an application into separate components.
+
+Strategy Pattern:- The Strategy pattern is a behavioral pattern that defines a family of algorithms, 
+encapsulates each one, and makes them interchangeable at runtime. This can be useful for 
+implementing features such as sorting or searching, where different algorithms may be more 
+appropriate for different situations.
+
+Command Pattern:- The Command pattern is a behavioral pattern that encapsulates a request as an object, 
+allowing it to be queued, logged, or undone at a later time. This can be useful for implementing 
+features such as undo/redo functionality or for managing long-running transactions.
+
+Iterator Pattern:- The Iterator pattern is a behavioral pattern that provides a way to access 
+the elements of a collection sequentially, without exposing the underlying implementation. 
+This can be useful for simplifying the code that accesses a collection, 
+and for decoupling the collection from its clients.
+
+Mediator Pattern:- The Mediator pattern is a behavioral pattern that defines an object that 
+encapsulates how a set of objects interact with each other, promoting loose coupling between them. 
+This can be useful for simplifying complex interactions between objects, 
+and for promoting a more modular and flexible design.
+
+Template Method Pattern:- The Template Method pattern is a behavioral pattern that defines 
+the skeleton of an algorithm in a base class, and allows subclasses to override specific 
+steps of the algorithm without changing its overall structure. This can be useful for 
+creating a flexible and reusable algorithm, while still allowing for customization in specific cases.
+------------------------------structural pattern-----------------------------
+Decorator Pattern:- The Decorator pattern is a structural pattern that allows new functionality 
+to be added to an existing object, dynamically at runtime. This can be useful for adding 
+features such as logging, caching, or validation to an object, without modifying its underlying code.
+
+Adapter Pattern:- The Adapter pattern is a structural pattern that allows two incompatible 
+interfaces to work together by providing a common interface. This can be useful for integrating 
+legacy code with new systems or for integrating third-party libraries into an existing codebase.
+
+Facade Pattern:- The Facade pattern is a structural pattern that provides a simplified interface 
+to a complex subsystem, promoting loose coupling between the subsystem and its clients. 
+This can be useful for creating a more intuitive and manageable API, and for simplifying 
+complex interactions between components.
+
+Flyweight Pattern:- The Flyweight pattern is a structural pattern that allows a large number of 
+fine-grained objects to be supported efficiently, by sharing as much data as possible between objects. 
+This can be useful for implementing features such as text editors or graphical user interfaces, 
+where a large number of objects may be needed to represent a complex structure.
+

@@ -30,3 +30,15 @@ Under the hood, this method calls the private constructor to create an
 object and saves it in a static field. All following calls to this method 
 return the cached object.
 */
+
+
+/*
+ here are the steps to implement Singleton design pattern in Java:-->
+
+Create a private static variable of the Singleton class that will hold the single instance of the class.
+Create a private constructor for the Singleton class to prevent other classes from instantiating it directly.
+Create a public static method that returns the single instance of the class. This method should check if the private static variable is null, and if it is, it should create a new instance of the Singleton class and assign it to the private static variable. If the variable is not null, the method should simply return the existing instance.
+(Optional) You can also make the private static variable final to ensure that it can only be set once during initialization.
+(Optional) If you want to ensure that the Singleton class cannot be cloned, you can override the clone() method and throw a CloneNotSupportedException.
+*/
+

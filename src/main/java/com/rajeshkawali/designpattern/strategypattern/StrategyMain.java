@@ -54,3 +54,15 @@ implemented as separate classes and the client should be able to switch between 
 It is also used when the algorithm that is used to perform a task needs to be chosen at runtime 
 based on the input data or other dynamic factors.
 */
+
+
+/*
+Steps to implement Strategy design pattern in Java:-->
+
+Define the strategy interface: Define an interface that will declare the strategy methods. These methods will be implemented by the concrete strategy classes.
+Create concrete strategy classes: Create one or more concrete strategy classes that implement the strategy interface.
+Create the context class: Create a context class that will hold a reference to the current strategy object and will use it to call the strategy methods.
+Use the context class to call the strategy method: Create an instance of the context class and set the appropriate strategy object based on the user's selection. Then, call the strategy method to perform the required action.
+
+*/
+

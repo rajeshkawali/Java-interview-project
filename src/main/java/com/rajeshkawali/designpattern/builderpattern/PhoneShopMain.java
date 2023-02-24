@@ -4,7 +4,7 @@ package com.rajeshkawali.designpattern.builderpattern;
  * @author Rajesh_Kawali
  *
  */
-public class PhoneShop {
+public class PhoneShopMain {
 
 	public static void main(String[] args) {
 
@@ -42,3 +42,15 @@ How to create:
 3. Provide setter methods with POJO Builder return type for all the fields.
 4. Create method(build()) which returns POJO class object from POJO Builder class.
  */
+
+
+/*
+Here are the general steps to implement the Builder design pattern in Java:-->
+
+Identify the complex object you want to create and its components. Define a common interface for these components.
+Create an abstract builder class that defines the interface for creating the complex object. The builder should have methods for building each component of the complex object.
+Create concrete builder classes that implement the builder interface and provide specific implementations for building the complex object.
+Create a director class that knows how to use the builder to build the complex object. The director should provide a method for clients to initiate the building process.
+(Optional) Create a product class to represent the complex object being built. The product class should have methods for retrieving the individual components.
+Use the builder pattern in client code by creating a builder object and passing it to the director to create the complex object.
+*/

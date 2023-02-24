@@ -39,3 +39,16 @@ class then calls the execute() method of the current command, which in turn swit
 In this example, the Remote Control is the client and the Command is the abstraction, 
 the SwitchOnCommand and SwitchOffCommand are the implementation of the Command Interface, and the Light is the Receiver.
 */
+
+
+/*
+Here are the steps to implement the Command design pattern in Java:-->
+
+Identify the command interface: Define an interface for the command with an execute() method that will be implemented by the concrete commands.
+Create concrete command classes: Implement the command interface with concrete command classes that will perform specific operations.
+Create the invoker class: The invoker class is responsible for executing the command by calling the execute() method on the command object.
+Create the receiver class: The receiver class is the object that performs the operation specified by the command.
+Create the client code: The client code creates the invoker and the receiver objects, creates a concrete command object and sets it on the invoker object.
+*/
+
+

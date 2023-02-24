@@ -1,12 +1,12 @@
 package com.rajeshkawali.designpattern.flyweightpattern;
 
-public class Circle implements Shape {
+public class ShapeCircle implements Shape {
 	private String color;
 	private int x;
 	private int y;
 	private int radius;
 
-	public Circle(String color) {
+	public ShapeCircle(String color) {
 		this.color = color;
 	}
 

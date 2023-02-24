@@ -24,4 +24,21 @@ public class FacadeMain {
   
   This pattern involves a single class which provides simplified methods
   required by client and delegates calls to methods of existing system classes.
- */
+*/
+
+/*
+Here are the steps to implement the Facade design pattern in Java:-->
+
+Identify a complex subsystem that needs to be simplified for client code.
+
+Create a Facade class that provides a simplified interface to the subsystem. The Facade should manage the interactions between the subsystem and the client, and should shield the client from the complexity of the subsystem.
+
+Create one or more classes to represent the subsystem. These classes should implement the actual functionality of the subsystem.
+
+Define a set of public methods in the Facade class that provide the simplified interface for the client.
+
+In the implementation of each public method, use the classes that represent the subsystem to perform the actual work.
+
+The client can now use the Facade class to interact with the subsystem without needing to know about the complexity of the subsystem's implementation.
+*/
+
