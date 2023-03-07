@@ -67,3 +67,19 @@ public class BuilderPatternExample {
 		System.out.println(bike.getAirbags());
 	}
 }
+/*
+The Builder design pattern is a creational pattern that separates the construction of a complex object 
+from its representation, allowing the same construction process to create various representations.
+
+In this example, the Vehicle class is a complex object that requires multiple parameters to be set for its creation. 
+The VehicleBuilder class separates the construction process from the representation of the Vehicle object. 
+It takes in the required parameters in its constructor and has additional methods to set the optional parameters. 
+The build() method constructs the Vehicle object using the builder object's values and returns it.
+
+The Vehicle class has a private constructor that takes in a VehicleBuilder object and sets its fields using the builder's values. 
+It has getter methods to retrieve the fields.
+
+In the main() method, the Vehicle object is constructed using the VehicleBuilder object by 
+setting the required parameters in the builder's constructor and calling the builder's methods to set the optional parameters. 
+Finally, the build() method constructs and returns the Vehicle object.
+*/
