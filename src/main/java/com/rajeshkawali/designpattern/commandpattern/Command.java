@@ -8,16 +8,23 @@ interface Command {
 	void execute();
 }
 /*
-Here are some key points to remember about the Command design pattern:-->
+The Command pattern is a behavioral design pattern that allows you to encapsulate a request 
+or an action as an object. This object can be used to parameterize other objects, 
+such as a queue, and store requests or actions for later execution. 
+The Command pattern promotes loose coupling between the requester of a particular 
+action and the object that performs the action, making it easier to modify, extend, or replace 
+individual actions without affecting the rest of the system.
 
-The Command design pattern is a behavioral design pattern that turns a request into a stand-alone object that contains all information about the request.
-The Command pattern is useful when you want to pass requests as method arguments, delay or queue a request's execution, and support undo-redo.
-The Command pattern involves four key components: the Command interface, ConcreteCommands, the Client, and the Receiver.
-The Command interface defines a single method, execute(), which is called to perform the request.
-ConcreteCommands are classes that implement the Command interface and hold a reference to the Receiver, which is the object that the request is being sent to.
-The Client is the object that creates and sets the ConcreteCommands and calls the execute() method on them.
-The Receiver is the object that receives the request and performs the corresponding action.
-The Command pattern promotes the separation of concerns between the Client and the Receiver by encapsulating the request into a separate object.
-The Command pattern allows for flexibility in the way requests are handled, as different ConcreteCommands can be used to handle the same request in different ways.
-The Command pattern also enables the implementation of undo-redo functionality by storing the history of requests in a stack, and reversing the execution of commands when the undo operation is performed.
+In the Command pattern, there are four key components:-->
+Command: Defines the interface for executing an operation.
+Concrete Command: Implements the Command interface and specifies the receiver of the action.
+Receiver: The object that performs the actual action.
+Invoker: Asks the command to carry out the request.
+
+When to use the Command pattern:-->
+When you need to parameterize objects based on an action or a request, and store these objects for later execution.
+When you want to decouple objects that produce requests from objects that execute requests.
+When you want to support undo and redo functionality in your application.
+When you want to implement a transactional system where a series of commands are 
+executed in a single transaction, and the whole transaction can be rolled back if any command fails.
 */

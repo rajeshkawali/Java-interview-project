@@ -91,15 +91,20 @@ HashSet is not thread-safe, so if multiple threads are accessing the same HashSe
 /*
 Difference between LinkedHashSet and HashSet:--> 
 
-Both LinkedHashSet and HashSet are classes in Java that implement the Set interface and provide a fast and efficient way to store unique elements in a collection. However, there are a few key differences between the two:
+Both LinkedHashSet and HashSet are classes in Java that implement the Set interface and 
+provide a fast and efficient way to store unique elements in a collection. However, 
+there are a few key differences between the two:
 
-Ordering: LinkedHashSet maintains the order of elements in which they were inserted, while HashSet does not. This means that the elements in a LinkedHashSet will be returned in the order in which they were added, while the elements in a HashSet will not be in any specific order.
+Ordering: LinkedHashSet maintains the order of elements in which they were inserted, 
+while HashSet does not. This means that the elements in a LinkedHashSet will be returned 
+in the order in which they were added, while the elements in a HashSet will not be in any specific order.
 
 Performance: HashSet is slightly faster than LinkedHashSet because it does not need to maintain the order of elements.
 
 Implementation: LinkedHashSet uses a LinkedHashMap internally to store its elements, while HashSet uses a HashMap.
 
-Additional Methods: LinkedHashSet provides additional methods like addAll(Collection c) which adds all of the elements in the specified collection to this set, while HashSet does not.
+Additional Methods: LinkedHashSet provides additional methods like addAll(Collection c) which 
+adds all of the elements in the specified collection to this set, while HashSet does not.
 
 In summary, both LinkedHashSet and HashSet are classes in Java that implement the Set interface 
 and provide a fast and efficient way to store unique elements in a collection. 

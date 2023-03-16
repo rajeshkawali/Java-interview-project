@@ -68,6 +68,42 @@ public class CopyOnWriteArrayListMain {
  */
 
 /*
+CopyOnWriteArrayList is a thread-safe variant of the ArrayList class in Java. 
+It guarantees that all operations on the list are thread-safe and do not require any external synchronization. 
+The class is designed to be used in situations where there are frequent reads and infrequent writes to the list.
+
+The internal working of CopyOnWriteArrayList can be summarized in the following steps:-->
+
+When a CopyOnWriteArrayList instance is created, it is initialized with an internal array that is empty.
+
+Whenever an element is added, modified or removed from the list, a new copy of the internal array is created, 
+and the operation is performed on the new array. This ensures that the original array remains unchanged, 
+and any existing iterators continue to function as expected.
+
+Once the operation is complete, the new array replaces the old one, and all subsequent operations are 
+performed on the new array. This process is known as "copy-on-write."
+
+Since each write operation creates a new copy of the array, there can be multiple versions of the 
+array in memory at any given time. However, only one version is actively used by the list, 
+and the old versions are eventually garbage collected.
+
+Since the internal array is not modified after it is initially created, all read 
+operations can be performed without synchronization.
+
+If a read operation is performed while a write operation is in progress, 
+the read operation will see the old version of the array. This is because the write operation 
+creates a new copy of the array, and the read operation does not wait for the write operation to complete.
+
+In summary, CopyOnWriteArrayList provides a thread-safe way to perform operations on a list by 
+creating a new copy of the internal array for each write operation. This approach ensures 
+that all read operations are performed without synchronization, but it can result in 
+increased memory usage and slower write operations. 
+
+*/
+
+
+
+/*
  1.CopyOnWriteArrayList is a thread-safe implementation of the List interface in Java. 
  
  2.It is implemented using a copy-on-write strategy, which means that

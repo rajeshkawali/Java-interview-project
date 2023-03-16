@@ -88,12 +88,17 @@ class Service implements Runnable {
 /*
 Differences between CountDownLatch and CyclicBarrier:-->
 
-CountDownLatch is useful when you want to wait for a set of operations to complete, whereas CyclicBarrier is useful when you want to run multiple threads concurrently, but wait until all threads have completed some work before moving on to the next step.
+CountDownLatch is useful when you want to wait for a set of operations to complete, 
+whereas CyclicBarrier is useful when you want to run multiple threads concurrently, 
+but wait until all threads have completed some work before moving on to the next step.
 
 CountDownLatch can only be used once, whereas CyclicBarrier can be reused multiple times.
 
-CountDownLatch has a single countDown() method that decreases the count by 1, whereas CyclicBarrier has a reset() method that resets the barrier to its initial state and releases all threads waiting at the barrier.
+CountDownLatch has a single countDown() method that decreases the count by 1, 
+whereas CyclicBarrier has a reset() method that resets the barrier to its initial state 
+and releases all threads waiting at the barrier.
 
-CountDownLatch has a getCount() method that returns the current count, whereas CyclicBarrier has a getNumberWaiting() method that returns the number of threads currently waiting at the barrier.
+CountDownLatch has a getCount() method that returns the current count, 
+whereas CyclicBarrier has a getNumberWaiting() method that returns the number of threads currently waiting at the barrier.
  */
 

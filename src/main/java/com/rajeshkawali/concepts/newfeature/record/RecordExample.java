@@ -71,13 +71,18 @@ Some key points to consider when implementing a record class in Java:-->
 /*
 Some key differences between POJO and record classes in Java:-->
 
-1.POJOs are mutable, while record classes are immutable.
+1.POJOs are mutable, 
+while record classes are immutable.
 
-2.POJOs have getter and setter methods for their data, while record classes have public accessor methods for their components.
+2.POJOs have getter and setter methods for their data, 
+while record classes have public accessor methods for their components.
 
-3.POJOs do not have a toString(), hashCode(), or equals() method by default, while record classes have these methods generated automatically based on the components of the record.
+3.POJOs do not have a toString(), hashCode(), or equals() method by default, 
+while record classes have these methods generated automatically based on the components of the record.
 
-4.POJOs can have instance variables, instance methods, and constructors, while record classes can only have components and cannot have a superclass or an explicit constructor.
+4.POJOs can have instance variables, instance methods, and constructors, 
+while record classes can only have components and cannot have a superclass or an explicit constructor.
 
-5.POJOs can be abstract or final, while record classes are always final and cannot be subclassed or extended.
+5.POJOs can be abstract or final, 
+while record classes are always final and cannot be subclassed or extended.
 */

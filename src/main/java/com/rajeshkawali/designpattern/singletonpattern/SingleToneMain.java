@@ -18,6 +18,27 @@ public class SingleToneMain {
 	}
 }
 /*
+The Singleton pattern is a creational pattern that restricts the instantiation 
+of a class to one object and ensures that there is only one instance of the 
+class throughout the lifetime of the application.
+
+This pattern is useful when you need to have only one instance of a class and that instance 
+needs to be accessible globally by other parts of the application. This can be useful in 
+situations where creating multiple instances of a class is either unnecessary or 
+detrimental to the application's performance.
+
+For example, a database connection manager class can be implemented as a Singleton to 
+ensure that there is only one instance of the class, and all other classes in 
+the application can access this single instance to obtain a database connection.
+
+It's important to note that the Singleton pattern should be used judiciously, 
+as it can make testing and maintenance more difficult. It's also important to 
+consider concurrency issues when implementing the Singleton pattern, as multiple 
+threads may try to access the Singleton instance simultaneously.
+*/
+
+
+/*
 Singleton is a creational design pattern that lets you ensure that a 
 class has only one instance, while providing a global access point to this instance.
 

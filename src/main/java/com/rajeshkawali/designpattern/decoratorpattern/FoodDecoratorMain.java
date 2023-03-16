@@ -5,7 +5,7 @@ package com.rajeshkawali.designpattern.decoratorpattern;
  * @author Rajesh_Kawali
  *
  */
-public class DecoratorMain {
+public class FoodDecoratorMain {
 
 	public static void main(String[] args) {
 

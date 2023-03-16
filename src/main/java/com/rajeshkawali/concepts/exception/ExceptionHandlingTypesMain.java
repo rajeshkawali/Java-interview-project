@@ -150,3 +150,20 @@ Exception handling is an important aspect of programming, and it's important to 
 
 Finally, it's also important to remember that exceptions should be used for exceptional conditions, not for normal program flow. It's a best practice to use other control structures such as conditional statements to handle expected conditions, and only use exceptions for unexpected or error conditions.
 */
+
+/*
+In Java, there is a hierarchy of exception classes, which allows you to handle exceptions at 
+different levels of abstraction. 
+
+At the top of the hierarchy is the Throwable class, which has two immediate subclasses: Error and Exception.
+
+Error and its subclasses are used to indicate severe, unrecoverable problems that typically result in the termination of the program. Examples of errors include OutOfMemoryError, StackOverflowError, and VirtualMachineError.
+
+Exception and its subclasses are used to indicate less severe problems that can often be handled by the program. Examples of exceptions include IOException, SQLException, and NullPointerException.
+
+Exception has two main subclasses: RuntimeException and checked exceptions.
+
+RuntimeException and its subclasses are used to indicate programming errors or other unexpected conditions that should be fixed by the developer. Examples include NullPointerException, ArrayIndexOutOfBoundsException, and IllegalArgumentException. These exceptions are called unchecked exceptions, because they do not need to be declared or caught explicitly.
+
+Checked exceptions are any exception that is not a RuntimeException or one of its subclasses. These exceptions must be either caught by the calling method or declared in the method's signature using the throws keyword. Examples of checked exceptions include IOException, SQLException, and ClassNotFoundException.
+*/

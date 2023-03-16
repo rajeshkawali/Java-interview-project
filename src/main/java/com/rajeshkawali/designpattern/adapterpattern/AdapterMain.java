@@ -49,13 +49,3 @@ the client that is using the Target Interface, the AdvancedMediaPlayer class is 
 class that does not conform to the Target Interface, and the MediaPlayerAdapter is the Adapter 
 that adapt the AdvancedMediaPlayer class to the MediaPlayer interface.
 */
-
-/*
-Here are the steps to implement the Adapter design pattern in Java:-->
-
-Identify the existing interface (Adaptee) that needs to be adapted.
-Define the target interface (Target) that the client expects.
-Create an Adapter class that implements the Target interface and contains an instance of the Adaptee.
-In the Adapter class, implement the methods of the Target interface and use the Adaptee object to provide the necessary functionality.
-In the client code, create an object of the Adapter class and use it as if it were an object of the Target interface.
-*/

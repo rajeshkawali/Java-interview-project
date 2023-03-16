@@ -64,6 +64,21 @@ class ThreadLocalWorker implements Runnable {
 	}
 }
 /*
+Difference between ThreadLocal and volatile are both used for managing shared state:-->
+
+ThreadLocal is a mechanism that allows you to create variables that are local to a thread. 
+Each thread that accesses the variable has its own copy of the variable, 
+which is independent of the copies in other threads. This makes ThreadLocal variables useful 
+for managing per-thread state, such as user sessions, transaction contexts, or thread-specific configuration settings.
+
+volatile, on the other hand, is a keyword that is used to indicate that a 
+variable should be accessed directly from main memory(Shared cache) rather than from a cache. 
+This ensures that any changes made to the variable by one thread are visible to all other threads immediately. 
+volatile variables are typically used for managing shared state that needs to be accessed 
+frequently and concurrently by multiple threads.
+*/
+
+/*
 1.set(T value): Sets the value of the ThreadLocal for the current thread.
 2.get(): Returns the value of the ThreadLocal for the current thread.
 3.remove(): Removes the value of the ThreadLocal for the current thread.

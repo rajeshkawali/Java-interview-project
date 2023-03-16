@@ -7,16 +7,15 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 /*
-
 1.Transient variable will be ignored during serialization.
-2.Static variable won�t even participate in Serialization.
+2.Static variable won't even participate in Serialization.
 3.Static variable will be serialized if the value is initialized during declaration itself.
 4.If a variable contains both transient and static keyword, also if the value is initialized during declaration, then it will be serialized. Because here transient modifier will be ignored and static modifier will take over the actions.
 5.Final variable will be serialized.
 6.If a variable contains both final and transient keyword, then it will be serialized. Because here transient modifier will be ignored and final modifier will take over the actions.
-7.If a parent class has implemented Serializable interface then child class doesn�t need to implement it but vice-versa is not true.
+7.If a parent class has implemented Serializable interface then child class doesn't need to implement it but vice-versa is not true.
 8.Constructor of object is never called when an object is deserialized.
- */
+*/
 
 /**
  * @author Rajesh_Kawali
