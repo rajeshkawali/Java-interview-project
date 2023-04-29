@@ -65,7 +65,7 @@ public class StreamGrouping {
 		System.out.println("--------------------------------------------------------------------------------");
 		System.out.println("Print all employee first name group by age with age ascending.\n");
 		Map<Integer, List<String>> groupByAgeWithAsc = employeeList.stream()
-				.collect(Collectors.groupingBy(Employee::getAge, TreeMap::new,Collectors.mapping(Employee::getFirstName, Collectors.toList())));
+				.collect(Collectors.groupingBy(Employee::getAge, TreeMap::new, Collectors.mapping(Employee::getFirstName, Collectors.toList())));
 		System.out.println(groupByAgeWithAsc);
 		System.out.println("--------------------------------------------------------------------------------");
 		System.out.println("Find the number of time each character occur.\n");

@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author Rajesh_Kawali
  * 
  */
-public class firstRepeatedAndNonRepeatedChar {
+public class FirstRepeatedAndNonRepeatedChar {
 	static void firstRepeatedNonRepeatedChar(String inputString) {
 		HashMap<Character, Integer> charCountMap = new HashMap<Character, Integer>();
 		char[] strArray = inputString.toCharArray();
