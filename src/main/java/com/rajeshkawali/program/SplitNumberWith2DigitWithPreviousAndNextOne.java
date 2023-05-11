@@ -12,7 +12,8 @@ import java.util.stream.Collectors;
 public class SplitNumberWith2DigitWithPreviousAndNextOne {
 
 	public static void main(String[] args) {
-		// You have to split like – 78 84 45 52 29…………88 89. Print values- 2nd max-94 and 2nd min-29
+		// Given string of integer values, You have to split like – 78 84 45 52 29 94 49 91 17…………88 89.
+		// Print values- 2nd max-94 and 2nd min-29
 		String s1 = "7845294917697889";
 		List<String> integerList = new ArrayList<>();
 		char[] c = s1.toCharArray();

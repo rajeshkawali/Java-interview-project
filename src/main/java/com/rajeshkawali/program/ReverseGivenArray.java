@@ -1,6 +1,10 @@
 package com.rajeshkawali.program;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * @author Rajesh_Kawali
@@ -32,15 +36,36 @@ public class ReverseGivenArray {
 		}
 		System.out.println("Array After Reverse : " + Arrays.toString(arr));
 	}
+	//Ex:3
+	public static void reverseGivenArray(int[] arr) {
+	    List<Integer> list = new ArrayList<Integer>(arr.length);
+	    for (int i : arr) {
+	        list.add(i);
+	    }
+	    Collections.reverse(list);
+	    int[] reversedArray = new int[arr.length];
+	    for (int i = 0; i < arr.length; i++) {
+	        reversedArray[i] = list.get(i);
+	    }
+	    System.out.println("Array Before Reverse : " + Arrays.toString(arr));
+	    System.out.println("Array After Reverse : " + Arrays.toString(reversedArray));
+	}
+	//Ex:4
+	public static int[] reverseArrayUsingStream(int[] arr) {
+	    return IntStream.range(0, arr.length)
+	                    .map(i -> arr[arr.length - 1 - i])
+	                    .toArray();
+	}
 
 	public static void main(String[] args) {
 		reverseArray(new int[] { 1, 2, 3, 4, 5 });
 		System.out.println("-------------------------");
-		reverseArray(new int[] { 12, 9, 21, 17, 33, 7 });
-		System.out.println("-------------------------");
-		reverseArray(new int[] { 891, 569, 921, 187, 343, 476, 555 });
-		System.out.println("-------------------------");
 		reverseTheArray(new int[] { 326, 569, 431, 876 });
+		System.out.println("-------------------------");
+		reverseGivenArray(new int[] { 891, 569, 921, 187, 343, 476, 555 });
+		System.out.println("-------------------------");
+		int[] reversedArray = reverseArrayUsingStream(new int[] { 326, 569, 431, 876 });
+		System.out.println(Arrays.toString(reversedArray));
 	}
 }
 /*
