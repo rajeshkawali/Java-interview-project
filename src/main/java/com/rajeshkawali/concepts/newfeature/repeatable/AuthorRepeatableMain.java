@@ -21,7 +21,7 @@ class Repeatable {
 	*/
 }
 
-public class RepeatableExample {
+public class AuthorRepeatableMain {
 	public static void main(String[] args) {
 		Author[] authors = Repeatable.class.getAnnotationsByType(Author.class);
 		for (Author author : authors) {

@@ -38,7 +38,7 @@ class GenericTreeImpl implements GenericInterfaceExample {
 }
 /*
 
-The code you provided defines a generic interface called GenericInterfaceExample 
+The code provided defines a generic interface called GenericInterfaceExample 
 that takes a type parameter T. The interface has a single method called get() that 
 takes an argument of type T and returns a String.
 

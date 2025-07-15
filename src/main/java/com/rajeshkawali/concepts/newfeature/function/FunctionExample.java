@@ -7,26 +7,34 @@ import java.util.function.Function;
  *
  */
 public class FunctionExample {
+	
 	public static void main(String[] args) {
-		// Define some functions
+		
+		// Define a Function that takes a String and returns its length
 		Function<String, Integer> stringLength = str -> str.length();
+
+		// Define a Function that doubles an Integer
 		Function<Integer, Integer> doubleIt = x -> x * 2;
+
+		// Define a Function that adds 1 to an Integer
 		Function<Integer, Integer> addOne = x -> x + 1;
 
-		// Test the functions
+		// Test each function individually
 		System.out.println(stringLength.apply("Hello, Function!")); // Output: 17
 		System.out.println(doubleIt.apply(5)); // Output: 10
 		System.out.println(addOne.apply(5)); // Output: 6
 
-		// Use the andThen() method
-		Function<Integer, Integer> doubleItAndAddOne = doubleIt.andThen(addOne);
-		System.out.println(doubleItAndAddOne.apply(5)); // Output: 11
+		// andThen(): applies doubleIt first, then addOne
+		// i.e., (5 * 2) + 1 = 11
+		Function<Integer, Integer> andThenDefault = doubleIt.andThen(addOne);
+		System.out.println(andThenDefault.apply(5)); // Output: 11
 
-		// Use the compose() method
-		Function<Integer, Integer> addOneThenDoubleIt = addOne.compose(doubleIt);
-		System.out.println(addOneThenDoubleIt.apply(5)); // Output: 11
+		// compose(): applies addOne first, then doubleIt
+		// i.e., (5 + 1) * 2 = 12
+		Function<Integer, Integer> composeDefault = doubleIt.compose(addOne);
+		System.out.println(composeDefault.apply(5)); // Output: 12
 
-		// Use the identity() method
+		// identity(): returns the input as is
 		Function<Integer, Integer> identity = Function.identity();
 		System.out.println(identity.apply(5)); // Output: 5
 	}
@@ -38,17 +46,17 @@ and it has a single abstract method R apply(T t).
 
 Some of the static and default methods of the Function interface include:-->
 
-andThen(Function after) :- Returns a composed function that first applies this function to its input, 
+default andThen(Function after) :- Returns a composed function that first applies this function to its input, 
 			  and then applies the after function to the result. This method allows you to chain multiple 
 			  functions together, where the first function is applied first, and the result is passed as an 
 			  input to the second function.
 
-compose(Function before) :- Returns a composed function that first applies the before function 
+default compose(Function before) :- Returns a composed function that first applies the before function 
 			  to its input, and then applies this function to the result. This method also allows you to chain 
 			  multiple functions together but the difference from andThen is the order of execution.
 
-identity() :- Returns a function that always returns its input argument. This method is useful 
+static identity() :- Returns a function that always returns its input argument. This method is useful 
 			  in situations where the data is not changed but you still want to use the Function interface.
 
-apply(T t) :- it applies this function to the given argument.
+R apply(T t) :- it applies this function to the given argument.
 */

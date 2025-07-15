@@ -37,5 +37,6 @@ Return type: BiFunction takes two arguments of different types and returns a res
 BinaryOperator takes two arguments of the same type and returns a result of the same type.
 
 Purpose: BiFunction is used for general purpose operations that take two arguments and return a result, while 
-BinaryOperator is used specifically for arithmetic or logical operations that take two arguments of the same type and return a result of the same type.
+BinaryOperator is used specifically for arithmetic or logical operations that take two arguments 
+of the same type and return a result of the same type.
 */

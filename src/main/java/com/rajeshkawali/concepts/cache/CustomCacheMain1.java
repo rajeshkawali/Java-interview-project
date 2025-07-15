@@ -39,7 +39,7 @@ class CustomCache<K, V> implements Cache<K, V> {
 	}
 }
 
-public class CustomCacheMain {
+public class CustomCacheMain1 {
 	public static void main(String[] args) {
 		
 		Cache<String, Integer> cache = new CustomCache<>();

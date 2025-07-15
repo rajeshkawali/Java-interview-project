@@ -6,10 +6,12 @@ package com.rajeshkawali.concepts.newfeature.sealed;
  */
 sealed interface Shape permits Circle, Square, Triangle {
 	/**
-	Sealed classes are a new feature introduced in Java as part of the Java
-	Development Kit (JDK) 15. They allow you to specify which classes are allowed
-	to extend a given class, creating restricted class hierarchies in which only
-	certain classes can extend a given class.
+	Sealed classes introduced in Java 15 as a preview feature and standardized in Java 17.
+	
+	A sealed class is a special kind of class that restricts which other classes or interfaces can 
+	extend or implement it. By declaring a class as sealed, the developer explicitly 
+	specifies a fixed set of permitted subclasses, thereby controlling the class hierarchy 
+	and improving code safety, maintainability, and pattern matching.
 
 	To define a sealed class, you use the sealed modifier followed by the class
 	or interface declaration and a permits clause that lists the permitted

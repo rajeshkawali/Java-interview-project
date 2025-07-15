@@ -12,9 +12,11 @@ class Shirt {
 
 public class ColorAnnotation {
 	public static void main(String args[]) {
-		Color[] colorArray = Shirt.class.getAnnotationsByType(Color.class);
-		for (Color color : colorArray) {
-			System.out.println("Shirt colors are : "+color.name());
-		}
+		// Get all Color annotations on Shirt (including repeated ones)
+        Color[] colorArray = Shirt.class.getAnnotationsByType(Color.class);
+
+        for (Color color : colorArray) {
+            System.out.println("Shirt color: " + color.name());
+        }
 	}
 }

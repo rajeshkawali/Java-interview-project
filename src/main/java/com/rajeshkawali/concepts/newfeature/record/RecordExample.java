@@ -8,7 +8,10 @@ package com.rajeshkawali.concepts.newfeature.record;
 record Point(int x, int y) {
 
 	/*
-	Record classes are a new feature introduced in Java Development Kit (JDK) 14. 
+	What is a Record?
+	A record in Java is a special class introduced in Java 14 (preview), and finalized in Java 16. 
+	It is designed to simplify the creation of immutable data carriers, like DTOs (Data Transfer Objects).
+	 
 	They are a concise way of creating simple, immutable data classes that represent records, 
 	such as a point on a coordinate system or an account in a bank. Record classes have a 
 	public accessor method for each component and also have a toString(), hashCode(), and equals() 
@@ -50,39 +53,69 @@ public class RecordExample {
 /*
 Some key points to consider when implementing a record class in Java:-->
 
-1.A record class must have a name and a list of components, and it must be defined using the record keyword.
+1.A record is defined using the record keyword, with a name and a list of fields (called components).
+→ Example: record Person(String name, int age) {}
 
-2.The components of a record class are public, final, and non-null by default, and they are defined as instance variables.
+2.Components are implicitly private and final. Records are immutable by default.
 
-3.A record class has a public accessor method for each component, which is named after the component and has a return type that matches the type of the component.
+3.Java automatically provides: A constructor, Getters (named after the fields, e.g., person.name()) and 
+toString(), equals(), and hashCode() methods
 
-4.A record class has a toString(), hashCode(), and equals() method that is generated automatically based on the components of the record.
+4.You cannot declare additional instance fields, but you can add methods, 
+override generated methods, and add static fields/methods.
 
-5.A record class cannot have any instance methods or instance variables other than the components.
+5.Records are implicitly final — they cannot be extended or subclassed.
 
-6.A record class cannot have a superclass or an explicit constructor, and it cannot be abstract or final.
+6.Records cannot extend other classes, but they can implement interfaces.
 
-7.A record class is implicitly final, and it cannot be subclassed or extended.
-
-8.A record class can have interfaces, in which case the record class must implement all of the methods of the interfaces.
+7.You can write a compact constructor (called a canonical constructor) 
+to validate or transform inputs, but you can't define your own fields outside of the record components.
 */
 
 
+
 /*
-Some key differences between POJO and record classes in Java:-->
+============================================================
+ Key Differences Between POJO and Record Classes in Java
+============================================================
 
-1.POJOs are mutable, 
-while record classes are immutable.
+1. Mutability:
+   - POJOs are typically mutable (fields can be changed via setters).
+   - Records are immutable by default — their fields are implicitly final and cannot be changed after construction.
 
-2.POJOs have getter and setter methods for their data, 
-while record classes have public accessor methods for their components.
+2. Accessors:
+   - POJOs use traditional getter and setter methods (e.g., getName(), setName()).
+   - Records automatically generate public accessor methods with the same name as the field (e.g., name()), but no setters.
 
-3.POJOs do not have a toString(), hashCode(), or equals() method by default, 
-while record classes have these methods generated automatically based on the components of the record.
+3. Generated Methods:
+   - POJOs require manual implementation or IDE-generated code for toString(), equals(), and hashCode().
+   - Records automatically generate toString(), equals(), and hashCode() based on all components.
 
-4.POJOs can have instance variables, instance methods, and constructors, 
-while record classes can only have components and cannot have a superclass or an explicit constructor.
+4. Class Structure:
+   - POJOs can have custom fields, multiple constructors, methods, and can extend other classes.
+   - Records define all fields (called components) in the record header and cannot define additional instance variables.
+   - Records can include custom methods, static fields/methods, and compact constructors for validation.
+   - Records cannot extend any other class (they implicitly extend java.lang.Record), but can implement interfaces.
 
-5.POJOs can be abstract or final, 
-while record classes are always final and cannot be subclassed or extended.
+5. Inheritance and Finality:
+   - POJOs can be abstract, final, or non-final, and can be subclassed or extended.
+   - Records are implicitly final — they cannot be abstract or extended.
+
+6. Constructors:
+   - POJOs can define multiple overloaded constructors.
+   - Records automatically get a canonical constructor and allow custom or compact constructors for input validation, but these must only initialize declared components.
+
+7. Serialization:
+   - Both POJOs and records can implement Serializable.
+   - Records, due to their immutability and simplicity, are often a better fit for safe and predictable serialization.
+
+8. Immutability Enforcement:
+   - POJO immutability is manual (requires final fields and no setters).
+   - Record immutability is enforced by the language — all components are final and private.
+
+9. Use Cases:
+   - POJOs are suited for complex business logic, mutable models, and full control over structure.
+   - Records are ideal for simple, immutable data carriers (e.g., DTOs, event messages, config objects) with minimal boilerplate.
+
+============================================================
 */

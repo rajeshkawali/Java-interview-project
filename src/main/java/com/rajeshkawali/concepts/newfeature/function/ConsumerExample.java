@@ -7,18 +7,22 @@ import java.util.function.Consumer;
  *
  */
 public class ConsumerExample {
+	
 	public static void main(String[] args) {
-		// Define some consumers
-		Consumer<String> printString = str -> System.out.println(str);
-		Consumer<Integer> printInteger = i -> System.out.println(i);
+		
+		// Define some consumers (operations that take an input and return nothing)
+		Consumer<String> printString = str -> System.out.println(str);  // Prints a string
+		Consumer<Integer> printInteger = i -> System.out.println(i);    // Prints an integer
 
 		// Use the accept() method
+		// Executes the Consumer action with the given argument
 		printString.accept("Hello, Consumer!"); // Output: "Hello, Consumer!"
-		printInteger.accept(5); // Output: 5
+		printInteger.accept(5);                 // Output: 5
 
 		// Use the andThen() method
+		// Chains two Consumers to run sequentially: first print, then double and print
 		Consumer<Integer> printAndDouble = printInteger.andThen(i -> System.out.println(i * 2));
-		printAndDouble.accept(5); // Output: 5, 10
+		printAndDouble.accept(5);               // Output: 5, 10
 	}
 }
 /*
