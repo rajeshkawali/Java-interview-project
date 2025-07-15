@@ -1,35 +1,42 @@
 package com.rajeshkawali.solid.designprinciples;
 
 class Invoice {
-	public double calculateTotal() {
-		// code to calculate total
-		return 0;
-	}
+    // Responsible only for calculating the total amount
+    public double calculateTotal() {
+        // simple fixed amount for example
+        return 1000 + 150; // amount + tax
+    }
 }
 
 class InvoicePrinter {
-	public void printInvoice(Invoice invoice) {
-		// code to print invoice
-	}
+    // Responsible only for printing the invoice
+    public void printInvoice(Invoice invoice) {
+        System.out.println("Total amount: " + invoice.calculateTotal());
+    }
 }
 
 class InvoiceSaver {
-	public void saveInvoice(Invoice invoice) {
-		// code to save invoice
-	}
+    // Responsible only for saving the invoice
+    public void saveInvoice(Invoice invoice) {
+        System.out.println("Invoice saved with total: " + invoice.calculateTotal());
+    }
 }
 
 public class SingleResponsibilityPrinciple {
-	/*
-	Single Responsibility Principle:
-	A class should have one and only one reason to change.
-	For example, in Java, consider a class named "Invoice" that is responsible for calculating the total amount, 
-	printing and saving the invoice. To adhere to the Single Responsibility Principle, we should split the class 
-	into three separate classes: "Invoice", "InvoicePrinter" and "InvoiceSaver" each class 
-	should be responsible for one specific task.
-	*/
-	public static void main(String[] args) {
+	 /*
+    Single Responsibility Principle (SRP):
+    A class should have only one reason to change, meaning it should have one responsibility.
+    For example, an "Invoice" class should only calculate the total amount.
+    Printing and saving the invoice should be handled by separate classes,
+    such as "InvoicePrinter" and "InvoiceSaver", respectively.
+   */
+    public static void main(String[] args) {
+        Invoice invoice = new Invoice();
 
-	}
+        InvoicePrinter printer = new InvoicePrinter();
+        InvoiceSaver saver = new InvoiceSaver();
 
+        printer.printInvoice(invoice); // prints total
+        saver.saveInvoice(invoice);     // saves invoice
+    }
 }

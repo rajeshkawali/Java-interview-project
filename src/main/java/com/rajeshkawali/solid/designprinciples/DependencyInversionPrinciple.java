@@ -1,40 +1,61 @@
 package com.rajeshkawali.solid.designprinciples;
 
 interface Payment {
-	public void pay(double amount);
+    void pay(double amount);
 }
 
 class Order {
-	private Payment payment;
+    private Payment payment;
 
-	public Order(Payment payment) {
-		this.payment = payment;
-	}
+    public Order(Payment payment) {
+        this.payment = payment;
+    }
 
-	public void checkout(double amount) {
-		payment.pay(amount);
-	}
+    public void checkout(double amount) {
+        payment.pay(amount);
+    }
 }
 
 class PaypalPayment implements Payment {
-	public void pay(double amount) {
-		// code to process Paypal payment
-	}
+    @Override
+    public void pay(double amount) {
+        // code to process Paypal payment
+        System.out.println("Paid " + amount + " using PayPal.");
+    }
+}
+
+class CreditCardPayment implements Payment {
+    @Override
+    public void pay(double amount) {
+        // code to process Credit Card payment
+        System.out.println("Paid " + amount + " using Credit Card.");
+    }
 }
 
 public class DependencyInversionPrinciple {
-	/*
-	Dependency Inversion Principle:
-	High-level modules should not depend on low-level modules; both should depend on abstractions.
-	For example, in Java, consider a class named "Order" that depends on a specific implementation 
-	of a "Payment" class named "PaypalPayment". 
-	To adhere to the Dependency Inversion Principle, we should create an abstraction of the "Payment" class, 
-	such as an interface or abstract class named "Payment" and have the "Order" class depend on this 
-	abstraction rather than a specific implementation.
-	*/
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	}
+    /*
+     Dependency Inversion Principle (DIP):
+
+     High-level modules should not depend on low-level modules; both should depend on abstractions.
+     For example, consider a class named "Order" that depends on a specific implementation 
+     of a "Payment" class named "PaypalPayment". 
+
+     To follow DIP, we create an abstraction "Payment" (interface) and have "Order" depend on this
+     abstraction rather than a concrete implementation.
+
+     This allows us to change payment methods without modifying the "Order" class.
+    */
+    public static void main(String[] args) {
+        // Using Paypal payment
+        Payment paypal = new PaypalPayment();
+        Order order1 = new Order(paypal);
+        order1.checkout(100);
+
+        // Using Credit Card payment
+        Payment creditCard = new CreditCardPayment();
+        Order order2 = new Order(creditCard);
+        order2.checkout(250);
+    }
 }
 //------------------------------------------Example2-----------------------------------------
 interface ILogger {

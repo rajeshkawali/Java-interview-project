@@ -43,6 +43,9 @@ For example, a class named "Order" should not depend on a specific implementatio
 "Payment" class, but instead depend on an abstraction of the "Payment" class, such as an interface or abstract class.
 */
 
+
+
+
 /*
 Single Responsibility Principle:
 A class should have one and only one reason to change.
@@ -81,5 +84,25 @@ the Dependency Inversion Principle, we should create an abstraction of the "Paym
 */
 
 /*
+
+S – Single Responsibility Principle (SRP)
+Definition: A class should have one, and only one, reason to change, meaning it should have only a single responsibility or job.
+Quote: “A class should have only one reason to change.” — Robert C. Martin
+
+O – Open/Closed Principle (OCP)
+Definition: Software entities like classes, modules, and functions should be open for extension (new behavior can be added) but closed for modification (existing code should not be changed).
+Quote: “Software entities should be open for extension but closed for modification.” — Bertrand Meyer
+
+L – Liskov Substitution Principle (LSP)
+Definition: Objects of a superclass should be replaceable with objects of its subclasses without affecting the correctness of the program; subclasses must honor the contracts of their base classes.
+Quote: “Subtypes must be substitutable for their base types without altering the correctness of the program.” — Barbara Liskov
+
+I – Interface Segregation Principle (ISP)
+Definition: Clients should not be forced to depend on interfaces they do not use; instead, many specific interfaces are better than one general-purpose interface.
+Quote: “Clients should not be forced to depend upon interfaces that they do not use.” — Robert C. Martin
+
+D – Dependency Inversion Principle (DIP)
+Definition: High-level modules should not depend on low-level modules; both should depend on abstractions. Additionally, abstractions should not depend on details, but details should depend on abstractions.
+Quote: “Depend on abstractions, not on concretions.” — Robert C. Martin
 
 */

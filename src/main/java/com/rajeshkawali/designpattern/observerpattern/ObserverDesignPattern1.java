@@ -104,7 +104,7 @@ class ForecastDisplay implements WeatherObserver {
 }
 
 // The client code
-public class ObserverDesignPatternWeather {
+public class ObserverDesignPattern1 {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		WeatherStation weatherStation = new WeatherStation();

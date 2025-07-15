@@ -42,7 +42,8 @@ public class ArrayListeMain {
 		// Remove some elements from the list
 		arlTest.remove("D");
 		System.out.println("See contents after removing one element: " + arlTest); //[U, K, E, null, 2, E, , null]
-		arlTest.remove(2);// Remove element by index
+		arlTest.remove(2);  // ⚠️ This removes element at index 2 → removes 'E' (This remove(int index) from List)
+		//arlTest.remove(Integer.valueOf(2)); // ✅ Removes the object '2' from the arlTest (This remove(Object o) from Collection)
 		System.out.println("See contents after removing element by index: " + arlTest);//[U, K, null, 2, E, , null]
 		// Check size after removing elements
 		System.out.println("Size of arrayList after removing elements: " + arlTest.size());// 7

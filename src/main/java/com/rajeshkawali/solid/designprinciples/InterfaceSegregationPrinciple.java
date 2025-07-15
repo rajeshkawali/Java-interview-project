@@ -1,34 +1,41 @@
 package com.rajeshkawali.solid.designprinciples;
 
 interface Flyable {
-	public void fly();
+    void fly();
 }
 
 interface Singable {
-	public void sing();
+    void sing();
 }
 
 class Bird1 implements Flyable, Singable {
-	public void fly() {
-		// code to make the bird fly
-	}
+    @Override
+    public void fly() {
+        // code to make the bird fly
+        System.out.println("Bird is flying");
+    }
 
-	public void sing() {
-		// code to make the bird sing
-	}
+    @Override
+    public void sing() {
+        // code to make the bird sing
+        System.out.println("Bird is singing");
+    }
 }
 
 public class InterfaceSegregationPrinciple {
-	/*
-	Interface Segregation Principle:
-	A class should not be forced to implement interfaces it doesn't use.
-	For example, in Java, consider an interface named "Animals" that contains methods for "Fly", "Swim" and "Sing". 
-	A class named "Bird" should only implement the "Fly" and "Sing" methods since birds can fly and sing, but they can't swim. 
-	By separating the interface into smaller interfaces such as "Flyable" and "Singable" we can avoid this problem.
-	*/
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+    /*
+     Interface Segregation Principle (ISP):
 
-	}
+     A class should not be forced to implement interfaces it doesn't use.
+     For example, imagine an interface named "Animals" that contains methods for "fly", "swim", and "sing".
+     A class named "Bird" should only implement "fly" and "sing" since birds can fly and sing, but can't swim.
+     By splitting the large interface into smaller, more specific interfaces like "Flyable" and "Singable",
+     we ensure that classes only implement methods relevant to them.
+    */
 
+    public static void main(String[] args) {
+        Bird1 bird = new Bird1();
+        bird.fly();   // Output: Bird is flying
+        bird.sing();  // Output: Bird is singing
+    }
 }

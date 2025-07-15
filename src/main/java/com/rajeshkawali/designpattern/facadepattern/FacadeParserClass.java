@@ -27,4 +27,10 @@ public class FacadeParserClass {
 	public void pdfParser() {
 		pdfParser.parser();
 	}
+	
+	public void allFileParser() {
+		textParser.parser();
+		pdfParser.parser();
+		textParser.parser();
+	}
 }

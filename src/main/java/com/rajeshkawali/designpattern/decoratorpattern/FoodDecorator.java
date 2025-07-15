@@ -15,7 +15,7 @@ public abstract class FoodDecorator implements Food {
 
 	@Override
 	public String prepareFood() {
-		return food.prepareFood();
+		return this.food.prepareFood();
 	}
 
 }

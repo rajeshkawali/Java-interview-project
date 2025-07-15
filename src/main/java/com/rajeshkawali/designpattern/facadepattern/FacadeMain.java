@@ -13,6 +13,7 @@ public class FacadeMain {
 		facadeParserCaller.csvParser();
 		facadeParserCaller.pdfParser();
 		System.out.println("Done Execution");
+		facadeParserCaller.allFileParser();
 	}
 }
 
