@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.DoubleSummaryStatistics;
+import java.util.HashSet;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Random;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -196,6 +198,17 @@ public class StreamEmployeeQuestions {
 		.filter(lastName->Collections.frequency(empLastNameList, lastName) > 1)
 		.collect(Collectors.toSet());
 		System.out.println(empLastNameDuplicate);
+		// --------------------- Another way
+		List<String> empLastNameDuplicate1 = employeeList.stream().map(Employee::getLastName)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
+				.filter(entry -> entry.getValue() > 1).map(Map.Entry::getKey).collect(Collectors.toList());
+		System.out.println(empLastNameDuplicate1);
+		// --------------------- Another way
+		Set<String> seen = new HashSet<>();
+		Set<String> duplicates = employeeList.stream().map(Employee::getLastName)
+				.filter(lastName -> !seen.add(lastName)) // add() returns false if already exists
+				.collect(Collectors.toSet());
+		System.out.println(duplicates);
 		System.out.println("--------------------------------------------------------------------------------29");
 		//print unique last names of given employee list.
 		Set<String> empLastNameUnique = employeeList.stream().distinct().map(Employee::getLastName)
@@ -282,6 +295,7 @@ public class StreamEmployeeQuestions {
 		List<Employee> olderEmployees = employeesByAge.get(false);
 		System.out.println("Younger employees: " + youngerEmployees);
 		System.out.println("Older employees: " + olderEmployees);
+		System.out.println(employeeList.stream().collect(Collectors.partitioningBy(e -> e.getAge() <= 25)));
 		System.out.println("--------------------------------------------------------------------------------44");
 		System.out.println("Separate the Words starting with vowels and consonants.");
 		List<String> words = Arrays.asList("Apple", "Banana", "Carrot", "Dog", "Elephant", "Fish");
