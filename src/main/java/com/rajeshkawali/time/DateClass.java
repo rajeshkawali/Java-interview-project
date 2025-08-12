@@ -34,6 +34,9 @@ public class DateClass {
 		LocalDate currDate = LocalDate.now();
 		LocalDate tomorrow = currDate.plusDays(1);
 		LocalDate yesterday = currDate.minusDays(1);
+		System.out.println("Current date: " + currDate);
+		System.out.println("Current date plus 1 day: " + tomorrow);
+		System.out.println("Current date minus 1 day: " + yesterday);
 		System.out.println("Current date is after yesterday's date: " + currDate.isAfter(yesterday));
 		System.out.println("Current date is before tomorrow's date: " + currDate.isBefore(tomorrow));
 		System.out.println("------------------------------------------");

@@ -2,6 +2,7 @@ package com.rajeshkawali.stream.intermediate.operations;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -9,39 +10,84 @@ import java.util.stream.Stream;
  * @author Rajesh_Kawali
  *
  */
+/**
+ * Demonstrates Intermediate operations of Java Stream API.
+ * Intermediate operations transform a stream into another stream.
+ *
+ * Operations included:
+ * filter(), map(), flatMap(), distinct(), sorted(), peek(), limit(), skip()
+ */
 public class StreamIntermediateOperations {
-	// Intermediate operations of Stream API  --> filter(),map(),flatmap(),distinct(),sorted(),peek(),limit(),skip()
-	
-	public static void main(String[] args) {
-		List<Integer> list = Arrays.asList(6, 1, 2, 3, 5, 4, 2);
 
-		// filter(Predicate<? super Integer> predicate) --> Returns a stream consisting of the elements of this stream that matchthe given predicate.
-		System.out.println(list.stream().filter(x -> x%2==0).collect(Collectors.toList()));
-		System.out.println("--------------------------------------------------------------------1");
-		// map(Function<? super Integer, ? extends Integer> mapper) --> Returns a stream consisting of the results of applying the given function to the elements of this stream.
-		list.stream().filter(x -> x<=3).map(x -> x+2).forEach(System.out::println);
-		System.out.println("--------------------------------------------------------------------2");
-		// flatMap(Function<? super String, ? extends Stream<? extends Character>> mapper) --> To retrieve nested list.
-		List<String> listOfStrings = Arrays.asList("fff", "bbb", "ccc","aaa", "eee", "dddd");
-		System.out.println(listOfStrings.stream().flatMap(x -> Stream.of(x.charAt(1))).sorted().collect(Collectors.toList()));// Retrieve 2nd character from string and sort them.
-		listOfStrings.stream().flatMap(x -> Stream.of(x.charAt(2)).filter(v->v.equals('e'))).forEach(System.out::println); // Retrieve 3rd character from string and aalow only 'e' character.
-		System.out.println("--------------------------------------------------------------------3");
-		// distinct() --> Returns a stream consisting of the distinct elements (according to Object.equals(Object)) of this stream.
-		System.out.println(list.stream().distinct().sorted().collect(Collectors.toList())); // Print only unique values
-		System.out.println("--------------------------------------------------------------------4");
-		// sorted() --> sort according to natural order.
-		System.out.println(listOfStrings.stream().sorted().collect(Collectors.toList()));
-		System.out.println("--------------------------------------------------------------------5");
-		// peek(Consumer<? super Integer> action) --> Returns a stream consisting of the elements of this stream, print each element.
-		list.stream().peek(System.out::println).collect(Collectors.toList());
-		System.out.println("--------------------------------------------------------------------6");
-		// limit(long maxSize) --> Returns a stream consisting of the elements of this stream, truncated to be no longer than maxSize in length..
-		System.out.println(list.stream().limit(2).collect(Collectors.toList()));// print first 2 elements(limit) in the list with provided limit
-		System.out.println("--------------------------------------------------------------------7");
-		// skip --> skip the first element and print remaining elements.
-		System.out.println(list.stream().skip(1).collect(Collectors.toList())); // Skip the first element in the list
-		System.out.println("--------------------------------------------------------------------8");
-	}
+    public static void main(String[] args) {
+
+        List<Integer> list = Arrays.asList(6, 1, 2, 3, 5, 4, 2);
+        System.out.println("--------------------------------------------------");
+        // 1. filter() - Select even numbers
+        // Keeps only elements that match the given condition (predicate)
+        System.out.println("1. filter() - Even numbers: " +
+                list.stream()
+                    .filter(x -> x % 2 == 0)
+                    .collect(Collectors.toList()));
+        System.out.println("--------------------------------------------------");
+        // 2. map() - Transform elements
+        // Here: Filter values <= 3, then add 2 to each
+        System.out.println("2. map() - Elements <= 3, then add 2:");
+        list.stream()
+            .filter(x -> x <= 3)
+            .map(x -> x + 2)
+            .forEach(System.out::println);
+        System.out.println("--------------------------------------------------");
+        // 3. flatMap() - Flatten nested structures (strings to characters)
+        List<String> listOfStrings = Arrays.asList("fff", "bbb", "ccc", "aaa", "eee", "dddd");
+        // a. Extract 2nd character from each string and sort
+        System.out.println("3.a flatMap() - 2nd characters sorted:");
+        System.out.println(
+            listOfStrings.stream()
+                .flatMap(str -> Stream.of(str.charAt(1)))
+                .sorted()
+                .collect(Collectors.toList())
+        );
+        // b. Extract 3rd character and filter only 'e'
+        System.out.println("3.b flatMap() - Filter only 'e' as 3rd char:");
+        listOfStrings.stream()
+            .map(str -> str.length() > 2 ? str.charAt(2) : null)
+            .filter(Objects::nonNull)
+            .filter(ch -> ch.equals('e'))
+            .forEach(System.out::println);
+        System.out.println("--------------------------------------------------");
+        // 4. distinct() - Remove duplicate elements
+        System.out.println("4. distinct() - Unique sorted values: " +
+                list.stream()
+                    .distinct()
+                    .sorted()
+                    .collect(Collectors.toList()));
+        System.out.println("--------------------------------------------------");
+        // 5. sorted() - Sort strings naturally (lexicographically)
+        System.out.println("5. sorted() - Sorted strings: " +
+                listOfStrings.stream()
+                    .sorted()
+                    .collect(Collectors.toList()));
+        System.out.println("--------------------------------------------------");
+        // 6. peek() - Debug/inspect elements in the stream
+        System.out.println("6. peek() - Print each element (stream content):");
+        list.stream()
+            .peek(System.out::println)
+            .collect(Collectors.toList());
+        System.out.println("--------------------------------------------------");
+        // 7. limit() - Get only the first 2 elements
+        System.out.println("7. limit() - First 2 elements: " +
+                list.stream()
+                    .limit(2)
+                    .collect(Collectors.toList()));
+        System.out.println("--------------------------------------------------");
+        // 8. skip() - Skip the first element
+        System.out.println("8. skip() - Skip first element: " +
+                list.stream()
+                    .skip(1)
+                    .collect(Collectors.toList()));
+        System.out.println("--------------------------------------------------");
+    }
 }
 /*
 List of intermediate operations in the Stream interface:-->
@@ -126,20 +172,25 @@ skip: Returns a stream consisting of the remaining elements of this stream after
 */
 
 /*
-[6, 2, 4, 2]
---------------------------------------------------------------------1
+--------------------------------------------------
+1. filter() - Even numbers: [6, 2, 4, 2]
+--------------------------------------------------
+2. map() - Elements <= 3, then add 2:
 3
 4
 5
 4
---------------------------------------------------------------------2
+--------------------------------------------------
+3.a flatMap() - 2nd characters sorted:
 [a, b, c, d, e, f]
+3.b flatMap() - Filter only 'e' as 3rd char:
 e
---------------------------------------------------------------------3
-[1, 2, 3, 4, 5, 6]
---------------------------------------------------------------------4
-[aaa, bbb, ccc, dddd, eee, fff]
---------------------------------------------------------------------5
+--------------------------------------------------
+4. distinct() - Unique sorted values: [1, 2, 3, 4, 5, 6]
+--------------------------------------------------
+5. sorted() - Sorted strings: [aaa, bbb, ccc, dddd, eee, fff]
+--------------------------------------------------
+6. peek() - Print each element (stream content):
 6
 1
 2
@@ -147,10 +198,11 @@ e
 5
 4
 2
---------------------------------------------------------------------6
-[6, 1]
---------------------------------------------------------------------7
-[1, 2, 3, 5, 4, 2]
---------------------------------------------------------------------8
+--------------------------------------------------
+7. limit() - First 2 elements: [6, 1]
+--------------------------------------------------
+8. skip() - Skip first element: [1, 2, 3, 5, 4, 2]
+--------------------------------------------------
+
 
  */

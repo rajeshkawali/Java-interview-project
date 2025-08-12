@@ -7,46 +7,47 @@ import java.util.stream.Collectors;
 public class TerminalOperationExample {
 	public static void main(String[] args) {
 		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
+		System.out.println("------------------------------------------------");
 		// Using toArray() to convert the stream to an array
 		Integer[] array = numbers.stream().toArray(Integer[]::new);
 		System.out.println("Array: " + Arrays.toString(array));
-
+		System.out.println("------------------------------------------------");
 		// Using collect() to convert the stream to a list
 		List<Integer> newNumbers = numbers.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
 		System.out.println("Even Numbers: " + newNumbers);
-
+		System.out.println("------------------------------------------------");
 		// Using count() to get the number of elements in the stream
 		long count = numbers.stream().filter(n -> n % 2 == 0).count();
 		System.out.println("Count of even numbers: " + count);
-
+		System.out.println("------------------------------------------------");
 		// Using reduce() to get the sum of the elements in the stream
 		int sum = numbers.stream().reduce(0, Integer::sum);
 		System.out.println("Sum: " + sum);
-
+		System.out.println("------------------------------------------------");
 		// Using forEach() to print each element in the stream
 		numbers.stream().forEach(System.out::println);
-
+		System.out.println("------------------------------------------------");
 		// Using forEachOrdered() to print each element in the stream in order
 		numbers.stream().forEachOrdered(System.out::println);
-
+		System.out.println("------------------------------------------------");
 		// Using min() and max() to get the minimum and maximum elements in the stream
 		int min = numbers.stream().min(Integer::compareTo).get();
 		int max = numbers.stream().max(Integer::compareTo).get();
 		System.out.println("Min: " + min + ", Max: " + max);
-
+		System.out.println("------------------------------------------------");
 		// Using anyMatch(), allMatch(), and noneMatch() to check if any, all, or none
 		// of the elements in the stream match a certain condition
 		boolean anyEven = numbers.stream().anyMatch(n -> n % 2 == 0);
 		boolean allEven = numbers.stream().allMatch(n -> n % 2 == 0);
 		boolean noneEven = numbers.stream().noneMatch(n -> n % 2 == 0);
 		System.out.println("Any even: " + anyEven + ", All even: " + allEven + ", None even: " + noneEven);
-
+		System.out.println("------------------------------------------------");
 		// Using findAny() and findFirst() to get any or the first element in the stream
 		// that matches a certain condition
 		int anyOdd = numbers.stream().filter(n -> n % 2 != 0).findAny().get();
 		int firstOdd = numbers.stream().filter(n -> n % 2 != 0).findFirst().get();
 		System.out.println("Any odd: " + anyOdd + ", First odd: " + firstOdd);
+		System.out.println("------------------------------------------------");
 	}
 }
 /*
@@ -71,4 +72,46 @@ anyMatch(), allMatch(), and noneMatch(): These methods return a boolean indicati
 findAny() and findFirst(): These methods return an Optional containing any or the first element in a stream that matches a certain condition specified by a Predicate.
 
 Please note that some of these methods such as reduce(), min(), max(), findAny(), findFirst(), count() etc return Optional, so the returned value has to be unwrapped using the get() method or by using .orElse() method.
+*/
+
+/*
+
+------------------------------------------------
+Array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+------------------------------------------------
+Even Numbers: [2, 4, 6, 8, 10]
+------------------------------------------------
+Count of even numbers: 5
+------------------------------------------------
+Sum: 55
+------------------------------------------------
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+------------------------------------------------
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+------------------------------------------------
+Min: 1, Max: 10
+------------------------------------------------
+Any even: true, All even: false, None even: false
+------------------------------------------------
+Any odd: 1, First odd: 1
+------------------------------------------------
+
 */

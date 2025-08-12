@@ -2,6 +2,7 @@ package com.rajeshkawali.stream.terminal.operations;
 // https://youtu.be/eA307vFsENA
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -9,54 +10,85 @@ import java.util.stream.Collectors;
  * @author Rajesh_Kawali
  *
  */
+/**
+ * Demonstrates terminal operations of Java Stream API.
+ * Terminal operations trigger the processing and produce a final result or side-effect.
+ *
+ * Operations included:
+ * toArray(), collect(), count(), reduce(), forEach(), forEachOrdered(),
+ * min(), max(), anyMatch(), allMatch(), noneMatch(), findAny(), findFirst()
+ */
 public class StreamTerminalOperations {
-	//Terminal operations of Stream API  --> toArray(),collect(),count(),reduce(),forEach(),forEachOrdered(),
-	//min(),max(),anyMatch(),allMatch(),noneMatch(),findAny(),findFirst() 
-	public static void main(String[] args) {
-		List<Integer> list = Arrays.asList(6, 1, 2, 3, 5, 4, 2);
-		
-		//toArray() --> Convert List to Array
-		Object[] array = list.stream().toArray();
-		System.out.println(array[0]);// print first element of array
-		System.out.println("--------------------------------------------------------------------1");
-		//collect(Collector<? super T, A, R> collector) --> Collects all the elements in the list/set
-		Set<Integer> set = list.stream().collect(Collectors.toSet());// Convert List to Set
-		System.out.println(set);;// Print only unique values
-		System.out.println("--------------------------------------------------------------------2");
-		// count() --> count the no of elements present in the list
-		System.out.println(list.stream().count());
-		System.out.println("--------------------------------------------------------------------3");
-		// reduce(T identity, BinaryOperator<T> accumulator) --> reduce used to reduce the elements to single unit
-		System.out.println(list.stream().reduce(0,(x,y)->(x+y))); // Sum of digits
-		System.out.println("--------------------------------------------------------------------4");
-		//forEach(Consumer<? super T> action) --> print all elements in the list
-		list.stream().forEach(System.out::println);
-		System.out.println("--------------------------------------------------------------------5");
-		//forEachOrdered(Consumer<? super T> action) --> print all elements in the list with ordered
-		list.stream().forEachOrdered(System.out::println);
-		System.out.println("--------------------------------------------------------------------6");
-		//min(Comparator<? super T> comparator) --> return minimum value in the list
-		System.out.println(list.stream().min((x,y)->x-y).get());
-		System.out.println("--------------------------------------------------------------------7");
-		//max(Comparator<? super T> comparator) --> return max value in the list
-		System.out.println(list.stream().max((x,y)->x-y).get());
-		System.out.println("--------------------------------------------------------------------8");
-		//anyMatch(Predicate<? super T> predicate) --> return true if any one element will match the condition
-		System.out.println(list.stream().anyMatch(x->x==6));
-		System.out.println("--------------------------------------------------------------------9");
-		//allMatch(Predicate<? super T> predicate) --> return true if all the element will match the condition
-		System.out.println(list.stream().allMatch(x->x/1==x));
-		System.out.println("--------------------------------------------------------------------10");
-		//noneMatch(Predicate<? super T> predicate) --> return true if none of the elements matches with the condition
-		System.out.println(list.stream().noneMatch(x->x==7)); 
-		System.out.println("--------------------------------------------------------------------11");
-		//findAny() --> find any element in the list
-		System.out.println(list.stream().findAny()); 
-		System.out.println("--------------------------------------------------------------------12");
-		//findFirst() --> Find first elementof the list
-		System.out.println(list.stream().findFirst().get()); 
-		System.out.println("--------------------------------------------------------------------13");
-	}
+
+    public static void main(String[] args) {
+
+        List<Integer> list = Arrays.asList(6, 1, 2, 3, 5, 4, 2);
+
+        // 1. toArray() - Convert the stream to an array
+        Object[] array = list.stream().toArray();
+        System.out.println("1. toArray() - First element in array: " + array[0]);
+        System.out.println("------------------------------------------------");
+
+        // 2. collect() - Collect results into a collection (e.g., Set to remove duplicates)
+        Set<Integer> set = list.stream().collect(Collectors.toSet());
+        System.out.println("2. collect() - Unique elements in Set: " + set);
+        System.out.println("------------------------------------------------");
+
+        // 3. count() - Count the number of elements
+        long count = list.stream().count();
+        System.out.println("3. count() - Total elements: " + count);
+        System.out.println("------------------------------------------------");
+
+        // 4. reduce() - Reduces elements to a single result (sum in this case)
+        int sum = list.stream().reduce(0, (x, y) -> x + y);
+        System.out.println("4. reduce() - Sum of all elements: " + sum);
+        System.out.println("------------------------------------------------");
+
+        // 5. forEach() - Print all elements (order not guaranteed in parallel streams)
+        System.out.println("5. forEach() - Elements:");
+        list.stream().forEach(System.out::println);
+        System.out.println("------------------------------------------------");
+
+        // 6. forEachOrdered() - Print elements in encounter order (preserves order)
+        System.out.println("6. forEachOrdered() - Elements in order:");
+        list.stream().forEachOrdered(System.out::println);
+        System.out.println("------------------------------------------------");
+
+        // 7. min() - Find the minimum value using a comparator
+        int min = list.stream().min(Integer::compareTo).orElseThrow();
+        System.out.println("7. min() - Minimum value: " + min);
+        System.out.println("------------------------------------------------");
+
+        // 8. max() - Find the maximum value using a comparator
+        int max = list.stream().max(Integer::compareTo).orElseThrow();
+        System.out.println("8. max() - Maximum value: " + max);
+        System.out.println("------------------------------------------------");
+
+        // 9. anyMatch() - Check if any element matches a condition
+        boolean anyMatch = list.stream().anyMatch(x -> x == 6);
+        System.out.println("9. anyMatch() - Any element equals 6? " + anyMatch);
+        System.out.println("------------------------------------------------");
+
+        // 10. allMatch() - Check if all elements match a condition
+        boolean allMatch = list.stream().allMatch(x -> x > 0);
+        System.out.println("10. allMatch() - All elements are positive? " + allMatch);
+        System.out.println("------------------------------------------------");
+
+        // 11. noneMatch() - Check if no elements match a condition
+        boolean noneMatch = list.stream().noneMatch(x -> x < 0);
+        System.out.println("11. noneMatch() - No element is negative? " + noneMatch);
+        System.out.println("------------------------------------------------");
+
+        // 12. findAny() - Return any element (non-deterministic in parallel streams)
+        Optional<Integer> any = list.stream().findAny();
+        System.out.println("12. findAny() - Any element (usually first in sequential): " + any.orElse(null));
+        System.out.println("------------------------------------------------");
+
+        // 13. findFirst() - Return the first element (in encounter order)
+        int first = list.stream().findFirst().orElseThrow();
+        System.out.println("13. findFirst() - First element: " + first);
+        System.out.println("------------------------------------------------");
+    }
 }
 /*
 List of some terminal operations in the Stream interface:-->
@@ -164,22 +196,15 @@ skip: Returns a stream consisting of the remaining elements of this stream after
 
 
 /*
-6
---------------------------------------------------------------------1
-[1, 2, 3, 4, 5, 6]
---------------------------------------------------------------------2
-7
---------------------------------------------------------------------3
-23
---------------------------------------------------------------------4
-6
-1
-2
-3
-5
-4
-2
---------------------------------------------------------------------5
+1. toArray() - First element in array: 6
+------------------------------------------------
+2. collect() - Unique elements in Set: [1, 2, 3, 4, 5, 6]
+------------------------------------------------
+3. count() - Total elements: 7
+------------------------------------------------
+4. reduce() - Sum of all elements: 23
+------------------------------------------------
+5. forEach() - Elements:
 6
 1
 2
@@ -187,20 +212,29 @@ skip: Returns a stream consisting of the remaining elements of this stream after
 5
 4
 2
---------------------------------------------------------------------6
+------------------------------------------------
+6. forEachOrdered() - Elements in order:
+6
 1
---------------------------------------------------------------------7
-6
---------------------------------------------------------------------8
-true
---------------------------------------------------------------------9
-true
---------------------------------------------------------------------10
-true
---------------------------------------------------------------------11
-Optional[6]
---------------------------------------------------------------------12
-6
---------------------------------------------------------------------13
+2
+3
+5
+4
+2
+------------------------------------------------
+7. min() - Minimum value: 1
+------------------------------------------------
+8. max() - Maximum value: 6
+------------------------------------------------
+9. anyMatch() - Any element equals 6? true
+------------------------------------------------
+10. allMatch() - All elements are positive? true
+------------------------------------------------
+11. noneMatch() - No element is negative? true
+------------------------------------------------
+12. findAny() - Any element (usually first in sequential): 6
+------------------------------------------------
+13. findFirst() - First element: 6
+------------------------------------------------
 
  */
