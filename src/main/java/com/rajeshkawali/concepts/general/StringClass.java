@@ -51,3 +51,110 @@ public class StringClass {
 	}
 
 }
+
+
+/*
+String Constant Pool (SCP)
+--------------------------
+1. SCP is a special memory area inside the Heap.
+2. String literals are stored in the String Constant Pool.
+3. If the same literal already exists, Java reuses the existing object.
+4. This saves memory and improves performance.
+
+Example:
+String s1 = "java";
+String s2 = "java";
+
+s1 == s2          // true (same object)
+s1.equals(s2)     // true
+
+------------------------------------------------------------
+
+Non-Constant Pool
+-----------------
+1. Objects created using 'new' are stored outside the String Constant Pool.
+2. Every 'new String()' creates a new object, even if the content is the same.
+
+Example:
+String s1 = "java";
+String s2 = new String("java");
+
+s1 == s2          // false (different objects)
+s1.equals(s2)     // true (same content)
+
+------------------------------------------------------------
+
+== vs equals()
+---------------
+==        -> Compares object references (memory addresses).
+equals() -> Compares object contents.
+
+------------------------------------------------------------
+
+StringBuilder and StringBuffer
+------------------------------
+1. They do not use the String Constant Pool.
+2. equals() is not overridden, so it behaves like Object.equals().
+3. It compares object references, not contents.
+
+Example:
+StringBuilder sb1 = new StringBuilder("java");
+StringBuilder sb2 = new StringBuilder("java");
+
+sb1 == sb2         // false
+sb1.equals(sb2)    // false
+
+------------------------------------------------------------
+
+String Immutability
+-------------------
+String objects are immutable (cannot be changed).
+
+String s = "java";
+s.concat("8");
+
+System.out.println(s);   // java
+
+To change it:
+s = s.concat("8");
+
+------------------------------------------------------------
+
+StringBuilder/StringBuffer Mutability
+-------------------------------------
+They are mutable (contents can be changed).
+
+StringBuilder sb = new StringBuilder("java");
+sb.append("8");
+
+Output:
+java8
+
+------------------------------------------------------------
+
+Important Interview Points
+--------------------------
+1. String literals -> String Constant Pool.
+2. new String() -> New object outside the pool.
+3. == compares references.
+4. equals() compares contents (only for String).
+5. StringBuilder/StringBuffer compare references because they don't override equals().
+6. String is immutable; StringBuilder and StringBuffer are mutable.
+*/
+
+
+/*
+intern() Method
+
+1. Used to get the String Constant Pool (SCP) reference.
+2. If the string is already in the SCP, it returns the existing pooled object.
+3. If not, it adds the string to the SCP and returns the pooled reference.
+4. The original heap object is NOT moved to the SCP; it remains in the heap.
+
+Example:
+String s1 = new String("java"); // Heap
+String s2 = s1.intern();        // SCP
+
+s1 == s2      // false
+s1.equals(s2) // true
+*/

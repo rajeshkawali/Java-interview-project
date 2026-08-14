@@ -86,3 +86,54 @@ ChildClass-IIB..
 ChildClass-constructor..
 
 */
+
+
+/*
+SIB (Static Initialization Block)
+---------------------------------
+1. Executes only once when the class is loaded into memory.
+2. Used to initialize static variables/resources.
+3. Executes before main().
+4. If multiple SIBs exist, they execute in the order they are written(Top to Bottom).
+
+IIB (Instance Initialization Block)
+-----------------------------------
+1. Executes every time an object is created.
+2. Executes before the constructor.
+3. Used for common initialization code shared by all constructors.
+4. If multiple IIBs exist, they execute in the order they are written(Top to Bottom).
+
+Constructor
+-----------
+1. Executes after the IIB.
+2. Used to initialize object-specific data.
+3. Runs every time an object is created.
+4. Parent constructor executes before the child constructor.
+
+Execution Order
+---------------
+Class Loading:
+1. Parent SIB
+2. Child SIB
+3. Main Class SIB
+
+Object Creation:
+1. Parent IIB
+2. Parent Constructor
+3. Child IIB
+4. Child Constructor
+
+Important Points
+----------------
+- SIB executes only once per class.
+- IIB and Constructor execute for every object.
+- Constructors are not inherited, but they are called using super().
+- Static members belong to the class, whereas IIB and constructors belong to objects.
+- Java automatically calls the parent constructor first (super()) if not specified.
+
+Easy Trick:
+-----------
+Class Loading  : SIB (Once)
+Object Creation: Parent IIB -> Parent Constructor -> Child IIB -> Child Constructor
+*/
+

@@ -9,13 +9,10 @@ record Point(int x, int y) {
 
 	/*
 	What is a Record?
-	A record in Java is a special class introduced in Java 14 (preview), and finalized in Java 16. 
-	It is designed to simplify the creation of immutable data carriers, like DTOs (Data Transfer Objects).
+	A Record is a special type of class in Java introduced to represent immutable data.
 	 
-	They are a concise way of creating simple, immutable data classes that represent records, 
-	such as a point on a coordinate system or an account in a bank. Record classes have a 
-	public accessor method for each component and also have a toString(), hashCode(), and equals() 
-	method that is generated automatically based on the components of the record.
+	It automatically generates common methods such as the constructor, accessor methods, 
+	equals(), hashCode(), and toString(), reducing boilerplate code.
 	*/
 	public int xMethod() {
 		return x;
@@ -50,6 +47,23 @@ public class RecordExample {
 		System.out.println(p1.toString()); // prints "Point[x=5, y=2]"
 	}
 }
+/*
+What is a Record in Java?
+
+A Record is a special type of class introduced in Java 16 (preview in Java 14) that is used to store immutable data.
+
+It automatically generates:
+
+-->Constructor
+-->Getters (called accessor methods)
+-->toString()
+-->equals()
+-->hashCode()
+
+This reduces boilerplate code.
+*/
+
+
 /*
 Some key points to consider when implementing a record class in Java:-->
 
@@ -118,4 +132,159 @@ to validate or transform inputs, but you can't define your own fields outside of
    - Records are ideal for simple, immutable data carriers (e.g., DTOs, event messages, config objects) with minimal boilerplate.
 
 ============================================================
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| POJO Class                                                                                | Record Class                                                                                       |
+| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Regular Java class used to represent objects.                                             | Special class introduced in Java 16 to represent immutable data.                                   |
+| Can be mutable or immutable.                                                              | Immutable by default.                                                                              |
+| Requires manual constructor, getters/setters, `equals()`, `hashCode()`, and `toString()`. | Automatically generates constructor, accessor methods, `equals()`, `hashCode()`, and `toString()`. |
+| Can have setter methods.                                                                  | No setter methods.                                                                                 |
+| Can declare additional instance fields.                                                   | Cannot declare additional instance fields.                                                         |
+| Can extend another class.                                                                 | Cannot extend another class (extends `java.lang.Record`).                                          |
+| Can be inherited (unless declared `final`).                                               | Implicitly `final`; cannot be inherited.                                                           |
+| Best for objects with business logic and mutable state.                                   | Best for DTOs, Value Objects, and immutable data holders.                                          |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+============================================================
+*/
+
+
+/*
+==========================
+Records in Java (Java 16)
+==========================
+
+Definition:
+- A Record is a special type of class used to represent immutable data.
+- It automatically generates the constructor, accessor methods, equals(), hashCode(), and toString().
+
+Syntax:
+record Employee(int id, String name) {}
+--------------------------------------------------
+Key Points
+
+1. Introduced in Java 16 (Preview in Java 14).
+2. Used to create immutable data classes with less boilerplate code.
+3. Record components are implicitly:
+   - private
+   - final
+4. Java automatically generates:
+   - Canonical constructor
+   - Accessor methods (id(), name())
+   - equals()
+   - hashCode()
+   - toString()
+5. Records are immutable by default.
+   - No setter methods.
+   - State cannot be changed after object creation.
+6. Records are implicitly final.
+   - Cannot be extended or inherited.
+7. Every Record implicitly extends java.lang.Record.
+8. Records cannot extend another class.
+9. Records can implement one or more interfaces.
+10. Records can contain:
+    - Instance methods
+    - Static methods
+    - Static fields
+    - Static initialization blocks
+11. Records cannot declare additional instance fields.
+    - Only record components are allowed as instance fields.
+12. You can define your own:
+    - Compact (Canonical) constructor
+    - equals()
+    - hashCode()
+    - toString()
+13. Compact constructor is mainly used for:
+    - Validation
+    - Input normalization
+14. Accessor methods are generated automatically.
+    Example:
+    Employee emp = new Employee(101, "John");
+
+    emp.id();
+    emp.name();
+15. Record components are final, but if a component is a mutable object
+    (List, Map, Set, etc.), its contents can still be modified unless
+    defensive copies are used.
+16. Records reduce boilerplate code and improve readability.
+--------------------------------------------------
+Advantages:
+1. Less boilerplate code.
+2. Immutable by default.
+3. Auto-generated methods.
+4. Easy to read and maintain.
+5. Good for thread-safe data objects.
+6. Ideal for DTOs and Value Objects.
+--------------------------------------------------
+Limitations
+
+1. Cannot extend another class.
+2. Cannot be subclassed.
+3. Cannot have additional instance fields.
+4. Not suitable for mutable objects.
+5. Not suitable for classes with complex business logic.
+--------------------------------------------------
+Best Use Cases
+
+- DTO (Data Transfer Object)
+- Value Object
+- API Request/Response
+- Configuration Objects
+- Immutable Data Holders
+--------------------------------------------------
+
+Interview Questions
+
+Q. What is a Record?
+A. A special immutable data class introduced in Java 16.
+
+Q. Which Java version introduced Records?
+A. Java 16 (Preview in Java 14).
+
+Q. Are Records immutable?
+A. Yes.
+
+Q. What is the superclass of every Record?
+A. java.lang.Record.
+
+Q. Can a Record extend another class?
+A. No.
+
+Q. Can a Record implement interfaces?
+A. Yes.
+
+Q. Can Records have constructors?
+A. Yes.
+
+Q. Can Records have methods?
+A. Yes.
+
+Q. Can Records have static members?
+A. Yes.
+
+Q. Can Records have setter methods?
+A. No.
+
+Q. Can Records have additional instance variables?
+A. No.
+
+Q. What methods does Java generate automatically?
+A.
+- Constructor
+- Accessor methods
+- equals()
+- hashCode()
+- toString()
+
+--------------------------------------------------
+
+Memory Trick
+
+Record = Immutable Data Class
+
+R → Reduced Boilerplate
+E → Extends java.lang.Record
+C → Constructor Generated
+O → One-line Data Class
+R → Read-only (Immutable)
+D → DTO / Data Holder
 */

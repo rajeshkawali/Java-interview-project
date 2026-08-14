@@ -79,3 +79,51 @@ class OverloadingWithTypes {
 		obj.method("Hello", "World");
 	}
 }
+
+/*
+Method Overloading Resolution Order in Java
+
+Java follows this order to find the best matching overloaded method:
+
+1. Exact Match
+   byte -> method(byte)
+
+2. Primitive Widening
+   byte -> short -> int -> long -> float -> double
+
+3. Autoboxing
+   byte -> Byte
+
+4. Widening Reference
+   Byte -> Number -> Object
+
+5. Varargs
+   method(String... args)
+
+Rule:
+- Java always selects the first and most specific matching method.
+- Once a suitable method is found, it stops searching.
+
+Example:
+byte value
+
+method(byte)      ✓ Exact Match
+method(short)     ✓ Widening
+method(Byte)      ✓ Autoboxing
+method(Number)    ✓ Widening Reference
+method(Object)    ✓ Widening Reference
+method(String...) ✓ Varargs
+
+Java will call method(byte) because it has the highest priority.
+
+Priority Order:
+Exact Match
+    ↓
+Primitive Widening
+    ↓
+Autoboxing
+    ↓
+Widening Reference
+    ↓
+Varargs
+*/

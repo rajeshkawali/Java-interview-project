@@ -19,3 +19,25 @@ We are not allowed to assign GenericsType<String> variable
 to GenericsType<Object> variable because they are not related, 
 in fact GenericsType<T> parent is Object.
 */
+
+/*
+Generics and Inheritance
+
+1. Normal inheritance works.
+   String is-a Object.
+
+   Object obj = new String();   // Valid
+
+2. Generic inheritance does NOT work.
+   GenericsType<String> is NOT a GenericsType<Object>.
+
+   GenericsType<Object> obj = new GenericsType<String>(); // Invalid
+
+3. Every generic class still extends Object.
+
+   Object obj = new GenericsType<String>(); // Valid
+
+Reason:
+Java generics are invariant to maintain type safety.
+*/
+

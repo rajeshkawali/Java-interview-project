@@ -73,6 +73,20 @@ public class ImmutableClass1 {
 }
 
 /*
+Immutable Class Rules
+
+1. Make the class final.
+2. Make fields private and final.
+3. Initialize fields using constructor.
+4. Don't provide setters.
+5. Make defensive copies of mutable objects in constructor.
+6. Return defensive copies (or unmodifiable views) in getters.
+7. Immutable objects are thread-safe.
+8. String is immutable, so no defensive copy is required.
+*/
+
+
+/*
 To create a custom immutable class in Java, you can follow these steps:-->
 
 Declare all instance variables as private and final: This ensures that the state of the class cannot be changed after it is created.

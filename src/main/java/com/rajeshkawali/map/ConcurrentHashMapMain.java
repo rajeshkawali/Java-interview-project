@@ -66,33 +66,26 @@ public class ConcurrentHashMapMain {
 
 }
 /*
-Difference between ConcurrentHashMap and HashMap in java:-->
+Difference between HashMap and ConcurrentHashMap:
 
-The main difference between ConcurrentHashMap and HashMap in Java is that ConcurrentHashMap is thread-safe, while HashMap is not.
+1. HashMap is not thread-safe; ConcurrentHashMap is thread-safe.
+2. HashMap is used in single-threaded applications.
+3. ConcurrentHashMap is used in multi-threaded applications.
+4. ConcurrentHashMap allows multiple threads to read and write safely.
+5. HashMap allows one null key and multiple null values.
+6. ConcurrentHashMap does not allow null keys or null values.
+7. ConcurrentHashMap provides better performance than Hashtable using fine-grained locking (Java 8+).
 
-HashMap is a regular implementation of the Map interface, which allows multiple threads to access the map at the same time, 
-but there is a risk of data corruption if two or more threads try to modify the map simultaneously.
-
-ConcurrentHashMap, on the other hand, is a thread-safe implementation of the Map interface, 
-which uses a technique called "lock striping" to divide the map into segments and locks each segment separately. 
-This allows multiple threads to access the map simultaneously without the risk of data corruption.
-
-Additionally, ConcurrentHashMap also provides some advanced features like lock-free reads, 
-weakly consistent iterators, and support for atomic operations which HashMap doesn't support.
-
-In summary, if you need a map that can be accessed and modified by multiple threads at the same time, 
-and you want to ensure that the data will not be corrupted, you should use ConcurrentHashMap. 
-If you only need a map that can be accessed by multiple threads, and you don't mind the 
-risk of data corruption, you can use HashMap.
+Use HashMap for single-threaded code.
+Use ConcurrentHashMap for multi-threaded code.
 */
 
-
 /*
-1.ConcurrentHashMap is a thread-safe implementation of HashMap in Java
-2.Allows multiple threads to access the map simultaneously without data corruption
-3.Uses a technique called "lock striping" to divide the map into segments and locks each segment separately
-4.This improves performance compared to using a single lock to protect the entire map
-5.ConcurrentHashMap also support some advanced features like lock-free reads and weakly consistent iterators.
+1. ConcurrentHashMap is a thread-safe implementation of the Map interface.
+2. It allows multiple threads to read and write simultaneously without data corruption.
+3. In Java 8+, it uses CAS and fine-grained locking instead of segment-based locking.
+4. It provides better performance than Hashtable by avoiding a single lock for the entire map.
+5. It supports lock-free reads and weakly consistent iterators (no ConcurrentModificationException).
 */
 
 
@@ -163,3 +156,7 @@ contention refers to the situation where multiple threads or processes are compe
 for the same shared resource or lock. This can lead to contention or contention overhead, 
 which can cause performance issues such as slow response times, decreased throughput, or even deadlocks.
 */
+
+// Note: The statement about "lock striping" or "segments" applies to Java 7. In Java 8 and later, 
+// ConcurrentHashMap no longer uses segmented locking; it uses CAS and fine-grained bucket locking instead.
+

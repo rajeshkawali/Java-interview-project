@@ -86,3 +86,76 @@ and sometimes as a return type. We can’t use wildcards while invoking a
 generic method or instantiating a generic class.
 
 */
+
+
+/*
+Generics Wildcards in Java
+--------------------------
+
+1. <?>  (Unbounded Wildcard)
+- Accepts any type.
+- Used when the type is unknown.
+- Can read elements.
+- Cannot add elements (except null).
+
+Example:
+List<?> list;
+
+----------------------------------------------------
+
+2. <? extends T>  (Upper Bound)
+- Accepts T and its subclasses.
+- Used when you only want to READ data.
+- Cannot add elements.
+
+Example:
+List<? extends Number>
+
+Accepts:
+List<Integer>
+List<Double>
+List<Float>
+
+Rule:
+Read ✅
+Add ❌
+
+----------------------------------------------------
+
+3. <? super T>  (Lower Bound)
+- Accepts T and its superclasses.
+- Used when you want to ADD data.
+- Safe to add objects of type T.
+
+Example:
+List<? super Integer>
+
+Accepts:
+List<Integer>
+List<Number>
+List<Object>
+
+Rule:
+Add ✅
+Read as Object only
+
+----------------------------------------------------
+
+PECS Rule (Most Asked Interview Question)
+
+P -> Producer -> Extends
+E
+C -> Consumer -> Super
+S
+
+Producer (Read)  -> <? extends T>
+Consumer (Write) -> <? super T>
+
+----------------------------------------------------
+
+Easy Trick
+
+<?>                 -> Any Type
+<? extends Number>  -> Number and Child Classes
+<? super Integer>   -> Integer and Parent Classes
+*/

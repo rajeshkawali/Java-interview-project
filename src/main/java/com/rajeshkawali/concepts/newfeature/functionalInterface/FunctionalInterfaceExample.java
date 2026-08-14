@@ -67,29 +67,51 @@ public class FunctionalInterfaceExample implements Foo {
 }
 
 /*
-Here are some of the important rules, do's and don'ts of using the @FunctionalInterface annotation:
+@FunctionalInterface Rules
 
-Rules:-->
-1.A functional interface must have exactly one abstract method. If an interface has more than one abstract method, the @FunctionalInterface annotation will cause a compilation error.
-2.The @FunctionalInterface annotation can only be applied to interfaces, not to classes or enums.
-3.Default methods and static methods in an interface do not count as abstract methods, so an interface can have multiple default or static methods in addition to its single abstract method.
-4.If an interface extends another interface, and the combined set of abstract methods satisfies the requirements of a functional interface, the child interface can be annotated with the @FunctionalInterface annotation.
+1. Must have exactly one abstract method.
+2. Can have multiple default and static methods.
+3. Can extend another interface if it still has only one abstract method.
+4. Applying @FunctionalInterface to an invalid interface causes a compile-time error.
 
-Do's:-->
-1.Always use the @FunctionalInterface annotation when creating a functional interface. This will help to ensure that the interface has the correct structure and avoid accidental introduction of extra abstract methods.
-2.Use descriptive names for the functional method and for the interface itself. This will make the code more readable and understandable.
+Do's
+1. Always use @FunctionalInterface for functional interfaces.
+2. Use meaningful interface and method names.
 
-Don'ts:-->
-1.Don't add extra abstract methods to a functional interface. This will cause a compilation error if the interface is annotated with @FunctionalInterface.
-2.Don't use the @FunctionalInterface annotation on interfaces that don't meet the requirements of a functional interface, i.e., interfaces with zero or more than one abstract method. This can cause confusion and make the code harder to understand.
-3.Don't use the @FunctionalInterface annotation on interfaces that are intended to be used as marker interfaces, i.e., interfaces with no methods.
+Don'ts
+1. Don't add more than one abstract method.
+2. Don't use it on interfaces with zero abstract methods (marker interfaces).
+3. Don't use it on interfaces that have more than one abstract method.
+
+Interview Tip:
+A functional interface = One Abstract Method (SAM)
+SAM = Single Abstract Method
 */
 
 
 /*
-The code which have provided defines a functional interface named Foo, which has a single abstract method named bar, and two optional methods: a default method named HelloWorld and a static method named CustomMessage.
+Functional Interface Example
 
-The FunctionalInterfaceExample class implements the Foo interface and provides an implementation for the bar method. It also overrides the HelloWorld default method.
+1. Foo is a functional interface because it has only one abstract method: bar().
+2. The @FunctionalInterface annotation is optional but recommended.
+3. It can have any number of default and static methods.
+4. FunctionalInterfaceExample implements Foo and provides an implementation for bar().
+5. It also overrides the default method HelloWorld().
+6. Static methods belong to the interface and are called using the interface name.
 
-The main method creates an instance of the FunctionalInterfaceExample class and calls the HelloWorld, CustomMessage, and bar methods on it.
+Method Calls:
+- fi.HelloWorld()         -> Calls overridden default method.
+- Foo.CustomMessage("Hi") -> Calls static method.
+- fi.bar()                -> Calls implemented abstract method.
+
+Output:
+Hello Java 8
+Hi
+Hello World
+
+Interview Points:
+- Functional Interface = One Abstract Method (SAM).
+- Default methods can be overridden.
+- Static methods cannot be overridden and are called using the interface name.
+- Functional interfaces are mainly used with Lambda Expressions and Method References.
 */

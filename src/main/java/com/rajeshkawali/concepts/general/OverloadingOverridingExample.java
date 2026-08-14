@@ -59,14 +59,14 @@ class Child extends Parent {
     /*
 	// We can't have child final also because already parent final method inherited into child
 	// Cannot override the final method from Parent
-	void methodFinal() {
+	final void methodFinal() {
 		System.out.println("Child class methodFinal");
 	}
     */
     
     // Can't override private method
     // @Override // The method methodPrivate() of type Child must override or implement a supertype method
-    // void methodPrivate() {
+    // private void methodPrivate() {
     //     System.out.println("Child class methodPrivate");
     // }
 

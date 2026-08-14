@@ -96,3 +96,17 @@ Difference between ReentrantLock class and synchronized keyword:-->
 	The synchronized keyword does not require this because it automatically releases the lock when the block exits.
 */
 
+/*
+Difference between ReentrantLock and synchronized
+
+| Feature              | ReentrantLock                     | synchronized                  |
+|----------------------|-----------------------------------|-------------------------------|
+| Type                 | Class (implements Lock)           | Java keyword                  |
+| Lock Handling        | Manual (lock()/unlock())          | Automatic                     |
+| tryLock()            | Yes                               | No                            |
+| Interruptible Lock   | Yes (lockInterruptibly())         | No                            |
+| Fairness             | Supported                         | Not supported                 |
+| Condition Variables  | Multiple (Condition objects)      | One (wait/notify)             |
+| Performance          | Better for advanced use cases     | Simpler with less overhead    |
+| Best Use Case        | Complex locking requirements      | Basic thread synchronization  |
+*/

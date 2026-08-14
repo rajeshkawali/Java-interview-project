@@ -106,3 +106,14 @@ modifications before making any updates. If a conflict is detected, the thread r
 updated information. This approach can result in better performance and higher concurrency, 
 but also requires careful handling to ensure that conflicts are properly detected and resolved. 
 */
+
+
+/*
+Pessimistic Locking:
+Assumes conflicts are likely. Threads acquire a lock before accessing shared data,
+allowing only one thread at a time. Safer but may reduce performance.
+
+Optimistic Locking:
+Assumes conflicts are rare. Threads access data without locking and verify before
+updating. If a conflict occurs, the operation is retried. Faster with better concurrency.
+*/

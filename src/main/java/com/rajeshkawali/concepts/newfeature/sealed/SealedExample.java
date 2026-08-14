@@ -20,9 +20,15 @@ sealed interface Shape permits Circle, Square, Triangle {
 	public void printMessage();
 }
 
-//The type Printer that implements a sealed interface Shape should be a permitted subtype of Shape
-//final class Printer implements Shape {} // Compile time error - not permitted
+//Compile-time Error - Not listed in the permits clause.
+//final class Pentagon implements Shape {
+//
+//  @Override
+//  public void printMessage() {
+//  }
+//}
 
+//Cannot be extended further.
 final class Circle implements Shape {
 	@Override
 	public void printMessage() {
@@ -30,6 +36,7 @@ final class Circle implements Shape {
 	}
 }
 
+//Can be extended by any class.
 non-sealed class Triangle implements Shape {
 	@Override
 	public void printMessage() {
@@ -44,6 +51,7 @@ class EquilateralTriangle extends Triangle {
 	}
 }
 
+//Restricts inheritance again.
 sealed class Square implements Shape permits Rectangle {
 	@Override
 	public void printMessage() {
@@ -51,7 +59,10 @@ sealed class Square implements Shape permits Rectangle {
 	}
 }
 
+//Cannot be extended further.
 final class Rectangle extends Square {
+	
+	@Override
 	public void printMessage() {
 		System.out.println("Rectangle.printMessage()");
 	}
@@ -84,30 +95,180 @@ public class SealedExample {
 	}
 }
 /*
-1.Sealed classes must have a restricted class hierarchy, which means that
-they must have a permits clause that lists the permitted subclasses.
+Rules of Sealed Classes/Interfaces (Java 17)
 
-2.The permitted subclasses of a sealed class must be final or sealed
-themselves.
+1. A sealed class/interface uses the 'sealed' keyword and a 'permits'
+   clause to specify the allowed subclasses or implementations.
 
-3.A sealed class can only be subclassed by its permitted subclasses, and any
-other class that tries to extend the sealed class will result in a
-compile-time error.
+2. Every permitted subclass must declare one of these modifiers:
+   - final      -> Cannot be extended.
+   - sealed     -> Restricts inheritance further.
+   - non-sealed -> Removes the restriction and allows normal inheritance.
 
-4.A sealed class can be declared as an interface or as a class. If it is
-declared as an interface, the permitted subclasses must implement the
-interface.
+3. Only the classes listed in the 'permits' clause can extend or implement
+   the sealed class/interface. Any other class causes a compile-time error.
 
-5.A sealed class can be declared with a in clause that specifies the packages
-where the permitted subclasses can be defined. If the in clause is not
-present, the permitted subclasses can be defined anywhere.
+4. A sealed type can be either a class or an interface.
+   - A sealed class is extended.
+   - A sealed interface is implemented.
 
-6.A sealed class can be declared as abstract, in which case the permitted
-subclasses must be final.
+5. Permitted subclasses must directly extend or implement the sealed type.
 
-7.A sealed class can have a superclass, in which case the superclass must be
-final or sealed itself.
+6. Permitted subclasses must be in the same package (or the same named module)
+   as the sealed class/interface.
 
-8.A sealed class cannot be declared as private, protected, or static. It must
-have at least package-private access.
+7. A sealed class may also be abstract.
+
+8. A sealed class can extend another class, and a sealed interface can extend
+   other interfaces, following normal Java inheritance rules.
+*/
+
+
+
+/*
+====================================
+Sealed Classes / Interfaces (Java 17)
+====================================
+
+Definition:
+A sealed class or interface restricts which classes can extend or implement it.
+Only the classes listed in the 'permits' clause are allowed.
+
+Introduced:
+- Preview: Java 15
+- Standard: Java 17
+
+Syntax:
+sealed class A permits B, C {}
+sealed interface Shape permits Circle, Square {}
+
+--------------------------------------------------
+
+Rules
+
+1. Use the 'sealed' keyword to declare a sealed class/interface.
+
+2. Use the 'permits' clause to specify the allowed subclasses.
+
+3. Every permitted subclass must explicitly declare one of:
+   - final       -> Cannot be extended.
+   - sealed      -> Restricts inheritance further.
+   - non-sealed  -> Removes the restriction and allows normal inheritance.
+
+4. Permitted subclasses must directly extend or implement the sealed class/interface.
+
+5. A class not listed in the 'permits' clause cannot extend or implement it.
+   -> Results in a compile-time error.
+
+--------------------------------------------------
+
+In this Example
+
+Shape (sealed interface)
+        |
+        |-- Circle (final)
+        |
+        |-- Triangle (non-sealed)
+        |        |
+        |        ---> EquilateralTriangle (Allowed)
+        |
+        ---> Square (sealed)
+                  |
+                  ---> Rectangle (final)
+
+--------------------------------------------------
+
+Meaning of Keywords
+
+final
+-----
+Stops inheritance completely.
+
+Example:
+final class Circle implements Shape {}
+
+----------------------------------------
+
+sealed
+------
+Allows inheritance only by the permitted subclasses.
+
+Example:
+sealed class Square implements Shape
+        permits Rectangle {}
+
+----------------------------------------
+
+non-sealed
+----------
+Removes the sealing restriction.
+The class behaves like a normal class and can be extended freely.
+
+Example:
+non-sealed class Triangle implements Shape {}
+
+--------------------------------------------------
+
+Advantages
+
+1. Restricts unwanted inheritance.
+2. Improves code safety.
+3. Makes APIs easier to maintain.
+4. Gives better control over class hierarchy.
+5. Works well with Pattern Matching and Switch expressions.
+
+--------------------------------------------------
+
+Limitations
+
+1. Only permitted classes can extend/implement it.
+2. Every permitted subclass must be:
+   - final
+   - sealed
+   - non-sealed
+3. Cannot be extended by arbitrary classes.
+
+--------------------------------------------------
+
+Interview Questions
+
+Q. What is a sealed class?
+A. A class that restricts which classes can inherit from it.
+
+Q. Which Java version introduced sealed classes?
+A. Java 17 (Preview in Java 15).
+
+Q. What is the purpose of the permits keyword?
+A. It specifies the allowed subclasses.
+
+Q. What are the three modifiers used with permitted subclasses?
+A. final, sealed, non-sealed.
+
+Q. Can a class not listed in permits extend a sealed class?
+A. No. It causes a compile-time error.
+
+Q. Difference between final and sealed?
+
+final
+- No inheritance allowed.
+
+sealed
+- Inheritance allowed only for permitted classes.
+
+Q. What does non-sealed mean?
+
+A.
+It removes the sealing restriction and allows normal inheritance.
+
+--------------------------------------------------
+
+Memory Trick
+
+sealed      -> Limited inheritance
+final       -> No inheritance
+non-sealed  -> Unlimited inheritance
+
+sealed -> choose who can inherit
+final -> nobody can inherit
+non-sealed -> anybody can inherit
 */

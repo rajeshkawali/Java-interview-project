@@ -1,0 +1,167 @@
+BIG O NOTATION — QUICK REVISION NOTES
+=====================================
+
+What is Big O?
+--------------
+Big O describes how the time or memory required by an algorithm
+grows as the input size (n) increases.
+
+TIME COMPLEXITY = How much work the algorithm does
+SPACE COMPLEXITY = How much EXTRA memory the algorithm uses
+
+
+COMMON BIG O
+------------
+
+O(1)       → Constant
+             Same amount of work regardless of n.
+             Example: arr[0], HashMap.get() (average)
+
+O(log n)   → Logarithmic
+             Problem size is repeatedly divided/multiplied.
+             Example: Binary Search, i *= 2
+
+O(n)       → Linear
+             Work grows directly with n.
+             Example: One loop from 0 to n
+
+O(n log n) → Linearithmic
+             Common in efficient sorting.
+             Example: Merge Sort
+
+O(n²)      → Quadratic
+             Usually two nested loops.
+             Example: loop inside loop
+
+O(n³)      → Cubic
+             Usually three nested loops.
+
+O(2ⁿ)      → Exponential
+             Common in some recursive/backtracking solutions.
+
+O(n!)      → Factorial
+             Common when generating all permutations.
+
+
+GENERAL ORDER (BEST → WORST)
+-----------------------------
+
+O(1)
+↓
+O(log n)
+↓
+O(n)
+↓
+O(n log n)
+↓
+O(n²)
+↓
+O(n³)
+↓
+O(2ⁿ)
+↓
+O(n!)
+
+
+IMPORTANT RULES
+---------------
+
+1. Separate loops → ADD
+
+   O(n) + O(n)
+   = O(2n)
+   = O(n)
+
+
+2. Nested loops → MULTIPLY
+
+   O(n) × O(n)
+   = O(n²)
+
+
+3. Ignore constants
+
+   O(5n)     → O(n)
+   O(100n)   → O(n)
+   O(n / 2)  → O(n)
+
+
+4. Keep the dominant term
+
+   O(n² + n)       → O(n²)
+   O(n³ + n² + n)  → O(n³)
+
+
+5. Multiplying by a constant doesn't change Big O
+
+   O(n) × O(10) → O(10n) → O(n)
+
+
+6. If loop variable doubles/halves → O(log n)
+
+   for (int i = 1; i < n; i *= 2)
+   → O(log n)
+
+   for (int i = n; i > 0; i /= 2)
+   → O(log n)
+
+
+7. Nested O(n) + O(log n)
+
+   O(n) × O(log n)
+   = O(n log n)
+
+
+COMMON JAVA DATA STRUCTURES
+---------------------------
+
+Array:
+    Access by index → O(1)
+
+ArrayList:
+    get(index)       → O(1)
+    add(end)         → O(1) amortized
+    add/remove(begin)→ O(n)
+
+HashMap:
+    put()            → O(1) average
+    get()            → O(1) average
+    containsKey()    → O(1) average
+    remove()         → O(1) average
+
+HashSet:
+    add()            → O(1) average
+    contains()       → O(1) average
+    remove()         → O(1) average
+
+
+MOST IMPORTANT INTERVIEW RULE
+-----------------------------
+
+When analyzing code:
+
+Step 1 → Find loops
+Step 2 → Count how many times each loop runs
+Step 3 → Separate loops = ADD
+         Nested loops = MULTIPLY
+Step 4 → Check for *= 2 or /= 2 → O(log n)
+Step 5 → Ignore constants
+Step 6 → Keep the fastest-growing/dominant term
+Step 7 → Check extra memory for Space Complexity
+
+
+EXAMPLE
+-------
+
+for (int i = 0; i < n; i++) {
+    for (int j = 1; j < n; j *= 2) {
+        System.out.println(i + j);
+    }
+}
+
+Outer loop → O(n)
+Inner loop → O(log n)
+
+Nested → MULTIPLY
+
+Time → O(n log n)

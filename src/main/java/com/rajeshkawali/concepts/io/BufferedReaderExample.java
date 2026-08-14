@@ -48,3 +48,34 @@ public class BufferedReaderExample {
 		}
 	}
 }
+
+
+/*
+Important IO Classes
+
+1. File
+   - Represents a file or directory.
+
+2. FileInputStream/FileOutputStream
+   - Read/write bytes.
+   - Used for binary files.
+
+3. FileReader/FileWriter
+   - Read/write characters.
+   - Used for text files.
+
+4. BufferedReader/BufferedWriter
+   - Faster due to buffering.
+
+5. PrintWriter
+   - Writes formatted text.
+
+6. ObjectInputStream/ObjectOutputStream
+   - Used for Serialization/Deserialization.
+
+Remember:
+Byte Stream -> Binary Data
+Character Stream -> Text Data
+Buffered Stream -> Better Performance
+Object Stream -> Serialization
+*/

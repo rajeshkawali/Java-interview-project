@@ -90,3 +90,15 @@ asynchronously using a pool of worker threads. It provides a way to submit tasks
 execution and manage the pool of worker threads. It allows you to control the number 
 of threads in the pool, the maximum number of threads, and the keep-alive time for idle threads.
 */
+
+/*
+Difference between ScheduledThreadPoolExecutor and ThreadPoolExecutor
+
+| Feature          | ScheduledThreadPoolExecutor          | ThreadPoolExecutor              |
+|------------------|--------------------------------------|---------------------------------|
+| Purpose          | Executes tasks after delay/periodically | Executes tasks asynchronously   |
+| Scheduling       | Supports scheduled tasks             | No built-in scheduling           |
+| Extends          | ThreadPoolExecutor                   | Base executor class              |
+| Methods          | schedule(), scheduleAtFixedRate()    | execute(), submit()              |
+| Use Case         | Timers, periodic jobs                | General background task handling |
+*/

@@ -19,6 +19,10 @@ public class BiFunctionalInterfacesExample {
         Integer result = sum.apply(2, 3);
         System.out.println(result);  // Output: 5
         
+        BiFunction<String, String, Integer> strLength = (a, b) -> a.length() + b.length();
+        Integer strLen = strLength.apply("Rajesh", "Faijan");
+        System.out.println(strLen);  // Output: 12
+        
         //BiConsumer: This functional interface takes two input parameters and doesn't return any value.
         BiConsumer<String,String> printConcatenation = (a, b) -> System.out.println(a+b);
         printConcatenation.accept("Hello ", "BiConsumer!");

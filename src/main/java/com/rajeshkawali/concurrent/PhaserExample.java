@@ -190,3 +190,19 @@ CyclicBarrier:- It is called CyclicBarrier if the play will not start until ever
 
 Here, a person is a thread, a play is a resource.
 */
+
+
+/*
+Difference between CountDownLatch, CyclicBarrier, and Phaser
+
+| Feature          | CountDownLatch              | CyclicBarrier                     | Phaser                              |
+|------------------|-----------------------------|-----------------------------------|-------------------------------------|
+| Reusable         | No (one-time use)           | Yes                               | Yes                                 |
+| Purpose          | Wait for tasks to finish    | Wait for all threads at a barrier | Synchronize threads across phases   |
+| Reset            | Cannot be reset             | Automatically resets              | Advances through multiple phases    |
+| Parties          | Fixed count                 | Fixed number of threads           | Dynamic registration/deregistration |
+| Best Use Case    | Main thread waits for work  | Parallel tasks with checkpoints   | Multi-stage parallel processing     |
+|--------------------------------------------------------------------------------------------------------------------------|
+*/
+
+

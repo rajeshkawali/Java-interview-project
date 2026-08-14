@@ -79,41 +79,40 @@ frequently and concurrently by multiple threads.
 */
 
 /*
-1.set(T value): Sets the value of the ThreadLocal for the current thread.
-2.get(): Returns the value of the ThreadLocal for the current thread.
-3.remove(): Removes the value of the ThreadLocal for the current thread.
-4.initialValue(): Returns the initial value for the ThreadLocal when it is first accessed in a new thread.
-5.withInitial(Supplier<? extends S> supplier): Returns a ThreadLocal with an initial value provided by a Supplier.
+Difference between ThreadLocal and volatile
 
-The set() and get() methods are the most commonly used methods in the ThreadLocal class. 
-The set() method allows you to store a value in the ThreadLocal, 
-while the get() method allows you to retrieve the value.
+| Feature        | ThreadLocal                          | volatile                              |
+|----------------|--------------------------------------|---------------------------------------|
+| Scope          | Thread-specific                      | Shared across all threads             |
+| Data Sharing   | No (each thread has its own copy)    | Yes (same variable shared)            |
+| Visibility     | Not shared between threads           | Changes are visible to all threads    |
+| Synchronization| Not required                         | Visibility only (not atomicity)       |
+| Use Case       | Per-thread data (e.g., user session) | Shared flags, status, stop signals    |
+*/
 
-The remove() method allows you to remove the value of the ThreadLocal for the current thread, 
-while the initialValue() method allows you to specify the initial value for the ThreadLocal 
-when it is first accessed in a new thread.
 
-The withInitial() method is a static factory method that allows you to create a ThreadLocal 
-with an initial value provided by a Supplier. This can be useful if you want to create a 
-ThreadLocal with an initial value that is computed dynamically.
+/*
+ThreadLocal Methods:
+
+1. set(T value) - Stores a value for the current thread.
+2. get() - Retrieves the value of the current thread.
+3. remove() - Removes the value of the current thread.
+4. initialValue() - Provides the default value when accessed first time.
+5. withInitial(Supplier) - Creates ThreadLocal with a dynamically initialized value.
+
+Most commonly used:
+- set() → Store thread-specific data.
+- get() → Access thread-specific data.
+- remove() → Clear data to avoid memory leaks (especially in thread pools).
 */
 
 /*
-Some key points to remember when using the ThreadLocal class in Java:-->
+Key Points about ThreadLocal
 
-1.ThreadLocal allows you to store a value that is local to a thread, and ensures 
-that each thread has its own separate copy of the value.
-
-2.You can use the set() method to store a value in the ThreadLocal, and the get() method to retrieve the value.
-
-3.The ThreadLocal class is thread-safe, which means that multiple threads can 
-access a ThreadLocal concurrently without causing any problems.
-
-4.The value of a ThreadLocal is stored in a ThreadLocalMap, which is a map that is 
-local to each thread. When a thread accesses a ThreadLocal, it retrieves the value from its local map.
-
-5.If you are using a ThreadLocal to store a mutable object, you should be careful to 
-ensure that the object's state is not modified by multiple threads concurrently. 
-One way to do this is to use the ThreadLocal to store a copy of the object, rather than the object itself.
-
+1. Each thread has its own independent copy of the variable.
+2. Use set() to store a value and get() to retrieve it.
+3. ThreadLocal is thread-safe because data is not shared between threads.
+4. Values are stored in a thread-specific ThreadLocalMap.
+5. Call remove() after use (especially with thread pools) to avoid memory leaks.
+6. Best for per-thread data such as user sessions, database connections, or transaction context.
 */

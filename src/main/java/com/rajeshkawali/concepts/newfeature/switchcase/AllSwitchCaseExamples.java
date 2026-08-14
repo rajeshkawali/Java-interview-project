@@ -6,8 +6,11 @@ public class AllSwitchCaseExamples {
         switchWithString();
         enhancedSwitchExpression();
         switchWithYield();
+        multipleCaseLabels();
+        switchWithNull();
         //patternMatchingSwitch();
         //patternMatchingWithGuards();
+        switchWithEnum();
     }
 
     // 1. Traditional switch (Java 1.0)
@@ -75,6 +78,31 @@ public class AllSwitchCaseExamples {
 
         System.out.println("Result: " + result);
     }
+    
+    public static void multipleCaseLabels() {
+        System.out.println("\n=== Multiple Case Labels (Java 14+) ===");
+        int month = 1;
+        
+        String season = switch (month) {
+            case 12, 1, 2 -> "Winter";
+            case 3, 4, 5 -> "Summer";
+            case 6, 7, 8 -> "Rainy";
+            default -> "Unknown";
+        };
+        System.out.println(season);
+    }
+    
+    public static void switchWithNull() {
+
+        System.out.println("\n=== Switch with null (Java 21) ===");
+        String value = null;
+
+        switch (value) {
+            case null -> System.out.println("Null");
+            case "Java" -> System.out.println("Java");
+            default -> System.out.println("Other");
+        }
+    }
 /*
     // 5. Pattern matching for switch (Java 17 preview, finalized in Java 21)
     public static void patternMatchingSwitch() {
@@ -100,4 +128,25 @@ public class AllSwitchCaseExamples {
         }
     }
 */
+    enum Day {
+        MONDAY, TUESDAY, WEDNESDAY
+    }
+
+    public static void switchWithEnum() {
+
+        System.out.println("\n=== Switch with Enum (Java 5) ===");
+
+        Day day = Day.MONDAY;
+
+        switch (day) {
+            case MONDAY:
+                System.out.println("Start of week");
+                break;
+            case TUESDAY:
+                System.out.println("Second day");
+                break;
+            default:
+                System.out.println("Other day");
+        }
+    }
 }

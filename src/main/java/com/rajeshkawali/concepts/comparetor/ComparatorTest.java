@@ -1,4 +1,6 @@
 package com.rajeshkawali.concepts.comparetor;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.TreeSet;
@@ -70,12 +72,14 @@ public class ComparatorTest {
 
 		CustomComparator compare = new CustomComparator();
 		TreeSet<Employee> ts = new TreeSet<Employee>(compare);
+		//ArrayList<Employee> ts = new ArrayList<>();
 		ts.add(new Employee(3, "rajesh1", 88));
 		ts.add(new Employee(5, "pankaj", 75));
 		ts.add(new Employee(1, "bajaj", 66));
 		ts.add(new Employee(4, "anil", 42));
 		ts.add(new Employee(2, "rajesh5", 11));
 		
+		//Collections.sort(ts, new CustomComparator());
 		Iterator<Employee> it = ts.iterator();
         while (it.hasNext()){
             System.out.println(it.next());
