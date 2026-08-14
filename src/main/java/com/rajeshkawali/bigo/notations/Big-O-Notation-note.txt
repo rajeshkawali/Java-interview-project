@@ -1,70 +1,974 @@
-BIG O NOTATION — QUICK REVISION NOTES
-=====================================
+========================================================
+DSA WITH JAVA — NOTES
+TOPIC 1: BIG O NOTATION
+========================================================
 
-What is Big O?
---------------
-Big O describes how the time or memory required by an algorithm
-grows as the input size (n) increases.
 
-TIME COMPLEXITY = How much work the algorithm does
+1. WHAT IS BIG O?
+-----------------
+
+Big O describes how the TIME or EXTRA MEMORY used by
+an algorithm grows as the input size (n) increases.
+
+TIME COMPLEXITY  = How much work the algorithm does
 SPACE COMPLEXITY = How much EXTRA memory the algorithm uses
 
 
-COMMON BIG O
-------------
+Example:
+
+for (int i = 0; i < n; i++) {
+    System.out.println(i);
+}
+
+The loop runs n times.
+
+Time Complexity = O(n)
+
+
+========================================================
+2. COMMON BIG O NOTATIONS
+========================================================
 
 O(1)       → Constant
-             Same amount of work regardless of n.
-             Example: arr[0], HashMap.get() (average)
-
 O(log n)   → Logarithmic
-             Problem size is repeatedly divided/multiplied.
-             Example: Binary Search, i *= 2
-
 O(n)       → Linear
-             Work grows directly with n.
-             Example: One loop from 0 to n
-
 O(n log n) → Linearithmic
-             Common in efficient sorting.
-             Example: Merge Sort
-
 O(n²)      → Quadratic
-             Usually two nested loops.
-             Example: loop inside loop
-
 O(n³)      → Cubic
-             Usually three nested loops.
-
 O(2ⁿ)      → Exponential
-             Common in some recursive/backtracking solutions.
-
 O(n!)      → Factorial
-             Common when generating all permutations.
 
 
-GENERAL ORDER (BEST → WORST)
------------------------------
+BEST → WORST
 
 O(1)
-↓
+ ↓
 O(log n)
-↓
+ ↓
 O(n)
-↓
+ ↓
 O(n log n)
-↓
+ ↓
 O(n²)
-↓
+ ↓
 O(n³)
-↓
+ ↓
 O(2ⁿ)
-↓
+ ↓
 O(n!)
 
 
+========================================================
+3. O(1) — CONSTANT
+========================================================
+
+The amount of work does NOT depend on n.
+
+Example:
+
+int x = 10;
+int y = 20;
+int sum = x + y;
+
+
+Another example:
+
+int value = arr[0];
+
+
+Whether arr contains:
+
+10 elements
+100 elements
+1,000,000 elements
+
+arr[0] still takes constant time.
+
+Time = O(1)
+
+
+========================================================
+4. O(n) — LINEAR
+========================================================
+
+Work grows directly with n.
+
+Example:
+
+for (int i = 0; i < n; i++) {
+    System.out.println(i);
+}
+
+
+n = 10     → 10 iterations
+n = 100    → 100 iterations
+n = 1000   → 1000 iterations
+
+
+Time = O(n)
+
+
+========================================================
+5. O(n²) — QUADRATIC
+========================================================
+
+Usually happens with two nested loops.
+
+Example:
+
+for (int i = 0; i < n; i++) {
+
+    for (int j = 0; j < n; j++) {
+
+        System.out.println(i + j);
+
+    }
+}
+
+
+Outer loop = O(n)
+Inner loop = O(n)
+
+Nested loops → MULTIPLY
+
+O(n) × O(n)
+= O(n²)
+
+
+========================================================
+6. O(log n) — LOGARITHMIC
+========================================================
+
+Usually happens when the problem size is repeatedly
+divided or the loop variable repeatedly doubles/halves.
+
+Example:
+
+for (int i = 1; i < n; i *= 2) {
+    System.out.println(i);
+}
+
+
+Values:
+
+1
+2
+4
+8
+16
+32
+...
+
+
+Time = O(log n)
+
+
+Another example:
+
+for (int i = n; i > 0; i /= 2) {
+    System.out.println(i);
+}
+
+
+Time = O(log n)
+
+
+Common example:
+Binary Search → O(log n)
+
+
+========================================================
+7. O(n log n)
+========================================================
+
+Example:
+
+for (int i = 0; i < n; i++) {
+
+    for (int j = 1; j < n; j *= 2) {
+
+        System.out.println(i + j);
+
+    }
+}
+
+
+Outer loop → O(n)
+Inner loop → O(log n)
+
+Nested → MULTIPLY
+
+O(n) × O(log n)
+
+= O(n log n)
+
+
+Common example:
+Merge Sort → O(n log n)
+
+
+========================================================
+8. O(2ⁿ) — EXPONENTIAL
+========================================================
+
+Common in some recursive/backtracking problems.
+
+Example:
+
+solve(n)
+    ├── solve(n-1)
+    └── solve(n-1)
+
+
+Each call creates more calls.
+
+Time can become:
+
+O(2ⁿ)
+
+
+This grows very quickly.
+
+
+========================================================
+9. O(n!) — FACTORIAL
+========================================================
+
+Common when generating all permutations.
+
+For n elements:
+
+n = 3 → 3! = 6
+n = 5 → 5! = 120
+n = 10 → 10! = 3,628,800
+
+
+Time = O(n!)
+
+
+This grows extremely quickly.
+
+
+========================================================
+10. IMPORTANT BIG O RULES
+========================================================
+
+
+RULE 1:
+Separate loops → ADD
+
+O(n) + O(n)
+= O(2n)
+= O(n)
+
+
+Example:
+
+for (...) {
+    // O(n)
+}
+
+for (...) {
+    // O(n)
+}
+
+Total = O(n)
+
+
+--------------------------------------------------------
+
+RULE 2:
+Nested loops → MULTIPLY
+
+O(n) × O(n)
+= O(n²)
+
+
+--------------------------------------------------------
+
+RULE 3:
+Ignore constants
+
+O(5n)      → O(n)
+O(100n)    → O(n)
+O(n / 2)   → O(n)
+O(10n log n) → O(n log n)
+
+
+--------------------------------------------------------
+
+RULE 4:
+Keep the dominant term
+
+O(n² + n)
+→ O(n²)
+
+O(n³ + n² + n)
+→ O(n³)
+
+O(n log n + n)
+→ O(n log n)
+
+
+--------------------------------------------------------
+
+RULE 5:
+Nested loops are NOT automatically O(n²).
+
+Example:
+
+for (int i = 0; i < n; i++) {
+
+    for (int j = 0; j < 10; j++) {
+    }
+}
+
+
+Outer = O(n)
+Inner = O(10) = O(1)
+
+O(n) × O(1)
+= O(n)
+
+
+--------------------------------------------------------
+
+RULE 6:
+If the loop variable doubles/halves:
+
+i *= 2
+i /= 2
+
+→ O(log n)
+
+
+========================================================
+11. TIME VS SPACE COMPLEXITY
+========================================================
+
+TIME:
+How much work does the algorithm perform?
+
+SPACE:
+How much EXTRA memory does the algorithm use?
+
+
+Example:
+
+int[] copy = new int[n];
+
+for (int i = 0; i < n; i++) {
+    copy[i] = i;
+}
+
+
+Time = O(n)
+Space = O(n)
+
+
+Because:
+
+Loop → n operations
+New array → n extra elements
+
+
+========================================================
+12. WORST CASE
+========================================================
+
+Usually when discussing Big O, we focus on WORST CASE.
+
+Example:
+
+Linear Search:
+
+[10, 20, 30, 40, 50]
+
+Search for 10:
+O(1)
+
+Search for 50:
+O(n)
+
+Search for a value that doesn't exist:
+O(n)
+
+
+Worst case = O(n)
+
+
+========================================================
+13. JAVA DATA STRUCTURE COMPLEXITIES
+========================================================
+
+
+ARRAY
+-----
+
+arr[i] → O(1)
+Update arr[i] → O(1)
+Traverse → O(n)
+Search unsorted array → O(n)
+
+
+ARRAYLIST
+---------
+
+get(index) → O(1)
+
+add(end) → O(1) amortized
+
+add/remove at beginning → O(n)
+
+
+HASHMAP
+-------
+
+put() → O(1) average
+get() → O(1) average
+containsKey() → O(1) average
+remove() → O(1) average
+
+
+HASHSET
+-------
+
+add() → O(1) average
+contains() → O(1) average
+remove() → O(1) average
+
+
+IMPORTANT:
+
+If an O(1) operation is inside an n loop:
+
+n × O(1)
+= O(n)
+
+
+Example:
+
+for (int num : arr) {
+    set.add(num);
+}
+
+Loop → O(n)
+set.add() → O(1) average
+
+Total Time = O(n)
+
+HashSet may store n elements:
+
+Space = O(n)
+
+
+========================================================
+14. HOW TO CALCULATE BIG O FROM CODE
+========================================================
+
+STEP 1:
+Find loops.
+
+STEP 2:
+Determine how many times each loop runs.
+
+STEP 3:
+Separate loops → ADD.
+
+STEP 4:
+Nested loops → MULTIPLY.
+
+STEP 5:
+Check if the loop uses:
+
+i++
+→ O(n)
+
+i += 2
+→ O(n)
+
+i *= 2
+→ O(log n)
+
+i /= 2
+→ O(log n)
+
+STEP 6:
+Ignore constants.
+
+STEP 7:
+Keep the dominant term.
+
+STEP 8:
+Check extra memory for Space Complexity.
+
+
+========================================================
+TOPIC 2: ARRAYS
+========================================================
+
+
+1. WHAT IS AN ARRAY?
+--------------------
+
+An array stores multiple values of the same type
+in a fixed-size collection.
+
+Example:
+
+int[] numbers = {10, 20, 30, 40, 50};
+
+
+Visual:
+
+Index:   0    1    2    3    4
+         ↓    ↓    ↓    ↓    ↓
+Value:  10   20   30   40   50
+
+
+Java arrays use ZERO-BASED INDEXING.
+
+
+numbers[0] → 10
+numbers[1] → 20
+numbers[2] → 30
+numbers[3] → 40
+numbers[4] → 50
+
+
+========================================================
+2. CREATING AN ARRAY
+========================================================
+
+Direct initialization:
+
+int[] numbers = {10, 20, 30, 40, 50};
+
+
+Specify size:
+
+int[] numbers = new int[5];
+
+
+Default int values:
+
+[0, 0, 0, 0, 0]
+
+
+Assign values:
+
+numbers[0] = 10;
+numbers[1] = 20;
+numbers[2] = 30;
+
+
+========================================================
+3. ARRAY LENGTH
+========================================================
+
+Use:
+
+numbers.length
+
+
+NOT:
+
+numbers.length()
+
+
+Example:
+
+int[] numbers = {10, 20, 30, 40, 50};
+
+System.out.println(numbers.length);
+
+Output:
+
+5
+
+
+========================================================
+4. ACCESSING AN ELEMENT
+========================================================
+
+int[] numbers = {10, 20, 30, 40, 50};
+
+System.out.println(numbers[2]);
+
+
+Output:
+
+30
+
+
+Access by index:
+
+arr[i]
+
+Time = O(1)
+
+
+========================================================
+5. UPDATING AN ELEMENT
+========================================================
+
+numbers[2] = 100;
+
+
+Before:
+
+[10, 20, 30, 40, 50]
+
+
+After:
+
+[10, 20, 100, 40, 50]
+
+
+Time = O(1)
+
+
+========================================================
+6. TRAVERSING AN ARRAY
+========================================================
+
+Traditional for loop:
+
+for (int i = 0; i < numbers.length; i++) {
+    System.out.println(numbers[i]);
+}
+
+
+Enhanced for loop:
+
+for (int num : numbers) {
+    System.out.println(num);
+}
+
+
+Both traverse all elements.
+
+Time = O(n)
+
+Extra Space = O(1)
+
+
+========================================================
+7. ARRAY OPERATIONS
+========================================================
+
+Access by index       → O(1)
+Update by index       → O(1)
+Traverse              → O(n)
+Search unsorted array → O(n)
+Insert at beginning   → O(n)
+Delete at beginning   → O(n)
+
+
+Why insertion at beginning is O(n)?
+
+Example:
+
+[10, 20, 30, 40]
+
+Insert 5 at beginning:
+
+[5, 10, 20, 30, 40]
+
+Existing elements have to shift.
+
+
+========================================================
+8. FIND MAXIMUM
+========================================================
+
+Problem:
+
+[10, 5, 25, 8, 15]
+
+Find maximum.
+
+
+Java:
+
+int max = arr[0];
+
+for (int i = 1; i < arr.length; i++) {
+
+    if (arr[i] > max) {
+        max = arr[i];
+    }
+}
+
+
+Result:
+
+25
+
+
+Complexity:
+
+Time = O(n)
+Space = O(1)
+
+
+Reason:
+
+We must check every element.
+
+
+========================================================
+9. FIND MINIMUM
+========================================================
+
+Example:
+
+[10, 5, 25, 8, 15]
+
+
+Java:
+
+int min = arr[0];
+
+for (int i = 1; i < arr.length; i++) {
+
+    if (arr[i] < min) {
+        min = arr[i];
+    }
+}
+
+
+Result:
+
+5
+
+
+Complexity:
+
+Time = O(n)
+Space = O(1)
+
+
+========================================================
+10. LINEAR SEARCH
+========================================================
+
+Example:
+
+arr = [10, 20, 30, 40, 50]
+
+target = 40
+
+
+Java:
+
+for (int i = 0; i < arr.length; i++) {
+
+    if (arr[i] == target) {
+        System.out.println("Found at index " + i);
+        break;
+    }
+}
+
+
+Result:
+
+Found at index 3
+
+
+Complexity:
+
+Best case  → O(1)
+Worst case → O(n)
+
+Space = O(1)
+
+
+========================================================
+11. REVERSE AN ARRAY
+========================================================
+
+Example:
+
+Before:
+
+[10, 20, 30, 40, 50]
+
+
+After:
+
+[50, 40, 30, 20, 10]
+
+
+Use TWO POINTERS.
+
+
+left  → beginning
+right → end
+
+
+Initial:
+
+[10, 20, 30, 40, 50]
+ ↑                   ↑
+left               right
+
+
+Swap:
+
+[50, 20, 30, 40, 10]
+
+
+Move pointers:
+
+left++
+right--
+
+
+Swap again:
+
+[50, 40, 30, 20, 10]
+
+
+Java:
+
+int left = 0;
+int right = arr.length - 1;
+
+while (left < right) {
+
+    int temp = arr[left];
+    arr[left] = arr[right];
+    arr[right] = temp;
+
+    left++;
+    right--;
+}
+
+
+Complexity:
+
+Time = O(n)
+Space = O(1)
+
+
+========================================================
+12. TWO POINTERS — IMPORTANT PATTERN
+========================================================
+
+Two pointers means using two indexes/pointers
+to move through a data structure.
+
+Common setup:
+
+left  = 0
+right = arr.length - 1
+
+
+Typical pattern:
+
+while (left < right) {
+
+    // work
+
+    left++;
+    right--;
+}
+
+
+Common problems where Two Pointers appear:
+
+- Reverse Array
+- Valid Palindrome
+- Two Sum II
+- 3Sum
+- Container With Most Water
+- Trapping Rain Water
+- Remove Duplicates
+
+
+IMPORTANT:
+
+Don't just memorize the reverse-array solution.
+
+Learn to recognize the TWO POINTERS pattern.
+
+
+========================================================
+BIG O + ARRAYS QUICK CHEAT SHEET
+========================================================
+
+Array access:
+arr[i] → O(1)
+
+Array update:
+arr[i] = value → O(1)
+
+Traverse:
+→ O(n)
+
+Search unsorted:
+→ O(n)
+
+Find min/max:
+→ O(n)
+
+Reverse using two pointers:
+→ O(n) time
+→ O(1) space
+
+
+BIG O QUICK RULES:
+
+Separate → ADD
+Nested   → MULTIPLY
+
+O(10n) → O(n)
+
+O(n² + n) → O(n²)
+
+i *= 2 → O(log n)
+i /= 2 → O(log n)
+
+
+MOST IMPORTANT:
+
+O(1)     → constant
+O(log n) → repeatedly divide
+O(n)     → one complete pass
+O(n²)    → two nested n loops
+
+
+========================================================
+MENTAL MODEL
+========================================================
+
+When you see code, ask:
+
+1. How many times does this run?
+2. Is there a loop?
+3. Are loops separate or nested?
+4. Does the loop double/halve?
+5. What data structure am I using?
+6. How much EXTRA memory am I using?
+
+
+Remember:
+
+TIME  = WORK
+SPACE = EXTRA MEMORY
+
+ARRAY ACCESS = O(1)
+
+ONE FULL ARRAY PASS = O(n)
+
+TWO NESTED ARRAY PASSES = O(n²)
+
+HASHMAP/HASHSET LOOKUP = O(1) average
+
+========================================================
 IMPORTANT RULES
----------------
+========================================================
 
 1. Separate loops → ADD
 
@@ -111,9 +1015,9 @@ IMPORTANT RULES
    O(n) × O(log n)
    = O(n log n)
 
-
+========================================================
 COMMON JAVA DATA STRUCTURES
----------------------------
+========================================================
 
 Array:
     Access by index → O(1)
@@ -134,9 +1038,9 @@ HashSet:
     contains()       → O(1) average
     remove()         → O(1) average
 
-
+========================================================
 MOST IMPORTANT INTERVIEW RULE
------------------------------
+========================================================
 
 When analyzing code:
 
