@@ -65,7 +65,7 @@ class OverloadingWithTypes {
 		System.out.println("Varargs: " + String.join(", ", args));
 	}
 
-	@SuppressWarnings("removal")
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		OverloadingWithTypes obj = new OverloadingWithTypes();
 		obj.method((byte) 10);

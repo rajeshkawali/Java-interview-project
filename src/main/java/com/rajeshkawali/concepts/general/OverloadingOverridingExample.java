@@ -28,7 +28,8 @@ class Parent {
         System.out.println("Parent class final methodFinal");
     }
 
-    private void methodPrivate() {
+    @SuppressWarnings("unused")
+	private void methodPrivate() {
         System.out.println("Parent class private methodPrivate");
     }
 
@@ -71,7 +72,8 @@ class Child extends Parent {
     // }
 
     // Child can have its own private method but it can't override parent private method
-     private void methodPrivate() {
+     @SuppressWarnings("unused")
+	private void methodPrivate() {
          System.out.println("Child class methodPrivate");
      }
 

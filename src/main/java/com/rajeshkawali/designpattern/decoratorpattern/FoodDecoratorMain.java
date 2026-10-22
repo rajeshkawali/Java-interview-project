@@ -18,34 +18,62 @@ public class FoodDecoratorMain {
 }
 
 /*
-Decorator design pattern allows us to dynamically add functionality and behavior 
-to an object without affecting the behavior of other existing objects within the same class. 
-We use inheritance to extend the behavior of the class. This takes place at compile-time, 
-and all the instances of that class get the extended behavior.
+The Decorator Design Pattern is a structural design pattern that 
+allows us to dynamically add additional functionality or behavior 
+to an object without modifying its original class. It uses composition 
+and wrapping instead of relying only on inheritance, making it more 
+flexible when we need different combinations of features at runtime.
 
-1.Decorator design pattern is useful in providing runtime modification abilities and hence more flexible. 
-  Its easy to maintain and extend when the amount of choices are more.
-2.The disadvantage of decorator design pattern is that it uses plenty of similar kind of objects (decorators)
-3.Decorator pattern is used a lot in Java IO classes, like FileReader, BufferedReader, etc.
+Decorator pattern is used a lot in Java IO classes, like FileReader, BufferedReader, etc.
 */
 
 /*
-Here are the steps to implement the Decorator design pattern in Java:-->
 
-Create a common interface: Create an interface that defines the methods that both the original class and the decorator classes will implement.
 
-Create the base class: Create a base class that implements the common interface. This class will be the starting point for the decorator classes.
+Decorator Design Pattern - Definition:
+The Decorator Design Pattern is a structural design pattern that allows 
+us to dynamically add new functionality or behavior to an object without changing its original class.
 
-Create the decorator classes: Create the decorator classes that will add additional functionality to the base class. Each decorator class should extend the base class and include an instance of the common interface.
+In simple words:
+Decorator Pattern = Add extra features to an existing object at runtime without modifying the original object.
 
-Implement the methods: Implement the methods of the common interface in the base class.
+Why do we need it?
+Normally, we can use inheritance to add new behavior to a class
+However, inheritance works at compile time, and the new behavior applies to all objects of that subclass.
 
-Implement the methods in the decorator classes: Implement the methods of the common interface in the decorator classes by calling the same method on the instance of the common interface and adding any additional functionality.
+The Decorator Pattern provides more flexibility because 
+we can add or remove behavior at runtime and choose exactly 
+which objects should have the additional functionality.
 
-Create an object: Create an object of the base class and assign it to a variable of the common interface type.
 
-Create decorator objects: Create one or more decorator objects by passing the base object to the constructor of the decorator class.
 
-Call the methods: Call the methods on the decorator objects. The methods will be executed in the order that the decorator objects were created.
+Advantages:
+1. Adds functionality at runtime
+We can dynamically add behavior to an object without modifying its original class.
+
+2. More flexible than inheritance
+When there are many possible combinations of features, using decorators is often more flexible than creating many subclasses.
+
+3. Follows the Open/Closed Principle
+The original class can remain unchanged while new functionality is added through new decorator classes.
+
+4. Easy to extend
+We can create a new decorator whenever we need to add a new feature.
+
+Disadvantages:
+1. Creates many small classes
+A Decorator-based design can result in many similar decorator classes.
+
+2. Can become difficult to understand
+When many decorators are wrapped around each other, the code can become harder to read and debug.
 */
+
+
+
+
+
+
+
+
+
 
