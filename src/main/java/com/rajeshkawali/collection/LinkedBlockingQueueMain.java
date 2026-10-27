@@ -91,64 +91,69 @@ It's important to remember that, while multithreading can be useful in some situ
 It's important to be familiar with the basic synchronization mechanisms such as locks, semaphores, and monitors, as well
 */
 
-/*
-Difference between ArrayBlockingQueue, PriorityBlockingQueue and LinkedBlockingQueue:-->
 
-ArrayBlockingQueue:
-1.It is a thread-safe implementation of the BlockingQueue interface that is based on an array.
-2.The size of an ArrayBlockingQueue is fixed and it can't be resized.
-3.It's elements are ordered in the order they are added, and elements are retrieved in the order they are added.
-4.It is useful when you need a queue with a fixed size and you have to handle multithreading.
-
-PriorityBlockingQueue:
-1.It is a thread-safe implementation of the BlockingQueue interface that orders elements according to their natural ordering or a provided comparator.
-2.The size of a PriorityBlockingQueue can grow or shrink dynamically.
-3.It's elements are ordered by their priority, which can be determined by their natural ordering or by a provided comparator.
-4.It is useful when you need to order elements in the queue based on their priority and handle multithreading.
-
-LinkedBlockingQueue:
-1.It is a thread-safe implementation of the BlockingQueue interface that is based on linked nodes.
-2.The size of a LinkedBlockingQueue can grow or shrink dynamically.
-3.It's elements are ordered in the order they are added, and elements are retrieved in the order they are added.
-4.It is useful when you need a queue that can grow or shrink dynamically and you have to handle multithreading.
-*/
 
 /*
-LinkedBlockingQueue class provides the following methods:-->
+ * Difference Between ArrayBlockingQueue,
+ PriorityBlockingQueue and LinkedBlockingQueue
 
-add(E e): Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions.
+ 1. ArrayBlockingQueue:
+ - Implements BlockingQueue and extends AbstractQueue.
+ - Underlying data structure is a fixed-size array.
+ - Capacity is fixed and cannot be changed.
+ - Follows FIFO (First In, First Out).
+ - Thread-safe and supports blocking operations.
+ - put() blocks when full; take() blocks when empty.
+ - Supports optional fairness (true/false).
+ - Does not allow null; allows duplicates.
+ - Best for bounded Producer-Consumer applications.
 
-offer(E e): Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions.
+ 2. PriorityBlockingQueue:
+ - Implements BlockingQueue and extends AbstractQueue.
+ - Underlying data structure is a priority heap.
+ - Unbounded queue (grows dynamically).
+ - Does NOT follow FIFO; follows priority ordering.
+ - Uses natural ordering or a custom Comparator.
+ - Thread-safe and supports blocking operations.
+ - put() never blocks due to capacity restrictions.
+ - take() blocks when the queue is empty.
+ - Does not allow null; allows duplicates.
+ - Elements must be mutually comparable.
+ - Best for priority-based task scheduling.
 
-put(E e): Inserts the specified element into this queue, waiting if necessary for space to become available.
+ 3. LinkedBlockingQueue:
+ - Implements BlockingQueue and extends AbstractQueue.
+ - Underlying data structure is linked nodes.
+ - Can be bounded or effectively unbounded.
+ - Default capacity is Integer.MAX_VALUE.
+ - Follows FIFO (First In, First Out).
+ - Thread-safe and supports blocking operations.
+ - put() blocks when full; take() blocks when empty.
+ - Does not allow null; allows duplicates.
+ - Uses separate locks for putting and taking.
+ - Best for Producer-Consumer and task processing.
 
-offer(E e, long timeout, TimeUnit unit): Inserts the specified element into this queue, waiting up to the specified wait time if necessary for space to become available.
+ Important Interview Differences:-->
+ 1.ArrayBlockingQueue:
+ -> Fixed capacity + Array + FIFO.
 
-take(): Retrieves and removes the head of this queue, waiting if necessary until an element becomes available.
+ 2.PriorityBlockingQueue:
+ -> Unbounded + Heap + Priority ordering.
 
-poll(long timeout, TimeUnit unit): Retrieves and removes the head of this queue, waiting up to the specified wait time if necessary for an element to become available.
+ 3.LinkedBlockingQueue:
+ -> Optional capacity + Linked Nodes + FIFO.
 
-poll(): Retrieves and removes the head of this queue, or returns null if this queue is empty.
+ Common Features:
+ 1. All implement the BlockingQueue interface.
+ 2. All belong to java.util.concurrent package.
+ 3. All are thread-safe.
+ 4. All allow duplicate elements.
+ 5. None allow null elements.
+ 6. All support put(), take(), offer(), poll(), peek().
+ 7. take() blocks when the queue is empty.
 
-peek(): Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
-
-size(): Returns the number of elements in this collection.
-
-remainingCapacity(): Returns the number of additional elements that this queue can ideally (in the absence of memory or resource constraints) accept without blocking.
-
-remove(Object o): Removes a single instance of the specified element from this queue, if it is present.
-
-contains(Object o): Returns true if this queue contains the specified element.
-
-clear(): Removes all of the elements from this queue.
-
-drainTo(Collection<? super E> c): Removes all available elements from this queue and adds them to the given collection.
-
-drainTo(Collection<? super E> c, int maxElements): Removes at most the given number of available elements from this queue and adds them to the given collection.
-
-iterator(): Returns an iterator over the elements in this queue in proper sequence.
-
-toArray(): Returns an array containing all of the elements in this queue in proper sequence.
-
-toArray(T[] a): Returns an array containing all of the elements in this queue in proper sequence; the runtime type of the returned array is that of the specified array.
+ Interview Key Point:
+ ArrayBlockingQueue    -> Fixed-size FIFO queue.
+ PriorityBlockingQueue -> Priority-based unbounded queue.
+ LinkedBlockingQueue   -> Bounded/unbounded FIFO queue.
 */

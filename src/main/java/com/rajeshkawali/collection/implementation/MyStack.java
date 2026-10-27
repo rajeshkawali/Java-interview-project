@@ -34,7 +34,6 @@ public class MyStack<T> {
         if (isEmpty()) {
             throw new IllegalStateException("Stack is empty. Cannot pop.");
         }
-
         @SuppressWarnings("unchecked")
         T element = (T) data[top];  // Get the top element
         data[top] = null;           // Clear reference (good for memory)

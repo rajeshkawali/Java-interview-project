@@ -97,35 +97,54 @@ public class ArrayBlockingQueueMain {
         }
     }
 }
-/*
-put(E e): Inserts the specified element into the queue, blocking if necessary until there is space available.
-take(): Retrieves and removes the head of the queue, blocking if necessary until an element becomes available.
-offer(E e): Inserts the specified element into the queue if it is possible to do so immediately without blocking.
-poll(): Retrieves and removes the head of the queue, or returns null if the queue is empty.
-remainingCapacity(): Returns the number of additional elements that can be added to the queue without blocking.
-size(): Returns the number of elements in the queue.
-isEmpty(): Returns true if the queue is empty, and false otherwise.
-*/
+
+
 
 /*
-1.ArrayBlockingQueue is a thread-safe queue implementation based on an array data structure.
-2.It is useful for implementing producer-consumer patterns in a multi-threaded environment.
-3.ArrayBlockingQueue has blocking behavior, meaning that producers will block when trying to add elements 
-	to a full queue, and consumers will block when trying to remove elements from an empty queue.
-4.ArrayBlockingQueue provides a number of useful methods for adding, removing, and querying the 
-	elements in the queue, as well as for adjusting the queue's capacity and blocking behavior.
-5.ArrayBlockingQueue is an efficient and thread-safe way to implement producer-consumer patterns in Java.
-6.ArrayBlockingQueue has a fixed capacity, which means that you need to specify the maximum number 
-	of elements that the queue can hold when you create it. Once the queue is full, producers will block until space becomes available.
-7.ArrayBlockingQueue provides a number of useful blocking methods, such as put and take, 
-	which allow producers and consumers to block until they are able to add or remove elements from the queue, respectively.
-8.ArrayBlockingQueue also provides non-blocking methods, such as offer and poll, 
-	which allow producers and consumers to attempt to add or remove elements from the queue without blocking.
-9.ArrayBlockingQueue supports optional fairness policies, which can be specified 
-	when the queue is created. Fairness policies determine the order in which producers and consumers are allowed to access the queue.
-10. is part of the java.util.concurrent package, which contains a number of other 
-	useful concurrent data structures and utilities for implementing concurrent programming in Java.
-*/
+ * ArrayBlockingQueue in Java
+ 
+  ArrayBlockingQueue is a thread-safe, fixed-capacity
+  implementation of the BlockingQueue interface.
+  It follows FIFO (First In, First Out) ordering.
+ 
+  It is mainly used in multithreaded applications
+  to implement the Producer-Consumer pattern.
+ 
+  Important Features:
+  1. It implements BlockingQueue and extends AbstractQueue.
+  2. It uses an array as its underlying data structure.
+  3. It follows FIFO (First In, First Out).
+  4. It has a fixed capacity specified at creation.Capacity cannot be changed after creation.
+  5. It is thread-safe and uses locking internally.
+  6. It allows duplicate elements but NOT null values.
+  7. It maintains insertion order (FIFO).
+  8. put() blocks when the queue is full.
+  9. take() blocks when the queue is empty.
+  10. offer() returns false if the queue is full.
+  11. poll() returns null if the queue is empty.
+  12. It supports optional fairness (true/false)for ordering waiting producer/consumer threads.
+  13. It does NOT support index-based access.
+  14. It is best suited for Producer-Consumer problemsand multithreaded task processing.
+ 
+  Important Methods:
+  put(e)             - Inserts; waits if full.
+  take()             - Removes; waits if empty.
+  offer(e)           - Inserts; returns false if full.
+  poll()             - Removes; returns null if empty.
+  add(e)             - Inserts; throws exception if full.
+  remove()           - Removes; throws exception if empty.
+  peek()             - Reads head; null if empty.
+  remainingCapacity()- Returns available slots.
+  size()             - Returns number of elements.
+  isEmpty()          - Checks whether queue is empty.
+ 
+  Timed Methods:
+  offer(e, time, unit) - Waits up to specified time for available space.
+  poll(time, unit)     - Waits up to specified time  for an element.
+ */
+
+
+
 /*
 Difference between ArrayBlockingQueue, PriorityBlockingQueue and LinkedBlockingQueue:-->
 

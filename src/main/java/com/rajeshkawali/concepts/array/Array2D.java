@@ -8,7 +8,12 @@ public class Array2D {
 	public static void main(String[] args) {
 
 		// int[][] intArray = new int[4][4];
-		int[][] intArray = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 1, 2, 3, 4 }, { 5, 6, 7, 8 } };
+		int[][] intArray = { 
+				{ 1, 2, 3, 4 }, 
+				{ 5, 6, 7, 8 }, 
+				{ 1, 2, 3, 4 }, 
+				{ 5, 6, 7, 8 } 
+				};
 		System.out.println(intArray[0][0]);
 		System.out.println(intArray[0][1]);
 		System.out.println(intArray[0][2]);
