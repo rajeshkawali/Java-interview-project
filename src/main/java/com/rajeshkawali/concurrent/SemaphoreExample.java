@@ -69,38 +69,177 @@ class SemaphoreWorker implements Runnable {
 8.drainPermits(): Acquires and returns all available permits from the semaphore. If there are no permits available, the method returns 0.
 */
 
+
 /*
+ * =====================================================
+ * Semaphore in Java
+ * =====================================================
+ *
+ * Semaphore is a synchronization utility from
+ * java.util.concurrent that controls how many threads
+ * can access a shared resource concurrently.
+ *
+ * It maintains a number of permits. A thread must
+ * acquire a permit before accessing the resource
+ * and should release it after completing its work.
+ *
+ * HOW IT WORKS:
+ *
+ * 1. Create a Semaphore with a number of permits.
+ *
+ *    Semaphore semaphore = new Semaphore(3);
+ *
+ * 2. acquire() obtains a permit, reducing the
+ *    available permit count by 1.
+ *
+ * 3. If no permits are available, acquire()
+ *    blocks until a permit becomes available.
+ *
+ * 4. release() returns a permit, increasing
+ *    the available permit count by 1.
+ *
+ * 5. With 3 permits, up to 3 threads can access
+ *    the protected resource concurrently, assuming
+ *    each thread acquires one permit.
+ *
+ * IMPORTANT METHODS:
+ *
+ * acquire()           -> Acquires a permit or waits.
+ * tryAcquire()        -> Acquires a permit if available.
+ * tryAcquire(time, unit)
+ *                     -> Waits up to the given timeout.
+ * release()           -> Releases a permit.
+ * availablePermits()  -> Returns available permit count.
+ * drainPermits()      -> Acquires all available permits.
+ * getQueueLength()    -> Estimates waiting thread count.
+ *
+ * IMPORTANT POINTS:
+ *
+ * 1. Counting Semaphore:
+ *    Allows multiple threads to access a resource,
+ *    depending on the number of permits.
+ *
+ * 2. Binary Semaphore:
+ *    Initialized with 1 permit, allowing one thread
+ *    at a time when permits are used correctly.
+ *
+ * 3. Supports fair and non-fair modes.
+ *    Non-fair is the default.
+ *
+ * 4. acquire() is interruptible and can throw
+ *    InterruptedException.
+ *
+ * 5. acquireUninterruptibly() waits without
+ *    responding to interruption by throwing.
+ *
+ * 6. Always release acquired permits in a finally
+ *    block to avoid permit leaks.
+ *
+ * 7. Unlike ReentrantLock, Semaphore does not
+ *    track thread ownership. Another thread
+ *    can release a permit.
+ *
+ * 8. release() can increase the permit count
+ *    beyond its initial value, so permits
+ *    must be managed carefully.
+ *
+ * 9. Semaphore is not reentrant in the same
+ *    way as ReentrantLock.
+ *
+ * COMMON USE CASES:
+ *
+ * - Limiting concurrent database connections.
+ * - Controlling access to a connection pool.
+ * - Restricting concurrent API requests.
+ * - Managing limited shared resources.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * Semaphore     -> Controls concurrent access using permits.
+ * acquire()     -> Takes a permit; waits if unavailable.
+ * release()     -> Returns a permit.
+ *
+ * Semaphore(1)  -> Binary semaphore.
+ * Semaphore(3)  -> Up to 3 concurrent permit holders.
+ *
+ * ReentrantLock -> Mutual exclusion with thread ownership.
+ * Semaphore     -> Permit-based concurrency control.
+ *
+ * =====================================================
+ */
 
-Mutex, Semaphore, CountDownLatch, CyclicBarrier, Phaser, Exchanger, Condition, and ReentrantLock are 
-all synchronization constructs that are used in computer programming to coordinate 
-the access to shared resources by multiple threads:-->
 
-Mutex:- is a type of lock that ensures that only one thread can access a shared resource at a time. 
-It is typically used to protect critical sections of code that should not be executed by multiple threads simultaneously.
-
-Semaphore:- is a synchronization object that controls access to a shared resource that has a limited capacity. 
-It allows multiple threads to access the shared resource at the same time, up to a specified limit. 
-If the limit is reached, the semaphore will block any additional threads from accessing the resource 
-until some other thread releases it.
-
-CountDownLatch:- is a synchronization object that allows one or more threads to wait for a 
-set of events to occur before continuing. It is typically used to coordinate the execution of 
-multiple threads that need to wait for a certain condition before proceeding.
-
-CyclicBarrier:- is a synchronization object that allows a group of threads to wait for each 
-other to reach a certain point before continuing. It is typically used to coordinate the 
-execution of multiple threads that need to perform a task together and need to 
-synchronize their progress periodically.
-
-Phaser:- is a synchronization construct that allows multiple threads to synchronize with 
-each other at certain phases of execution. It is similar to a CyclicBarrier but with more flexibility.
-
-Exchanger:- is a synchronization construct that allows two threads to exchange objects with each other.
-
-Condition:- is a synchronization construct that allows a thread to wait for a certain condition 
-to be true before proceeding. It is typically used in conjunction with a lock.
-
-ReentrantLock:- is a synchronization construct that allows a thread to acquire a lock multiple 
-times, as long as it releases the lock the same number of times. It provides more flexibility 
-than a Mutex, but requires more careful management.
-*/
+/*
+ * =====================================================
+ * Synchronization Utilities in Java
+ * =====================================================
+ *
+ * Synchronization utilities help multiple threads
+ * safely access shared resources and coordinate
+ * their execution.
+ *
+ * 1. Mutex:
+ *    Allows only one thread to access a shared
+ *    resource at a time.
+ *    Used to protect critical sections of code.
+ *
+ * 2. Semaphore:
+ *    Controls access to a resource using permits.
+ *    Allows a limited number of threads to access
+ *    the resource concurrently.
+ *
+ * 3. CountDownLatch:
+ *    Allows one or more threads to wait until
+ *    a specified count reaches zero.
+ *    It can be used only once.
+ *
+ * 4. CyclicBarrier:
+ *    Allows a fixed number of threads to wait
+ *    for each other at a common point.
+ *    It can be reused multiple times.
+ *
+ * 5. Phaser:
+ *    Allows threads to synchronize at different
+ *    phases of execution.
+ *    Similar to CyclicBarrier, but supports
+ *    dynamic registration and deregistration.
+ *
+ * 6. Exchanger:
+ *    Allows two threads to exchange objects
+ *    with each other at a synchronization point.
+ *
+ * 7. Condition:
+ *    Allows threads to wait for a specific
+ *    condition and be signaled when it may be met.
+ *    Used with Lock implementations such as
+ *    ReentrantLock.
+ *
+ * 8. ReentrantLock:
+ *    Allows only one thread to hold the lock
+ *    at a time, but the same thread can acquire
+ *    it multiple times.
+ *    Provides features like tryLock(),
+ *    fairness, and interruptible locking.
+ *
+ * =====================================================
+ * Quick Interview Summary
+ * =====================================================
+ *
+ * Mutex          -> Only one thread at a time.
+ * Semaphore      -> Limited number of threads.
+ * CountDownLatch -> Wait until count becomes zero.
+ * CyclicBarrier  -> Threads wait for each other.
+ * Phaser         -> Synchronize threads in phases.
+ * Exchanger      -> Exchange data between two threads.
+ * Condition      -> Wait and signal between threads.
+ * ReentrantLock  -> Flexible, reentrant mutual exclusion.
+ *
+ * NOTE:
+ * Java does not have a standard Mutex class.
+ * Mutex behavior can be achieved using synchronized
+ * or ReentrantLock.
+ *
+ * =====================================================
+ */

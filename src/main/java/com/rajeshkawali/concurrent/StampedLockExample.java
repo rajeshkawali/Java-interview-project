@@ -84,28 +84,46 @@ public class StampedLockExample {
 		}
 	}
 }
+
 /*
-The terms "optimistic" and "pessimistic" refer to different approaches to 
-handling shared resources and synchronization between threads:-->
-
-Pessimistic locking:- is a strategy that assumes that conflicts between threads accessing 
-shared resources are likely to occur, and therefore attempts to minimize the likelihood of 
-such conflicts by imposing strict synchronization constraints. In Java, this can be implemented using 
-constructs such as synchronized blocks or ReentrantLocks. With pessimistic locking, threads typically 
-acquire locks on shared resources before accessing them, and release the locks once they are done. 
-This ensures that only one thread can access the resource at a time, and reduces the risk of data 
-corruption or race conditions. However, this approach can also result in reduced concurrency and 
-slower performance, as threads may need to wait for locks to be released.
-
-Optimistic locking:- on the other hand, assumes that conflicts between threads accessing shared 
-resources are less likely to occur, and therefore allows multiple threads to access the same 
-resource simultaneously, without imposing strict synchronization constraints. In Java, this can be 
-implemented using constructs such as atomic variables or optimistic locking mechanisms. With optimistic locking, 
-threads attempt to access the shared resource without acquiring locks first, but check for conflicts or 
-modifications before making any updates. If a conflict is detected, the thread retries the operation with 
-updated information. This approach can result in better performance and higher concurrency, 
-but also requires careful handling to ensure that conflicts are properly detected and resolved. 
-*/
+ * =====================================================
+ * Optimistic vs Pessimistic Locking in Java
+ * =====================================================
+ *
+ * 1. Pessimistic Locking:
+ *
+ *    Assumes conflicts are likely to occur.
+ *    Acquires a lock before accessing shared data.
+ *    Other conflicting threads must wait.
+ *
+ *    Examples: synchronized, ReentrantLock,
+ *              StampedLock.readLock()/writeLock().
+ *
+ *    Advantage: Prevents conflicting access.
+ *    Disadvantage: May reduce performance due to blocking.
+ *
+ * 2. Optimistic Locking:
+ *
+ *    Assumes conflicts are rare.
+ *    Allows operations without locking first.
+ *    Checks for conflicts before accepting results.
+ *    If a conflict occurs, retry or handle it.
+ *
+ *    Examples: AtomicInteger (CAS),
+ *              StampedLock.tryOptimisticRead().
+ *
+ *    Advantage: Better concurrency when conflicts are rare.
+ *    Disadvantage: Requires validation or retry logic.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * Pessimistic -> Lock first, then access data.
+ * Optimistic  -> Access first, then check for conflicts.
+ *
+ * =====================================================
+ */
 
 
 /*
@@ -117,3 +135,96 @@ Optimistic Locking:
 Assumes conflicts are rare. Threads access data without locking and verify before
 updating. If a conflict occurs, the operation is retried. Faster with better concurrency.
 */
+
+
+
+/*
+ * =====================================================
+ * StampedLock in Java
+ * =====================================================
+ *
+ * StampedLock is a synchronization utility introduced
+ * in Java 8, available in java.util.concurrent.locks.
+ *
+ * It allows multiple threads to read shared data
+ * concurrently, but only one thread to write at a time.
+ *
+ * Unlike ReadWriteLock, StampedLock also supports
+ * optimistic reading, which can improve performance
+ * when reads are frequent and writes are rare.
+ *
+ * THREE LOCKING MODES:
+ *
+ * 1. Read Lock:
+ *    readLock() acquires a shared lock.
+ *    Multiple threads can read simultaneously.
+ *
+ * 2. Write Lock:
+ *    writeLock() acquires an exclusive lock.
+ *    Only one thread can write at a time.
+ *
+ * 3. Optimistic Read:
+ *    tryOptimisticRead() returns a stamp without
+ *    acquiring a traditional read lock.
+ *    validate(stamp) checks whether a write lock
+ *    was acquired since the stamp was obtained.
+ *
+ * IMPORTANT METHODS:
+ *
+ * readLock()              -> Acquires a shared read lock.
+ * writeLock()             -> Acquires an exclusive write lock.
+ * tryOptimisticRead()     -> Returns an optimistic read stamp.
+ * validate(stamp)         -> Validates an optimistic read.
+ * tryConvertToWriteLock() -> Attempts conversion to write lock.
+ * unlockRead(stamp)       -> Releases a read lock.
+ * unlockWrite(stamp)      -> Releases a write lock.
+ * unlock(stamp)           -> Releases a held read/write lock.
+ *
+ * IMPORTANT POINTS:
+ *
+ * 1. StampedLock supports multiple readers
+ *    but only one writer at a time.
+ *
+ * 2. Optimistic reading does not block writers.
+ *    Read data must be validated before use.
+ *
+ * 3. Each successful lock acquisition returns
+ *    a stamp (long) used to manage that lock.
+ *
+ * 4. tryConvertToWriteLock(stamp) attempts to
+ *    convert a valid stamp to a write-lock stamp.
+ *    It returns 0 if conversion fails.
+ *
+ * 5. StampedLock is NOT reentrant.
+ *    The same thread cannot safely reacquire
+ *    a lock it already holds.
+ *
+ * 6. Always release acquired read/write locks
+ *    in a finally block using the correct stamp.
+ *
+ * 7. Optimistic reads do not require unlock().
+ *
+ * 8. StampedLock does not guarantee fairness,
+ *    so thread starvation is possible.
+ *
+ * COMMON USE CASES:
+ *
+ * - Read-heavy applications.
+ * - Shared counters or coordinate data.
+ * - Applications with frequent reads and rare writes.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * readLock()          -> Shared reading.
+ * writeLock()         -> Exclusive writing.
+ * tryOptimisticRead() -> Read without locking,
+ *                        then validate the result.
+ *
+ * ReentrantReadWriteLock -> Reentrant, no optimistic read.
+ * StampedLock            -> Non-reentrant, supports
+ *                           optimistic reading.
+ *
+ * =====================================================
+ */

@@ -102,32 +102,134 @@ public class WrapperExample {
 }
 /*
 
-"boxing": refers to the process of converting a primitive data type (such as int, float, double, etc.) to its corresponding wrapper class (such as Integer, Float, Double, etc.). 
-"Unboxing": is the opposite process, converting a wrapper class object to its corresponding primitive data type. 
+=>"boxing": refers to the process of converting a primitive data type (such as int, float, double, etc.) 
+to its corresponding wrapper class (such as Integer, Float, Double, etc.).
+ 
+=>"Unboxing": is the opposite process, converting a wrapper class object 
+to its corresponding primitive data type. 
 
 Java 5 introduced autoboxing and auto-unboxing feature to make it easier to use primitive and wrapper classes together.
 
-Autoboxing: Automatic conversion of primitive types to their corresponding wrapper class object.
-Auto-unboxing: Automatic conversion of wrapper class object to their corresponding primitive types.	
+=>Autoboxing: Automatic conversion of primitive types to their corresponding wrapper class object.
+=>Auto-unboxing: Automatic conversion of wrapper class object to their corresponding primitive types.	
 */
+
+
 
 
 /*
-Some key points to remember about wrapper classes in Java:-->
-
-Wrapper classes are used to convert primitive data types to objects.
-
-There is a wrapper class for each primitive data type in Java: Boolean, Byte, Short, Integer, Long, Float, Double, and Character.
-
-Wrapper classes provide many methods like max_value, min_value, parse_XXX, toXXXString which make the code more readable and user-friendly.
-
-The primary benefit of using wrapper classes is that they allow primitive data types to be used as objects, which is necessary for certain situations, such as when an object is required but a primitive value is more appropriate.
-
-Common use cases include using a wrapper class to store a primitive value in a collection, as a method argument when an object is required, or as a return type for a method that should return an object.
-
-From Java 5, it has features called autoboxing and unboxing, which makes the process of converting between primitive and wrapper types more convenient and less verbose.
-
-In addition to conversion functionality, some wrapper classes also have other useful methods such as parsing and formatting.
-
-Wrapper classes are immutable and final so the value of the object once created can't be changed and the object can't be overridden.
-*/
+ * ==========================================================
+ * WRAPPER CLASSES IN JAVA
+ * ==========================================================
+ *
+ * Wrapper classes convert primitive values into objects.
+ *
+ * Java has 8 primitive types and their wrapper classes:
+ *
+ * Primitive       Wrapper Class
+ * ---------       -------------
+ * byte            Byte
+ * short           Short
+ * int             Integer
+ * long            Long
+ * float           Float
+ * double          Double
+ * char            Character
+ * boolean         Boolean
+ *
+ * IMPORTANT POINTS:
+ *
+ * 1. Wrapper classes allow primitive values to be used
+ *    where objects are required, such as collections
+ *    and generic types.
+ *
+ * 2. Wrapper classes are final and immutable.
+ *    Their values cannot be changed after creation,
+ *    and these classes cannot be extended.
+ *
+ * 3. Wrapper classes provide useful methods/constants:
+ *
+ *    Integer.parseInt("100")     -> primitive int
+ *    Integer.valueOf("100")      -> Integer object
+ *    Integer.toString(100)       -> String
+ *    Integer.MAX_VALUE          -> Maximum int value
+ *    Integer.MIN_VALUE          -> Minimum int value
+ *    Double.parseDouble("10.5") -> primitive double
+ *
+ * 4. AUTOBOXING (Java 5+):
+ *    Automatic conversion from primitive to wrapper.
+ *
+ *    int a = 10;
+ *    Integer b = a;
+ *
+ * 5. UNBOXING (Java 5+):
+ *    Automatic conversion from wrapper to primitive.
+ *
+ *    Integer a = 10;
+ *    int b = a;
+ *
+ * 6. Wrapper classes can store null, unlike primitives.
+ *
+ *    Integer a = null;  // Valid
+ *    int b = null;      // Compilation error
+ *
+ * 7. Unboxing a null wrapper throws
+ *    NullPointerException.
+ *
+ *    Integer a = null;
+ *    int b = a;         // NullPointerException
+ *
+ * 8. == VS equals():
+ *
+ *    == compares object references for two wrappers.
+ *    equals() compares their values and wrapper types.
+ *
+ *    Integer a = 200;
+ *    Integer b = 200;
+ *
+ *    a == b       -> Usually false
+ *    a.equals(b)  -> true
+ *
+ * 9. INTEGER CACHE:
+ *    Integer.valueOf() caches values from -128 to 127
+ *    at minimum, so reference equality may be true
+ *    for cached values.
+ *
+ *    Integer a = 100;
+ *    Integer b = 100;
+ *    a == b       -> true
+ *
+ *    Avoid == for comparing wrapper values.
+ *
+ * 10. PERFORMANCE:
+ *     Primitives generally use less memory and avoid
+ *     boxing/unboxing overhead.
+ *
+ *     Prefer primitives when null and object behavior
+ *     are not required.
+ *
+ * 11. COMMON USE CASES:
+ *     - Collections: List<Integer>, Set<Double>
+ *     - Generics: Optional<Integer>
+ *     - Nullable values: Integer age = null
+ *     - Parsing strings into numeric values
+ *     - APIs requiring objects instead of primitives
+ *
+ * ==========================================================
+ * INTERVIEW SUMMARY
+ * ==========================================================
+ *
+ * Primitive -> Wrapper  = Autoboxing
+ * Wrapper   -> Primitive = Unboxing
+ *
+ * parseInt() -> Returns primitive int
+ * valueOf()  -> Returns wrapper Integer
+ *
+ * Wrapper classes are immutable and final.
+ *
+ * Use equals() for wrapper value comparison.
+ *
+ * Unboxing null throws NullPointerException.
+ *
+ * ==========================================================
+ */

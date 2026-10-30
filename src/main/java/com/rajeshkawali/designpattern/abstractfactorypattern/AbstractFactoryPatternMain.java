@@ -50,6 +50,72 @@ public class AbstractFactoryPatternMain {
 	}
 }
 
+
+/*
+ * =====================================================
+ * Abstract Factory Design Pattern in Java
+ * =====================================================
+ *
+ * DEFINITION:
+ *
+ * Abstract Factory is a creational design pattern
+ * that provides an interface for creating families
+ * of related objects without specifying their
+ * concrete implementation classes.
+ *
+ * HOW IT WORKS:
+ *
+ * 1. Abstract Factory:
+ *    Defines methods to create related objects.
+ *
+ * 2. Concrete Factory:
+ *    Implements the factory methods and creates
+ *    specific types of related objects.
+ *
+ * 3. Client:
+ *    Uses the abstract factory to create objects
+ *    without depending on concrete classes.
+ *
+ * IMPORTANT POINTS:
+ *
+ * 1. Creates families of related objects.
+ *
+ * 2. Hides object creation logic from the client.
+ *
+ * 3. Reduces tight coupling between classes.
+ *
+ * 4. Makes it easy to switch between product families.
+ *
+ * 5. Follows the Open/Closed Principle when adding
+ *    new product families.
+ *
+ * 6. Adding a new product type may require changes
+ *    to all existing concrete factories.
+ *
+ * COMMON USE CASES:
+ *
+ * - Cross-platform UI components (Windows/Mac).
+ * - Database-specific objects.
+ * - Different themes or product families.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * Factory Method    -> Creates one type of product.
+ *
+ * Abstract Factory  -> Creates families of
+ *                      related products.
+ *
+ * Example:
+ *
+ * WindowsFactory -> WindowsButton + WindowsCheckbox.
+ * MacFactory     -> MacButton + MacCheckbox.
+ *
+ * =====================================================
+ */
+
+
 /*
 In this implementation, there is a Parser interface that declares a method for parsing a 
 file and returning a list of strings. There is also a ParserFactory interface that declares a 

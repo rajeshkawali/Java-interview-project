@@ -91,20 +91,100 @@ tryLock(long timeout, TimeUnit unit): attempts to acquire the lock, blocking the
 unlock(): releases the lock.
 */
 
+
 /*
-key points to consider when using ReadWriteLock in Java:-
-
-ReadWriteLock allows multiple threads to read from a shared resource concurrently, but only allows a single thread to write to the shared resource at a time.
-
-ReadWriteLock is useful for improving the performance of multi-threaded programs by allowing multiple threads to read from the shared resource concurrently, while still protecting the resource from concurrent writes.
-
-The readLock() method returns a Lock object that can be used to acquire a shared lock for reading, while the writeLock() method returns a Lock object that can be used to acquire an exclusive lock for writing.
-
-It is recommended to use the tryLock() or tryLock(long, TimeUnit) methods to acquire the lock, as they allow the thread to continue execution if the lock is not available.
-
-The lock() and lockInterruptibly() methods should be used with caution, as they can cause the thread to block indefinitely if the lock is not available.
-
-The unlock() method must be called to release the lock after the shared resource has been accessed.
-
-ReadWriteLock is not suitable for long-term blocking, as it can lead to deadlock and livelock if used improperly. For long-term blocking, it is better to use other synchronization mechanisms such as CountDownLatch, CyclicBarrier, or Semaphore.
-*/
+ * =====================================================
+ * ReadWriteLock in Java
+ * =====================================================
+ *
+ * ReadWriteLock is a synchronization interface from
+ * java.util.concurrent.locks that provides separate
+ * locks for reading and writing shared data.
+ *
+ * ReentrantReadWriteLock is its common implementation.
+ *
+ * HOW IT WORKS:
+ *
+ * 1. READ LOCK:
+ *    Multiple threads can read simultaneously,
+ *    as long as no other thread holds the write lock.
+ *
+ * 2. WRITE LOCK:
+ *    Only one thread can hold the write lock.
+ *    It prevents other threads from reading or writing.
+ *
+ * 3. readLock():
+ *    Returns a shared Lock for reading.
+ *
+ * 4. writeLock():
+ *    Returns an exclusive Lock for writing.
+ *
+ * IMPORTANT METHODS:
+ *
+ * lock()              -> Waits until lock is available.
+ * tryLock()           -> Acquires lock if immediately available.
+ * tryLock(time, unit) -> Waits up to the specified timeout.
+ * lockInterruptibly() -> Waits but responds to interruption.
+ * unlock()            -> Releases the acquired lock.
+ *
+ * IMPORTANT POINTS:
+ *
+ * 1. Useful when reads are frequent and writes are rare.
+ *
+ * 2. Multiple readers can access shared data concurrently.
+ *
+ * 3. Writers require exclusive access to shared data.
+ *
+ * 4. Always release locks in a finally block to
+ *    prevent locks from remaining held accidentally.
+ *
+ * 5. lock() may block indefinitely if the lock
+ *    never becomes available.
+ *
+ * 6. tryLock() is useful when a thread should avoid
+ *    waiting or needs a timeout.
+ *    It is not mandatory or always preferable.
+ *
+ * 7. ReentrantReadWriteLock supports reentrancy:
+ *    A thread can reacquire a lock it already holds.
+ *
+ * 8. Lock downgrading is supported:
+ *    A writer can acquire the read lock before
+ *    releasing its write lock.
+ *
+ * 9. Lock upgrading is NOT directly supported:
+ *    Trying to acquire the write lock while holding
+ *    only the read lock can cause deadlock.
+ *
+ * 10. ReentrantReadWriteLock supports fair and
+ *     non-fair modes. Non-fair is the default.
+ *
+ * 11. ReadWriteLock does not always improve performance.
+ *     For short operations or frequent writes,
+ *     synchronization overhead may outweigh benefits.
+ *
+ * 12. Incorrect lock ordering or unreleased locks
+ *     can cause deadlocks or thread starvation.
+ *
+ * COMMON USE CASES:
+ *
+ * - Read-heavy caches.
+ * - Shared configuration data.
+ * - In-memory data structures with frequent reads.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * readLock()  -> Multiple readers allowed.
+ * writeLock() -> One writer, exclusive access.
+ *
+ * Read + Read   -> Allowed.
+ * Read + Write  -> Not allowed simultaneously
+ *                  across different threads.
+ * Write + Write -> Not allowed simultaneously.
+ *
+ * Always use unlock() inside finally.
+ *
+ * =====================================================
+ */

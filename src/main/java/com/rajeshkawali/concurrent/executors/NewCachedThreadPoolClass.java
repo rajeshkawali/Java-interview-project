@@ -27,6 +27,76 @@ class WorkHard implements Runnable {
 }
 
 /*
+ * =====================================================
+ * Executors.newCachedThreadPool() in Java
+ * =====================================================
+ *
+ * newCachedThreadPool() creates a thread pool that
+ * dynamically creates and reuses worker threads.
+ *
+ * It is useful for executing many short-lived
+ * asynchronous tasks.
+ *
+ * HOW IT WORKS:
+ *
+ * 1. Creates new threads when needed.
+ *
+ * 2. Reuses available idle threads instead of
+ *    creating new ones.
+ *
+ * 3. Has no fixed maximum thread count.
+ *
+ * 4. Idle threads are terminated after 60 seconds.
+ *
+ * 5. Uses a SynchronousQueue, which does not
+ *    store tasks in a normal waiting queue.
+ *
+ * IMPORTANT POINTS:
+ *
+ * 1. Suitable for many short-lived tasks when
+ *    the workload is controlled.
+ *
+ * 2. Can create a very large number of threads
+ *    if tasks arrive faster than they finish.
+ *
+ * 3. Long-running or blocking tasks may cause
+ *    excessive thread creation.
+ *
+ * 4. Too many threads can increase memory usage
+ *    and reduce application performance.
+ *
+ * 5. Always call shutdown() when the pool
+ *    is no longer needed.
+ *
+ * 6. shutdown() stops accepting new tasks
+ *    but allows submitted tasks to finish.
+ *
+ * EXAMPLE:
+ *
+ * ExecutorService executor =
+ *         Executors.newCachedThreadPool();
+ *
+ * executor.execute(() ->
+ *         System.out.println("Task executed")
+ * );
+ *
+ * executor.shutdown();
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * CachedThreadPool -> Dynamically creates threads.
+ * Thread reuse     -> Yes.
+ * Maximum threads  -> No fixed limit.
+ * Idle timeout     -> 60 seconds.
+ * Task queue       -> SynchronousQueue.
+ * Best suited for  -> Short-lived asynchronous tasks.
+ *
+ * =====================================================
+ */
+
+/*
 Executors.newCachedThreadPool() is a factory method that creates a new thread pool using a cached thread model. 
 This means that the thread pool is able to create new threads as needed to execute tasks, 
 and will reuse idle threads when possible.

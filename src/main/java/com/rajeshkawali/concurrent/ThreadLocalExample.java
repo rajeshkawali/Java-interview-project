@@ -116,3 +116,58 @@ Key Points about ThreadLocal
 5. Call remove() after use (especially with thread pools) to avoid memory leaks.
 6. Best for per-thread data such as user sessions, database connections, or transaction context.
 */
+
+
+
+
+/*
+ * =====================================================
+ * ThreadLocal in Java
+ * =====================================================
+ *
+ * ThreadLocal is a class from java.lang that allows
+ * each thread to store and access its own value.
+ *
+ * Even if multiple threads share the same ThreadLocal
+ * object, each thread maintains an independent value.
+ *
+ * IMPORTANT METHODS:
+ *
+ * set(value)    -> Stores a value for the current thread.
+ * get()         -> Returns the current thread's value.
+ * remove()      -> Removes the current thread's value.
+ * withInitial() -> Creates ThreadLocal with an initial value.
+ *
+ * IMPORTANT POINTS:
+ *
+ * 1. Each thread has its own independent value.
+ *
+ * 2. Changes made by one thread do not affect
+ *    another thread's ThreadLocal value.
+ *
+ * 3. Helps avoid synchronization for thread-specific data.
+ *
+ * 4. Always use remove() when the value is no longer
+ *    needed, especially when using thread pools,
+ *    to prevent stale data and potential memory leaks.
+ *
+ * 5. ThreadLocal does not automatically make
+ *    shared mutable objects thread-safe.
+ *
+ * COMMON USE CASES:
+ *
+ * - User request context.
+ * - Thread-specific data.
+ * - Per-thread formatting or temporary state.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * ThreadLocal -> One independent value per thread.
+ * set()       -> Store value.
+ * get()       -> Retrieve value.
+ * remove()    -> Clear value.
+ *
+ * =====================================================
+ */

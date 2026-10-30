@@ -110,3 +110,89 @@ Difference between ReentrantLock and synchronized
 | Performance          | Better for advanced use cases     | Simpler with less overhead    |
 | Best Use Case        | Complex locking requirements      | Basic thread synchronization  |
 */
+
+
+
+/*
+ * =====================================================
+ * ReentrantLock in Java
+ * =====================================================
+ *
+ * ReentrantLock is a synchronization class from
+ * java.util.concurrent.locks that implements the
+ * Lock interface.
+ *
+ * It provides mutual exclusion, similar to synchronized,
+ * but offers more flexible locking capabilities.
+ *
+ * REENTRANT MEANING:
+ *
+ * A thread that already holds the lock can acquire
+ * the same lock again without causing a deadlock.
+ *
+ * The thread must unlock it the same number of times
+ * it has successfully acquired it.
+ *
+ * IMPORTANT METHODS:
+ *
+ * lock()              -> Acquires lock, waits if unavailable.
+ * tryLock()           -> Acquires lock only if immediately available.
+ * tryLock(time, unit) -> Waits up to the specified timeout.
+ * lockInterruptibly() -> Waits for lock, responds to interruption.
+ * unlock()            -> Releases one hold of the lock.
+ * isLocked()          -> Checks whether any thread holds the lock.
+ * isHeldByCurrentThread() -> Checks ownership by current thread.
+ * getHoldCount()      -> Returns current thread's lock hold count.
+ * newCondition()      -> Creates a Condition for thread coordination.
+ *
+ * IMPORTANT POINTS:
+ *
+ * 1. Only one thread can hold a ReentrantLock at a time.
+ *
+ * 2. Supports reentrancy: the same thread can acquire
+ *    the lock multiple times.
+ *
+ * 3. Supports fair and non-fair locking.
+ *    Non-fair locking is the default.
+ *
+ * 4. tryLock() allows a thread to avoid waiting
+ *    when the lock is unavailable.
+ *
+ * 5. lockInterruptibly() allows a waiting thread
+ *    to respond to interruption.
+ *
+ * 6. Always call unlock() in a finally block
+ *    after successfully acquiring the lock.
+ *
+ * 7. Unlike synchronized, ReentrantLock must
+ *    be explicitly released using unlock().
+ *
+ * 8. ReentrantLock supports multiple Condition
+ *    objects for advanced thread coordination.
+ *
+ * 9. Incorrect use can cause deadlocks or starvation.
+ *
+ * 10. ReentrantLock does not create new threads.
+ *     tryLock() helps avoid blocking; it does not
+ *     eliminate thread-creation overhead.
+ *
+ * COMMON USE CASES:
+ *
+ * - Protecting shared mutable data.
+ * - Implementing timeout-based locking.
+ * - Interruptible lock acquisition.
+ * - Advanced thread coordination using Condition.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * synchronized   -> Automatic lock release.
+ * ReentrantLock  -> Explicit lock() and unlock().
+ *
+ * ReentrantLock provides additional features like
+ * tryLock(), timed locking, interruptible locking,
+ * fairness options, and Condition objects.
+ *
+ * =====================================================
+ */

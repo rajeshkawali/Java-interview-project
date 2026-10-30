@@ -74,3 +74,73 @@ Note that LongAccumulator also provides methods for combining values, such as
 accumulate(long x, LongBinaryOperator accumulatorFunction), which can be useful for 
 computing running totals or averages of a set of values.
 */
+
+
+
+/*
+ * =====================================================
+ * LongAccumulator in Java
+ * =====================================================
+ *
+ * LongAccumulator is a thread-safe class from
+ * java.util.concurrent.atomic, introduced in Java 8.
+ *
+ * It allows multiple threads to accumulate long values
+ * using a custom operation such as sum, min, or max.
+ *
+ * HOW IT WORKS:
+ *
+ * 1. Create LongAccumulator with a binary operation
+ *    and an initial identity value.
+ *
+ * 2. Multiple threads can call accumulate(value)
+ *    concurrently.
+ *
+ * 3. get() returns the current accumulated result.
+ *
+ * EXAMPLE:
+ *
+ * LongAccumulator sum = new LongAccumulator(
+ *     Long::sum, 0
+ * );
+ *
+ * sum.accumulate(10);
+ * sum.accumulate(20);
+ *
+ * System.out.println(sum.get()); // 30
+ *
+ * IMPORTANT METHODS:
+ *
+ * accumulate(value) -> Applies the given operation.
+ * get()              -> Returns the current result.
+ * reset()            -> Resets to the identity value.
+ * getThenReset()     -> Returns result and resets it.
+ *
+ * IMPORTANT POINTS:
+ *
+ * 1. Supports custom operations using LongBinaryOperator.
+ *
+ * 2. Designed for efficient updates under high
+ *    contention from multiple threads.
+ *
+ * 3. The operation should be associative and
+ *    free of side effects.
+ *
+ * 4. get() is thread-safe, but concurrent updates
+ *    may mean the result is not a final snapshot.
+ *
+ * 5. reset() and getThenReset() should not be used
+ *    when an exact result is required during
+ *    concurrent updates.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * AtomicLong      -> Atomic updates to a long value.
+ * LongAdder       -> Efficient concurrent addition.
+ * LongAccumulator -> Custom concurrent accumulation
+ *                    such as sum, min, or max.
+ *
+ * =====================================================
+ */

@@ -108,6 +108,91 @@ class Key {
 	}
 }
 
+
+/*
+ * =====================================================
+ * HashMap vs WeakHashMap vs IdentityHashMap in Java
+ * =====================================================
+ *
+ * All three classes implement the Map interface,
+ * but they differ in key comparison and memory handling.
+ *
+ * 1. HashMap:
+ *
+ *    - Uses hashCode() and equals() to compare keys.
+ *    - Stores key-value pairs using a hash table.
+ *    - Allows one null key and multiple null values.
+ *    - Does not maintain insertion order.
+ *    - Keys remain strongly referenced by the map.
+ *    - Not thread-safe.
+ *
+ *    USE CASE:
+ *    General-purpose key-value storage.
+ *
+ * 2. WeakHashMap:
+ *
+ *    - Uses hashCode() and equals() to compare keys.
+ *    - Stores keys using weak references.
+ *    - Keys can be garbage collected when they
+ *      are no longer strongly reachable elsewhere.
+ *    - Entries may be removed automatically after GC.
+ *    - Allows null keys and values.
+ *    - Not thread-safe.
+ *
+ *    USE CASE:
+ *    Storing metadata associated with objects
+ *    without preventing their garbage collection.
+ *
+ * 3. IdentityHashMap:
+ *
+ *    - Uses == instead of equals() to compare keys.
+ *    - Uses System.identityHashCode() for hashing.
+ *    - Two keys are equal only if they refer
+ *      to the exact same object.
+ *    - Allows null keys and values.
+ *    - Not thread-safe.
+ *
+ *    USE CASE:
+ *    Object identity tracking, object graph
+ *    processing, and reference-based mappings.
+ *
+ * =====================================================
+ * IMPORTANT INTERVIEW POINTS
+ * =====================================================
+ *
+ * 1. HashMap and WeakHashMap use logical equality.
+ *
+ * 2. IdentityHashMap uses reference equality.
+ *
+ * 3. WeakHashMap entries may disappear after GC,
+ *    even without explicitly calling remove().
+ *
+ * 4. Garbage collection is not guaranteed
+ *    to happen immediately.
+ *
+ * 5. WeakHashMap values are strongly referenced.
+ *    If a value strongly references its own key,
+ *    the key may remain reachable and not be collected.
+ *
+ * 6. IdentityHashMap can store two different
+ *    objects even when their equals() returns true.
+ *
+ * 7. None of these three maps is thread-safe.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * HashMap         -> Uses equals() and hashCode().
+ *
+ * WeakHashMap     -> Uses weak references for keys.
+ *
+ * IdentityHashMap -> Uses == for key comparison.
+ *
+ * =====================================================
+ */
+
+
 /*
 WeakHashMap, IdentityHashMap, and HashMap are all implementations of the Map interface in Java, 
 but they have different characteristics and use cases:-->

@@ -16,7 +16,7 @@ public class CountOccurrencesOfEachCharacter {
 		characterCount(str);
 		System.out.println("-------------------------------------------------");
 		// Using Stream api
-		Map<Character, Long> m = str.chars().mapToObj(s->Character.valueOf((char)s))
+		Map<Character, Long> m = str.chars().mapToObj(s->(char)s)
 				.collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
 		System.out.println(m);
 	}

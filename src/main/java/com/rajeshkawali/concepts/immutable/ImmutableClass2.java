@@ -1,115 +1,355 @@
+
 package com.rajeshkawali.concepts.immutable;
+
+import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /*
-How to Create an immutable class in Java?
-
-1.Declare the class as final so it can't be extended.
-2.Make all fields private so that direct access is not allowed.
-3.Don't provide setter methods for variables.
-4.Make all mutable fields final so that its value can be assigned only once.
-5.Initialize all the fields via a constructor performing deep copy.
-6.Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
----------------------------------------------------------
-1.The class must be declared as final (So that child classes can't be created)
-2.Data members in the class must be declared as private (So that direct access is not allowed)
-3.Data members in the class must be declared as final (So that we can't change the value of it after object creation)
-4.A parameterized constructor should initialize all the fields performing a deep copy (So that data members can�t be modified with object reference)
-5.Deep Copy of objects should be performed in the getter methods (To return a copy rather than returning the actual object reference)
-6.No setters (To not have the option to change the value of the instance variable)
-
-*/
-
-/**
- * @author Rajesh_Kawali
+ * ==========================================================
+ * IMMUTABLE CLASS IN JAVA - COMPLETE INTERVIEW EXAMPLE
+ * ==========================================================
  *
+ * Rules:
+ * 1. Make class final (simple way to prevent subclassing).
+ * 2. Make fields private and final.
+ * 3. Initialize fields in constructor.
+ * 4. Do not provide setters or mutating methods.
+ * 5. Defensively copy mutable constructor arguments.
+ * 6. Never expose mutable internal objects.
+ * 7. Deep-copy nested mutable objects when necessary.
+ * 8. Validate constructor arguments.
+ * 9. Avoid leaking "this" during construction.
+ *
+ * NOTE:
+ * final reference != immutable object.
  */
- final class ImmutableClass2 {
-	private final String name;
-	private final int regNo;
-	private final Map<String, String> metadata;
 
-	public ImmutableClass2(String name, int regNo,
-				Map<String, String> metadata)
-	{
-		this.name = name;
-		this.regNo = regNo;
-		Map<String, String> tempMap = new HashMap<>();
-		for (Map.Entry<String, String> entry :
-			metadata.entrySet()) {
-			tempMap.put(entry.getKey(), entry.getValue());
-		}
-		this.metadata = tempMap;
-	}
+// ==========================================================
+// 1. IMMUTABLE CLASS
+// ==========================================================
 
-	public String getName() { return name; }
+final class Test {
 
-	public int getRegNo() { return regNo; }
+    private final String name;
+    private final int regNo;
 
-	public Map<String, String> getMetadata()
-	{
-		Map<String, String> tempMap = new HashMap<>();
-		for (Map.Entry<String, String> entry : this.metadata.entrySet()) {
-			tempMap.put(entry.getKey(), entry.getValue());
-		}
-		return tempMap;
-	}
+    // Map<String, String>: String keys and values are immutable.
+    private final Map<String, String> metadata;
+
+    // Date is mutable, so it requires defensive copying.
+    private final Date joiningDate;
+
+    public Test(
+            String name,
+            int regNo,
+            Map<String, String> metadata,
+            Date joiningDate) {
+
+        // Validate inputs before storing them.
+        this.name = Objects.requireNonNull(name, "name");
+        this.regNo = regNo;
+
+        // Constructor copy prevents changes through original map.
+        this.metadata = new HashMap<>(
+                Objects.requireNonNull(metadata, "metadata"));
+
+        // Date copy prevents changes through original Date object.
+        this.joiningDate = new Date(
+                Objects.requireNonNull(joiningDate, "joiningDate")
+                        .getTime());
+    }
+
+    public String getName() {
+        return name; // String is immutable.
+    }
+
+    public int getRegNo() {
+        return regNo; // Primitive value.
+    }
+
+    public Map<String, String> getMetadata() {
+        // Return copy, not internal map.
+        return new HashMap<>(metadata);
+    }
+
+    public Date getJoiningDate() {
+        // Return copy, not internal Date.
+        return new Date(joiningDate.getTime());
+    }
 }
 
-// Test class
- class Test {
-	public static void main(String[] args)
-	{
-		Map<String, String> map = new HashMap<>();
-		map.put("1", "first");
-		map.put("2", "second");
-		ImmutableClass2 s = new ImmutableClass2("ABC", 101, map);
-		System.out.println(s.getName());
-		System.out.println(s.getRegNo());
-		System.out.println(s.getMetadata());
+// ==========================================================
+// 2. TEST CLASS
+// ==========================================================
 
-		// Uncommenting below line causes error
-		// s.regNo = 102;
+public class ImmutableClass2 {
 
-		map.put("3", "third");
-		System.out.println(s.getMetadata()); // Remains unchanged due to deep copy in constructor
+    public static void main(String[] args) {
 
-		s.getMetadata().put("4", "fourth");
-		System.out.println(s.getMetadata()); // Remains unchanged due to deep copy in getter
-	}
+        Map<String, String> map = new HashMap<>();
+        map.put("1", "first");
+        map.put("2", "second");
+
+        Date date = new Date(0L);
+
+        Test obj = new Test("ABC", 101, map, date);
+
+        // ==========================================
+        // CASE 1: READ ORIGINAL VALUES
+        // ==========================================
+
+        System.out.println(obj.getName());  // ABC
+        System.out.println(obj.getRegNo()); // 101
+        System.out.println(obj.getMetadata());
+        // Contains {1=first, 2=second}
+
+        // ==========================================
+        // CASE 2: MODIFY ORIGINAL MAP
+        // ==========================================
+
+        map.put("3", "third");
+
+        // Internal map remains unchanged because
+        // constructor created a defensive copy.
+        System.out.println(obj.getMetadata());
+        // Contains only {1=first, 2=second}
+
+        // ==========================================
+        // CASE 3: MODIFY RETURNED MAP
+        // ==========================================
+
+        obj.getMetadata().put("4", "fourth");
+
+        // Internal map remains unchanged because
+        // getter returns a new map.
+        System.out.println(obj.getMetadata());
+        // Contains only {1=first, 2=second}
+
+        // ==========================================
+        // CASE 4: MODIFY ORIGINAL DATE
+        // ==========================================
+
+        date.setTime(100000L);
+
+        // Original Date changed, but internal Date did not.
+        System.out.println(obj.getJoiningDate().getTime());
+        // Output: 0
+
+        // ==========================================
+        // CASE 5: MODIFY DATE RETURNED BY GETTER
+        // ==========================================
+
+        Date returnedDate = obj.getJoiningDate();
+        returnedDate.setTime(200000L);
+
+        // Internal Date remains unchanged.
+        System.out.println(obj.getJoiningDate().getTime());
+        // Output: 0
+
+        // ==========================================
+        // CASE 6: FINAL DOES NOT MAKE OBJECT IMMUTABLE
+        // ==========================================
+
+        final Map<String, String> finalMap = new HashMap<>();
+
+        finalMap.put("A", "Apple"); // Allowed!
+
+        // finalMap = new HashMap<>(); // Compile error
+
+        /*
+         * final prevents reassignment of the reference.
+         * It does not prevent modifying the map contents.
+         */
+
+        // ==========================================
+        // CASE 7: UNMODIFIABLE VIEW IS NOT A COPY
+        // ==========================================
+
+        Map<String, String> source = new HashMap<>();
+        source.put("A", "Apple");
+
+        Map<String, String> view =
+                Collections.unmodifiableMap(source);
+
+        // view.put("B", "Ball");
+        // Runtime: UnsupportedOperationException
+
+        source.put("B", "Ball");
+
+        // View reflects changes to the original source.
+        System.out.println(view);
+        // Contains {A=Apple, B=Ball}
+
+        /*
+         * Collections.unmodifiableMap(source)
+         * creates an unmodifiable VIEW.
+         *
+         * It does not copy the source map.
+         */
+
+        // ==========================================
+        // CASE 8: UNMODIFIABLE SNAPSHOT - JAVA 10+
+        // ==========================================
+
+        Map<String, String> snapshot = Map.copyOf(source);
+
+        source.put("C", "Cat");
+
+        System.out.println(snapshot);
+        // Contains A and B, but not C.
+
+        // snapshot.put("D", "Dog");
+        // Runtime: UnsupportedOperationException
+
+        /*
+         * Map.copyOf() creates an unmodifiable snapshot.
+         *
+         * It rejects null keys and values.
+         *
+         * It is a shallow copy:
+         * mutable nested objects are not deep-copied.
+         */
+
+        // ==========================================
+        // CASE 9: NULL VALIDATION
+        // ==========================================
+
+        /*
+         * new ImmutableClass2("ABC", 101, null, date);
+         *
+         * Runtime: NullPointerException
+         *
+         * Because constructor uses requireNonNull().
+         */
+
+        // ==========================================
+        // CASE 10: MUTABLE NESTED VALUES
+        // ==========================================
+
+        Map<String, StringBuilder> nested = new HashMap<>();
+
+        StringBuilder builder = new StringBuilder("Java");
+        nested.put("language", builder);
+
+        Map<String, StringBuilder> shallowCopy =
+                new HashMap<>(nested);
+
+        builder.append(" Spring");
+
+        System.out.println(
+                shallowCopy.get("language"));
+        // Output: Java Spring
+
+        /*
+         * WHY?
+         *
+         * new HashMap<>(nested) copies the map structure,
+         * but both maps still refer to the SAME
+         * mutable StringBuilder object.
+         *
+         * For true immutability, copy nested mutable
+         * objects or store immutable representations.
+         */
+
+        // ==========================================
+        // CASE 11: SAFE NESTED COPY
+        // ==========================================
+
+        Map<String, String> safeNested = new HashMap<>();
+
+        for (Map.Entry<String, StringBuilder> entry
+                : nested.entrySet()) {
+
+            // Convert mutable StringBuilder to immutable String.
+            safeNested.put(
+                    entry.getKey(),
+                    entry.getValue().toString());
+        }
+
+        builder.append(" Boot");
+
+        System.out.println(safeNested.get("language"));
+        // Output: Java Spring
+        // Later StringBuilder changes do not affect it.
+    }
 }
+
 /*
-Key points to remember while creating an immutable class in Java:-->
-
-1.Declare the class as final: 
-This ensures that the class cannot be subclassed, 
-and its state cannot be changed.
-
-2.Make all instance variables private and final: 
-This ensures that the state of the class cannot be changed after it is created.
-
-3.Provide only getter methods for accessing the instance variables: 
-Since the instance variables are final, you cannot provide setter methods. 
-Instead, you can provide getter methods that return the current state of the instance variables.
-
-4.Don't provide any methods that can modify the state of the class: 
-This includes methods that modify the state of any mutable objects referenced by the class.
-
-5.Implement the clone() method to throw CloneNotSupportedException: 
-This ensures that the object cannot be cloned, since it is immutable.
-
-6.Use a constructor to initialize all the instance variables: 
-The constructor should take all the necessary values as parameters and 
-initialize the instance variables accordingly.
-
-7.Make sure the class is thread-safe: 
-Immutable classes are often used in concurrent applications, 
-so it's important to make sure that the class is thread-safe. 
-You can achieve this by using primitive types, final variables, and thread-safe collections.
-
-8.Avoid exposing mutable objects: 
-If the class holds a reference to a mutable object, 
-make sure that the reference is not exposed to the outside world. 
-Instead, return a copy of the object or a new instance that is not connected to the original.
-*/
+ * ==========================================================
+ * IMPORTANT INTERVIEW QUESTIONS
+ * ==========================================================
+ *
+ * Q1. Is final class mandatory?
+ * Ans: No, but final is the simplest approach.
+ *      Carefully controlled inheritance can also work.
+ *
+ * Q2. Does final Map make it immutable?
+ * Ans: No, final prevents reference reassignment only.
+ *
+ * Q3. Shallow copy vs deep copy?
+ * Ans: Shallow copy copies the container but shares
+ *      nested object references.
+ *      Deep copy also copies mutable nested objects.
+ *
+ * Q4. Is Collections.unmodifiableMap() immutable?
+ * Ans: It prevents changes through the view, but the
+ *      backing map can still be modified elsewhere.
+ *
+ * Q5. Does Map.copyOf() create a deep copy?
+ * Ans: No. It creates an unmodifiable snapshot of
+ *      the mappings, not deep copies of values.
+ *
+ * Q6. Why copy Date in constructor and getter?
+ * Ans: Date is mutable. Both copies prevent changes
+ *      through external references.
+ *
+ * Q7. Is String immutable?
+ * Ans: Yes. No defensive copy is needed.
+ *
+ * Q8. Must immutable classes override clone()?
+ * Ans: No. It is not required for immutability.
+ *
+ * Q9. Is an immutable class automatically thread-safe?
+ * Ans: A properly constructed and safely published
+ *      immutable object is safe for concurrent reads.
+ *
+ * Q10. Can an immutable class contain mutable fields?
+ * Ans: Yes, if those objects cannot be modified
+ *      through any exposed reference or method.
+ *
+ * Q11. Can an immutable class have mutable local variables?
+ * Ans: Yes. Local variables do not change the
+ *      observable state of the immutable object.
+ *
+ * Q12. What does "this escape" mean?
+ * Ans: Exposing this object before construction finishes.
+ *      Avoid registering listeners or publishing "this"
+ *      from the constructor.
+ *
+ * Q13. Is an unmodifiable collection always immutable?
+ * Ans: No. Its backing data or contained objects may
+ *      still be mutable.
+ *
+ * Q14. Why is immutability useful?
+ * Ans: Easier concurrency, predictable state,
+ *      safe sharing, and simpler reasoning.
+ *
+ * Q15. What about records?
+ * Ans: Java records are shallowly immutable by default.
+ *      Mutable record components still need defensive copies.
+ *
+ * ==========================================================
+ * REMEMBER
+ * ==========================================================
+ *
+ * private + final + no setters
+ *          +
+ * defensive copies
+ *          +
+ * no mutable state exposure
+ *          =
+ * immutable object
+ */

@@ -89,27 +89,85 @@ Use ConcurrentHashMap for multi-threaded code.
 */
 
 
+
 /*
-The internal working of ConcurrentHashMap in Java can be broken down into the following steps:-->
-
-The map is divided into a fixed number of segments, each with its own lock. The number of segments is determined by the initial capacity of the map and a load factor.
-
-When a thread wants to perform an operation on the map (e.g., put, get, remove), it first acquires the lock for the segment that the key maps to. This is done using a technique called lock striping, where a hash function is used to determine the segment that the key belongs to.
-
-Once the thread has acquired the lock for the segment, it can perform the operation on the map. For example, if the operation is a put, the thread will add the key-value pair to the segment's hash table.
-
-After the operation is complete, the thread releases the lock for the segment.
-
-This allows other threads to acquire the lock for the same segment and perform their own operations.
-
-The use of multiple locks allows for better performance than if a single lock were used to protect the entire map, since multiple threads can access different segments of the map simultaneously.
-
-ConcurrentHashMap also support some advanced features like lock-free reads and weakly consistent iterators.
-
-ConcurrentHashMap also uses a technique called "compare and swap" to update the values in the map, which allows for atomic operations without the need for locks.
-
-Additionally, ConcurrentHashMap uses a technique called "resizing" to increase the capacity of the map when the number of elements exceeds the load factor, in order to avoid performance degradation due to hash collisions.
-*/
+ * =====================================================
+ * ConcurrentHashMap Internal Working in Java
+ * =====================================================
+ *
+ * ConcurrentHashMap is a thread-safe Map implementation
+ * from java.util.concurrent.
+ *
+ * It allows multiple threads to read and update
+ * the map concurrently without locking the entire map.
+ *
+ * INTERNAL WORKING (JAVA 8+):
+ *
+ * 1. Uses an array of buckets (nodes) to store
+ *    key-value pairs based on their hash values.
+ *
+ * 2. get() operations are generally lock-free
+ *    and allow concurrent reading.
+ *
+ * 3. put() uses CAS (Compare-And-Swap) when
+ *    inserting into an empty bucket.
+ *
+ * 4. For updates to occupied buckets, it generally
+ *    uses synchronization on the bucket's first node.
+ *
+ * 5. Multiple threads can update different buckets
+ *    concurrently.
+ *
+ * 6. If hash collisions occur, entries are stored
+ *    in a linked list or a balanced tree.
+ *
+ * 7. When a bucket contains many entries, it may
+ *    be converted into a Red-Black Tree to improve
+ *    lookup performance.
+ *
+ * 8. The map resizes automatically when needed.
+ *    Multiple threads can help with resizing.
+ *
+ * 9. Iterators are weakly consistent.
+ *    They do not throw ConcurrentModificationException
+ *    and may reflect concurrent modifications.
+ *
+ * 10. Null keys and null values are not allowed.
+ *
+ * IMPORTANT POINTS:
+ *
+ * 1. Java 7:
+ *    Used Segment-based locking (lock striping).
+ *
+ * 2. Java 8+:
+ *    Uses CAS, volatile access, and fine-grained
+ *    synchronization instead of fixed segments.
+ *
+ * 3. Individual operations like put(), get(),
+ *    and remove() are thread-safe.
+ *
+ * 4. Compound operations may require atomic methods
+ *    such as compute(), merge(), or putIfAbsent().
+ *
+ * 5. Better concurrency than Hashtable or
+ *    Collections.synchronizedMap() in many workloads.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * Java 7  -> Segment-based locking.
+ *
+ * Java 8+ -> CAS + fine-grained synchronization.
+ *
+ * get()   -> Generally lock-free.
+ *
+ * put()   -> CAS or bucket-level synchronization.
+ *
+ * resize  -> Supports cooperative resizing.
+ *
+ * =====================================================
+ */
 
 
 /*

@@ -102,3 +102,92 @@ Difference between ScheduledThreadPoolExecutor and ThreadPoolExecutor
 | Methods          | schedule(), scheduleAtFixedRate()    | execute(), submit()              |
 | Use Case         | Timers, periodic jobs                | General background task handling |
 */
+
+
+
+
+/*
+ * =====================================================
+ * ThreadPoolExecutor in Java
+ * =====================================================
+ *
+ * ThreadPoolExecutor is a class from java.util.concurrent
+ * that executes tasks using a pool of worker threads.
+ *
+ * It implements ExecutorService and helps reuse threads
+ * instead of creating a new thread for every task.
+ *
+ * IMPORTANT PARAMETERS:
+ *
+ * corePoolSize    -> Minimum number of core threads
+ *                    normally maintained by the pool.
+ *
+ * maximumPoolSize -> Maximum number of worker threads.
+ *
+ * keepAliveTime   -> Time excess idle threads wait
+ *                    before being terminated.
+ *
+ * workQueue       -> Stores tasks waiting for execution.
+ *
+ * threadFactory   -> Creates worker threads.
+ *
+ * rejectionHandler -> Handles tasks that cannot be accepted.
+ *
+ * HOW IT WORKS:
+ *
+ * 1. New tasks create threads until corePoolSize
+ *    is reached.
+ *
+ * 2. Once core threads are busy, new tasks
+ *    are added to the work queue.
+ *
+ * 3. If the queue is full, additional threads
+ *    are created up to maximumPoolSize.
+ *
+ * 4. If both the queue and thread pool are full,
+ *    new tasks are rejected.
+ *
+ * 5. Extra idle threads above corePoolSize are
+ *    terminated after keepAliveTime.
+ *
+ * IMPORTANT METHODS:
+ *
+ * execute()    -> Submits a Runnable task.
+ * submit()     -> Submits a task and returns a Future.
+ * shutdown()   -> Stops accepting new tasks and
+ *                 finishes already submitted tasks.
+ * shutdownNow()-> Attempts to stop running tasks
+ *                 and returns tasks not yet started.
+ *
+ * EXAMPLE:
+ *
+ * corePoolSize    = 2
+ * maximumPoolSize = 4
+ * keepAliveTime   = 10 seconds
+ *
+ * If 10 tasks are submitted:
+ *
+ * - First 2 tasks can create core threads.
+ * - Remaining tasks are queued if space is available.
+ * - If the queue becomes full, up to 2 extra
+ *   threads can be created.
+ * - Further tasks may be rejected if the
+ *   queue and all 4 threads are occupied.
+ *
+ * IMPORTANT:
+ * The pool does NOT always create 4 threads.
+ * Thread creation depends on the queue capacity
+ * and whether existing threads are busy.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * ThreadPoolExecutor -> Manages and reuses worker threads.
+ * corePoolSize       -> Core thread count.
+ * maximumPoolSize    -> Maximum allowed thread count.
+ * workQueue          -> Holds waiting tasks.
+ * keepAliveTime      -> Idle timeout for extra threads.
+ *
+ * =====================================================
+ */

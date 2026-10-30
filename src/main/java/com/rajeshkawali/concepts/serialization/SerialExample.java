@@ -134,3 +134,138 @@ year = 0
 email = laksh@gmail.com
 
 */
+
+
+
+
+
+/*
+ ==========================================================
+ SERIALIZATION AND DESERIALIZATION IN JAVA
+ ==========================================================
+
+ SERIALIZATION:
+ The process of converting a Java object's state into
+ a byte stream so it can be stored in a file, memory,
+ database, or transmitted over a network.
+
+ DESERIALIZATION:
+ The process of reconstructing a Java object from
+ a previously serialized byte stream.
+
+ IMPORTANT RULES:
+
+ 1. TRANSIENT VARIABLE
+    A transient instance variable is not serialized
+    by Java's default serialization mechanism.
+
+    After deserialization, it gets its default value:
+    int = 0, boolean = false, Object = null.
+
+ 2. STATIC VARIABLE
+    Static variables are NOT serialized because
+    they belong to the class, not the object.
+
+ 3. STATIC VARIABLE INITIALIZED AT DECLARATION
+    Even if a static variable is initialized during
+    declaration, it is NOT serialized.
+
+    Example:
+    static int count = 100;
+
+    During deserialization, the current class-level
+    value is used, not a value from the byte stream.
+
+ 4. STATIC + TRANSIENT VARIABLE
+    Static variables are never part of the serialized
+    object's state, whether transient is present or not.
+
+    Example:
+    static transient int count = 100;
+
+    This variable is NOT serialized.
+
+ 5. FINAL VARIABLE
+    A final instance variable is serialized by default
+    because final does not exclude it from serialization.
+
+ 6. FINAL + TRANSIENT VARIABLE
+    A transient final instance variable is not serialized
+    by default.
+
+    NOTE:
+    A compile-time constant may appear to retain its
+    declared value after deserialization because the
+    compiler can inline that constant.
+
+ 7. PARENT AND CHILD CLASS
+    If a parent implements Serializable, its child
+    automatically becomes Serializable.
+
+    But if only the child implements Serializable,
+    the parent does NOT become Serializable.
+
+    The parent's non-serializable state is not
+    automatically saved.
+
+ 8. CONSTRUCTOR DURING DESERIALIZATION
+    The constructor of a normal Serializable class
+    is NOT called during deserialization.
+
+    However, the accessible no-argument constructor
+    of the first non-Serializable superclass is called.
+
+ 9. STATIC VARIABLE AFTER DESERIALIZATION
+    Static variables retain their current class-level
+    values because they are not stored in the
+    serialized object.
+
+ 10. SERIALIZABLE INTERFACE
+     Serializable is a marker interface.
+     It does not contain methods to implement.
+
+ 11. serialVersionUID
+     Used to identify the serialized class version
+     and check compatibility during deserialization.
+
+ 12. NotSerializableException
+     Can occur if an object being serialized contains
+     a required non-Serializable object reference.
+
+ 13. PRIVATE VARIABLES
+     Private instance variables are also serialized
+     by default unless they are transient or excluded
+     through a custom serialization mechanism.
+
+ 14. OBJECT IDENTITY
+     Deserialization normally creates a new object.
+
+     original == deserialized  // Usually false
+
+ 15. SECURITY
+     Avoid deserializing untrusted data.
+     Java deserialization can create security risks.
+
+ ==========================================================
+ QUICK INTERVIEW REVISION
+ ==========================================================
+
+ transient       -> Not serialized by default.
+ static          -> Not serialized.
+ static transient-> Not serialized.
+ final           -> Serialized by default.
+ final transient -> Not serialized by default.
+ private         -> Serialized by default.
+
+ Parent Serializable -> Child Serializable.
+
+ Child Serializable  -> Parent not necessarily Serializable.
+
+ Serializable constructor -> Not called during normal
+                             deserialization.
+
+ Non-Serializable superclass constructor ->
+                             Called as explained above.
+
+ ==========================================================
+*/

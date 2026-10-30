@@ -101,17 +101,60 @@ public class ComparableTest {
 "Comparator" provides alternative to "Comparable" for multiple sorting orders.
 */
 
-/*
-Difference between comparable and comparator in java :-->
-In Java, "Comparable" is an interface that is implemented by a class to allow its 
-objects to be compared to each other. The class must provide an implementation of 
-the "compareTo" method that defines the order of the objects. This is used by various 
-sorting algorithms and data structures, such as the "sort" method in the "Arrays" class.
 
-On the other hand, "Comparator" is an interface used to define multiple sorting 
-orders for a class. It provides an alternative to using the "compareTo" method provided 
-by the "Comparable" interface. A class can implement the "Comparator" interface and 
-provide a custom implementation of the "compare" method to define a sorting order. 
-This allows multiple sorting orders to be defined for a single class, and the 
-appropriate sorting order can be chosen at runtime.
+/*
+Difference Between Comparable and Comparator in Java
+
+1. Comparable:
+- Comparable is an interface in java.lang package.
+- Used to define the natural/default sorting order.
+- It contains compareTo(T obj) method.
+- The class itself implements Comparable.
+- Sorting logic is written inside the model class.
+- Generally defines one natural sorting order.
+- Modifies the class to implement the interface.
+- Used by Collections.sort() and Arrays.sort().
+
+Example:
+class Employee implements Comparable<Employee> {
+
+    int id;
+
+    @Override
+    public int compareTo(Employee other) {
+        return Integer.compare(this.id, other.id);
+    }
+}
+
+2. Comparator:
+
+- Comparator is an interface in java.util package.
+- Used to define custom/multiple sorting orders.
+- Its main abstract method is compare(T o1, T o2).
+- Sorting logic can be written outside the model class.
+- Does not require modifying the Employee class.
+- Multiple Comparators can be created for one class.
+- Can sort by ID, name, salary, age, etc.
+- Supports lambda expressions and method references.
+- Used by Collections.sort(list, comparator), List.sort(comparator), and Arrays.sort(array, comparator).
+
+Example:
+Comparator<Employee> byName = (e1, e2) -> e1.name.compareTo(e2.name);
+
+3. Important Return Values:
+compareTo() and compare() return:
+Negative value -> First object comes before second.
+Zero           -> Both objects are equal in sorting order.
+Positive value -> First object comes after second.
+
+Note: Zero means equal according to the comparator,
+not necessarily equal according to equals().
+
+4. Interview Key Differences:
+Comparable -> Natural sorting, compareTo(), java.lang.
+Comparator -> Custom sorting, compare(), java.util.
+Comparable -> Sorting logic inside the class.
+Comparator -> Sorting logic can be outside the class.
+Comparable -> One natural ordering per class.
+Comparator -> Multiple custom orderings.
 */

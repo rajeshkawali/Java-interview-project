@@ -86,3 +86,72 @@ external synchronization. This ensures that multiple threads can safely manipula
 of the AtomicInteger without running into synchronization issues.
 
 */
+
+
+/*
+ * =====================================================
+ * volatile vs AtomicInteger in Java
+ * =====================================================
+ *
+ * Both are used when multiple threads access
+ * shared variables, but they work differently.
+ *
+ * 1. volatile:
+ *
+ *    - A keyword that ensures changes to a variable
+ *      are visible to other threads.
+ *
+ *    - Reads and writes of the variable are visible
+ *      across threads.
+ *
+ *    - Does NOT make compound operations like
+ *      count++ atomic or thread-safe.
+ *
+ *    - Best for simple shared flags or status values.
+ *
+ *    Example:
+ *    volatile boolean running = true;
+ *
+ * 2. AtomicInteger:
+ *
+ *    - A class from java.util.concurrent.atomic.
+ *
+ *    - Provides atomic, thread-safe operations
+ *      on a single integer value.
+ *
+ *    - Supports incrementAndGet(), decrementAndGet(),
+ *      getAndIncrement(), and compareAndSet().
+ *
+ *    - Commonly uses CAS (Compare-And-Set)
+ *      to update values without explicit locks.
+ *
+ *    - Best for shared counters and atomic updates.
+ *
+ *    Example:
+ *    AtomicInteger count = new AtomicInteger(0);
+ *    count.incrementAndGet();
+ *
+ * =====================================================
+ * KEY DIFFERENCES
+ * =====================================================
+ *
+ * volatile:
+ *    - Ensures visibility.
+ *    - Does not make count++ atomic.
+ *    - Suitable for simple flags.
+ *
+ * AtomicInteger:
+ *    - Ensures visibility and atomic operations
+ *      on its integer value.
+ *    - Supports atomic increments and updates.
+ *    - Suitable for shared counters.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * volatile      -> Visibility, not atomic increment.
+ * AtomicInteger -> Visibility + atomic integer operations.
+ *
+ * =====================================================
+ */

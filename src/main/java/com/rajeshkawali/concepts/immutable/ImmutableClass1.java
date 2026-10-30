@@ -85,17 +85,26 @@ Immutable Class Rules
 8. String is immutable, so no defensive copy is required.
 */
 
-
 /*
-To create a custom immutable class in Java, you can follow these steps:-->
+How to Create an immutable class in Java?
 
-Declare all instance variables as private and final: This ensures that the state of the class cannot be changed after it is created.
+1.Declare the class as final so it can't be extended.
+2.Make all fields private so that direct access is not allowed.
+3.Don't provide setter methods for variables.
+4.Make all mutable fields final so that its value can be assigned only once.
+5.Initialize all the fields via a constructor performing deep copy.
+6.Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
+---------------------------------------------------------
+1.The class must be declared as final (So that child classes can't be created)
+2.Data members in the class must be declared as private (So that direct access is not allowed)
+3.Data members in the class must be declared as final (So that we can't change the value of it after object creation)
+4.A parameterized constructor should initialize all the fields performing a deep copy (So that data members can�t be modified with object reference)
+5.Deep Copy of objects should be performed in the getter methods (To return a copy rather than returning the actual object reference)
+6.No setters (To not have the option to change the value of the instance variable)
 
-Provide only getter methods for accessing the instance variables: Since the instance variables are final, you cannot provide setter methods. Instead, you can provide getter methods that return the current state of the instance variables.
-
-Don't provide any methods that can modify the state of the class: This includes methods that modify the state of any mutable objects referenced by the class.
-
-Implement the clone() method to throw CloneNotSupportedException: This ensures that the object cannot be cloned, since it is immutable.
-
-Provide a constructor that initializes all the instance variables: The constructor should take all the necessary values as parameters and initialize the instance variables accordingly.
 */
+
+/**
+ * @author Rajesh_Kawali
+ *
+ */

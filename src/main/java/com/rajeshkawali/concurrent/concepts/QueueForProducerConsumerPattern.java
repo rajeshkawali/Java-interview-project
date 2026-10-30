@@ -53,7 +53,7 @@ class MyQueue {
 public class QueueForProducerConsumerPattern {
 	public static void main(String[] args) throws InterruptedException {
 
-		MyQueue myQueue = new MyQueue(3);
+		MyQueue myQueue = new MyQueue(5);
 
 		myQueue.put(10);
 		myQueue.put(20);
@@ -61,6 +61,7 @@ public class QueueForProducerConsumerPattern {
 		myQueue.put(40);
 		myQueue.put(50);
 
+		System.out.println(myQueue.take());
 		System.out.println(myQueue.take());
 		System.out.println(myQueue.take());
 		System.out.println(myQueue.take());

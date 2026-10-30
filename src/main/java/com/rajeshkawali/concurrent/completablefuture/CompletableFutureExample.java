@@ -55,8 +55,13 @@ public class CompletableFutureExample {
 		System.out.println("------------------------------------------------------");
 		//thenApplyAsync() --> If you use thenApplyAsync() callback, then it will be executed in a different thread obtained from ForkJoinPool.commonPool()
 		/*
-    	1.thenApply(fn) :- runs fn on a thread defined by the CompleteableFuture on which it is called, so you generally cannot know where this will be executed. It might immediately execute if the result is already available.
-    	2.thenApplyAsync(fn) :- runs fn on a environment-defined executor regardless of circumstances. For CompletableFuture this will generally be ForkJoinPool.commonPool().
+    	
+    	1.thenApply(fn) :- runs fn on a thread defined by the CompleteableFuture on which it is called, 
+    	so you generally cannot know where this will be executed. It might immediately execute if the result is already available.
+    	
+    	2.thenApplyAsync(fn) :- runs fn on a environment-defined executor regardless of circumstances. 
+    	For CompletableFuture this will generally be ForkJoinPool.commonPool().
+    	
     	3.thenApplyAsync(fn,exec) :- runs fn on exec.
 		 */
 		CompletableFuture<Integer> cFuture = CompletableFuture.supplyAsync(() -> 0);

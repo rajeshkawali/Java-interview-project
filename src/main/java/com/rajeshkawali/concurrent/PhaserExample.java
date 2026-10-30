@@ -173,23 +173,81 @@ Key differences between CountDownLatch, CyclicBarrier, and Phaser:
 */
 
 
+
 /*
-In a hypothetical theater:-
-
-Mutex:- It is called Mutex if only one person is allowed to watch the play.
-
-Semaphore:- It is called Semaphore if N number of people are allowed to watch the play. If anybody leaves the 
-	Theater during the play then other person can be allowed to watch the play.
-
-CountDownLatch:- It is called CountDownLatch if no one is allowed to enter until every person vacates the theater. 
-	Here each person has free will to leave the theater.
-
-CyclicBarrier:- It is called CyclicBarrier if the play will not start until every person enters the theater. 
-	Here a showman can not start the show until all the persons enter and grab the seat. Once the play is 
-	finished the same barrier will be applied for next show.
-
-Here, a person is a thread, a play is a resource.
-*/
+ * =====================================================
+ * Phaser in Java
+ * =====================================================
+ *
+ * Phaser is a reusable synchronization utility from
+ * java.util.concurrent that allows multiple threads
+ * to synchronize their execution in different phases.
+ *
+ * It is similar to CyclicBarrier but more flexible,
+ * as threads can dynamically register or deregister.
+ *
+ * HOW IT WORKS:
+ *
+ * 1. Create a Phaser with a number of registered parties.
+ *
+ *    Phaser phaser = new Phaser(3);
+ *
+ * 2. Each thread completes its current phase of work.
+ *
+ * 3. Threads call arriveAndAwaitAdvance() to wait
+ *    until all registered parties have arrived.
+ *
+ * 4. Once all parties arrive, the phase advances,
+ *    and waiting threads can continue.
+ *
+ * 5. The same Phaser can be reused for multiple phases.
+ *
+ * IMPORTANT METHODS:
+ *
+ * register()             -> Registers one new party.
+ * bulkRegister(n)        -> Registers n new parties.
+ * arrive()               -> Signals arrival without waiting.
+ * arriveAndAwaitAdvance()-> Arrives and waits for next phase.
+ * arriveAndDeregister()   -> Arrives and removes a party.
+ * awaitAdvance(phase)     -> Waits for phase to change.
+ * getPhase()              -> Returns current phase number.
+ * getRegisteredParties()  -> Returns registered party count.
+ * getArrivedParties()     -> Returns arrived party count.
+ * getUnarrivedParties()   -> Returns parties yet to arrive.
+ * forceTermination()     -> Terminates the Phaser.
+ *
+ * IMPORTANT POINTS:
+ *
+ * 1. Phaser is reusable across multiple phases.
+ *
+ * 2. Parties can dynamically register and deregister.
+ *
+ * 3. Unlike CyclicBarrier, Phaser does not require
+ *    a fixed number of parties for its entire lifetime.
+ *
+ * 4. arrive() does not wait for other parties.
+ *
+ * 5. arriveAndAwaitAdvance() waits for all registered
+ *    parties to arrive before advancing.
+ *
+ * 6. A Phaser normally terminates when its registered
+ *    party count becomes zero.
+ *
+ * 7. Common use case:
+ *    Multi-stage tasks where threads must synchronize
+ *    after each stage, and the number of participating
+ *    threads may change.
+ *
+ * =====================================================
+ * INTERVIEW SUMMARY
+ * =====================================================
+ *
+ * CountDownLatch -> One-time synchronization.
+ * CyclicBarrier  -> Reusable, fixed number of parties.
+ * Phaser         -> Reusable, dynamic number of parties.
+ *
+ * =====================================================
+ */
 
 
 /*
